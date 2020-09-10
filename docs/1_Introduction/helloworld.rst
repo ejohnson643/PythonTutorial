@@ -2,13 +2,13 @@
 Hello World!
 ================
 
-To begin your Python journey, open a new Jupyter notebook, either from the `Anaconda Navigator <https://docs.anaconda.com/anaconda/navigator/>`_ or from the `command line <https://docs.anaconda.com/anaconda/user-guide/getting-started/#optional-launch-spyder-or-jupyter-notebook-from-the-command-line/>`_ (for beginners, I strongly recommend the Navigator).  Recall that once you have launched the Jupyter Notebook from the Anaconda Navigator (or command line), it will bring you to the Notebook Dashboard, where you can open a new notebook by selecting ``New -> Python 3`` from the dropdown menu on the top right.  Your new notebook should look something like this:
+To begin your Python journey, open a new Jupyter notebook, either from the `Anaconda Navigator <https://docs.anaconda.com/anaconda/navigator>`_ or from the `command line <https://docs.anaconda.com/anaconda/user-guide/getting-started/#optional-launch-spyder-or-jupyter-notebook-from-the-command-line>`_ (for beginners, I strongly recommend the Navigator).  Recall that once you have launched the Jupyter Notebook from the Anaconda Navigator (or command line), it will bring you to the Notebook Dashboard, where you can open a new notebook by selecting ``New -> Python 3`` from the dropdown menu on the top right.  Your new notebook should look something like this:
 
 .. image:: ExampleBlankNotebook.png
 	:height: 200px
 	:align: center
 
-If you have any additional questions, look `here <https://jupyter-notebook.readthedocs.io/en/stable/examples/Notebook/Notebook%20Basics.html/>`_ or ask Google!
+If you have any additional questions, look `here <https://jupyter-notebook.readthedocs.io/en/stable/examples/Notebook/Notebook%20Basics.html>`_ or ask Google!
 
 ********************
 Your First Program
@@ -34,7 +34,7 @@ The difficulty then comes in learning Python's commands and syntax in order to p
 
 In general, the syntax for a Python function is ``func(args)``, where the function ``func`` takes in ``args`` as inputs.  The inputs to a function are called **arguments**, hence the name ``args``.  The ``func`` function then does some prescribed actions involving ``args`` to do something.  The parentheses indicate that you are invoking ``func`` on the stuff inside the parentheses (``args``), and if you see this syntax - ``something_new(some_stuff)``, for example - you can safely assume that ``something_new`` is a function.  This is your first introduction to Python's **syntax**, i.e. its "grammar", for how we tell it to do things.  Getting a handle on syntax is something that will come with time, but I'll try to point it out whenever something new is happening.
 
-As a final note, another very useful function is the :py:func:`help` function.  If you discover a new function, you can feed it to :py:func:`help` as an input (``help(mystery_func)``) and the function's **documentation** will be shown.  Part of the Python ethos is to strongly encourage documentation of everything, and there are `guidelines <https://www.python.org/dev/peps/pep-0008/>`_ for how they should be written so that you can always follow along.
+As a final note, another very useful function is the :py:func:`help` function.  If you discover a new function, you can feed it to :py:func:`help` as an input (``help(mystery_func)``) and the function's **documentation** will be shown.  Part of the Python ethos is to strongly encourage documentation of everything, and there are `guidelines <https://www.python.org/dev/peps/pep-0008>`_ for how they should be written so that you can always follow along.
 
 The Print Function
 ===================
@@ -61,8 +61,7 @@ Some of the most basic things that computers can do are to do basic arithmetic, 
 
 	Try removing the ``print`` function and just entering ``2+2``, for example.  What happens?
 
-You should see the correct results of the addition, subtraction, multiplication, division, and exponentiation of these numbers.  Notice that Python has no problem with decimals or negative numbers.  (
-
+You should see the correct results of the addition, subtraction, multiplication, division, and exponentiation of these numbers.  Notice that Python has no problem with decimals or negative numbers.  
 
 You can also use parentheses as we're used to in algebra to indicate correct order of operations.  For example execute the following:
 
@@ -79,7 +78,7 @@ Exercise 1.1
 ********************
 
 1. Use :py:func:`help` to read the documentation for :py:func:`print`.
-2. Select a notebook cell and hit ``esc`` to enter `Command Mode <https://jupyter-notebook.readthedocs.io/en/stable/examples/Notebook/Notebook%20Basics.html#Command-mode/>`_ (the left edge of the cell should turn blue).  Hit `h` on your keyboard to bring up the keyboard shortcuts!  These are great shortcuts to improve your Jupyter experience.  The opposite of command mode is `Edit Mode <https://jupyter-notebook.readthedocs.io/en/stable/examples/Notebook/Notebook%20Basics.html#Edit-mode/>`_ (the cell will have a green edge) and is where you can enter commands and run code.
-3. Use Python to compute the result of dividing 42 by the sum of 3.1415 and 1.618.  Also, square this result and print both to the screen.
+2. Select a notebook cell and hit ``esc`` to enter `Command Mode <https://jupyter-notebook.readthedocs.io/en/stable/examples/Notebook/Notebook%20Basics.html#Command-mode>`_ (the left edge of the cell should turn blue).  Hit `h` on your keyboard to bring up the keyboard shortcuts!  These are great shortcuts to improve your Jupyter experience.  The opposite of command mode is `Edit Mode <https://jupyter-notebook.readthedocs.io/en/stable/examples/Notebook/Notebook%20Basics.html#Edit-mode>`_ (the cell will have a green edge) and is where you can enter commands and run code.
+3. Use Python to compute the result of dividing 42 by the sum of 3.1415 and 1.618.  Also, square this result.  Make sure to print everything!
 
 .. |cmd|     unicode:: U+2318 .. Mac Command Symbol
