@@ -336,7 +336,23 @@ Now that we've opened the can of worms with string formatting, it's worth pointi
 
 There are many `string methods <https://docs.python.org/3.4/library/stdtypes.html#string-methods>`_, but the syntax for these **methods** is ``my_str.method(input1, input2)``.  We'll talk more about what makes a function a method :doc:`later </11_Classes/classes>`, but for now it suffices to note that there are functions in Python that exist **independent** of any variable, such as ``print`` and ``help``, and there are those that are attached to a variable, such as ``str.captialize()``.  Methods are the latter type.  Going forward, you will see both types of funtions, but you can always think of them as input-output relationships: they take some input, crank a wheel, and spit something out.  The syntax indicates whether it is something special that only strings (for example) can do, or whether it's an operation outside any specific data structure.
 
-You may want to look into these `string methods <https://docs.python.org/3.4/library/stdtypes.html#string-methods>`_, but I'll highlight that :py:func:`str.isnumeric`, :py:func:`str.join`, :py:func:`str.strip`, and :py:func:`str.lower` are ones that I use with some frequency.
+As another example of a non-method function, consider the :py:func:`len` function, which we'll discuss more in the :doc:`next section </3_Lists_Arrays/lists_arrays>`.  This function returns the length of a string in characters, as you can see:
+
+.. code-block:: python
+	
+	my_name = "eric johnson".title() ## What is this output!?
+	my_str = "Eric is a good name"
+	my_tabbed_str = "Eric,\tis a good name"
+
+	print(f"The length of {my_name} is {len(my_name)}")
+	print(f"The length of {my_str} is {len(my_str)}")
+	print(f"The length of {my_tabbed_str} is {len(my_tabbed_str)}")
+
+.. sidebar:: How am I supposed to keep track of all of this!?
+
+	The short answer is: you don't.  You should get in the habit of Googling "python string capitalization", for example.  Eventually you remember the useful stuff and you'll learn where to resource the rest.  By the end of the tutorial, you'll be able to cobble together what you need!  Don't make not knowing the function name the roadblock in this process!
+
+You may want to look into these `string methods <https://docs.python.org/3.4/library/stdtypes.html#string-methods>`_, but I'll highlight that :py:func:`str.isnumeric`, :py:func:`str.join`, :py:func:`str.strip`, and :py:func:`str.lower` are ones that I use with some frequency.  Getting the length of a string with  :py:func:`len` is also very useful.
 
 Converting Data Types
 =======================
@@ -363,7 +379,7 @@ More specifically, these Python types come with associated functions :py:func:`i
 
 	Note that this code generated a ``ValueError`` because the :py:func:`float` function wasn't upset with the *type* of the input, ``not_number_str``, but with its *value*.
 
-You will see that ``number_str`` is originally a string type (indicated by ``<class 'str'>>``), but can successfully be converted to a float with the ``float`` function.  On the other hand, the ``not_number_str`` cannot, because Python doesn't know how to turn "abcd" into a number.  Conversely, you will find that Python has few problems converting things into strings.
+You will see that ``number_str`` is originally a string type (indicated by ``<class 'str'>>``), but can successfully be converted to a float with the ``float`` function.  On the other hand, the ``not_number_str`` cannot, because Python doesn't know how to turn "abcd" into a number.  Conversely, you will find that Python has few problems converting things into strings.  As a result, the other way to format strings is to coerce everything into a string using :py:func:`str` and then add the strings together.
 
 We'll leave it to the exercise to explore all the options, but I do want to draw your attention to two special cases.  First, consider several floats that we want to convert into integers.  Before you type the code, please write down what you **expect** the output to be.
 
@@ -389,13 +405,78 @@ We'll leave it to the exercise to explore all the options, but I do want to draw
 	# print(f"int('neg1' = {neg1}) is {int_neg1}")
 	# print(f"int('neg2' = {neg2}) is {int_neg2}")
 
-To see the explanation, :doc:`go here </3_Lists_Arrays/floats2ints>`
+To see the explanation, :doc:`go here </2_Variables_DataTypes/floats2ints>`
+
+The other interesting case is what Python thinks should be turned into a ``True`` or a ``False`` in the context of booleans.  Again, first write down for yourself what you **expect** to result from the following code, then execute it.
+
+.. code-block:: python
+	:linenos:
+
+	pos_int = 4
+	neg_int = -3
+	zero_int = 0
+
+	pos_float = 7.13
+	small_pos_float = 0.0003
+	neg_float = -4.67
+	zero_float = 0.0
+
+	number_str = "3.12"
+	zero_str = "0"
+	letter_str = "abcdef"
+	empty_str = "" ## What is this??? Check the type!
+
+	## Comment this out AFTER you have made your predictions.
+	# print(f"Converting {pos_int} to boolean gives {bool(pos_int)}")
+	# print(f"Converting {neg_int} to boolean gives {bool(neg_int)}")
+	# print(f"Converting {zero_int} to boolean gives {bool(zero_int)}")
+
+	# print(f"\nConverting {pos_float} to boolean gives {bool(pos_float)}")
+	# print(f"Converting {small_pos_float} to boolean gives {bool(small_pos_float)}")
+	# print(f"Converting {neg_float} to boolean gives {bool(neg_float)}")
+	# print(f"Converting {zero_float} to boolean gives {bool(zero_float)}")
+
+	# print(f"\nConverting {number_str} to boolean gives {bool(number_str)}")
+	# print(f"Converting {zero_str} to boolean gives {bool(zero_str)}")
+	# print(f"Converting {letter_str} to boolean gives {bool(letter_str)}")
+	# print(f"Converting {empty_str} to boolean gives {bool(empty_str)}")
 
 
+To see the explanation, :doc:`go here </2_Variables_DataTypes/everything2bool>`
 
+At this point, you've seen enough of the details of types in Python to start to see how we can use Python to hold and start to manipulate different pieces of data.  After these exercises, the next section will introduce you to how you deal with *lots of data* and you will have your first introduction to `numpy <https://numpy.org/>`_, which is "the fundamental package for scientific computing in Python".  With those pieces in place, you'll be ready to start shredding real data of all shapes and sizes.
 
+Exercise 2.2
+==============
+#. Create a variable for your name and another for your age.  Use string formatting to introduce your name and age to Python.  Create the same for a  friend (real or imaginary).  Then create a `Frankenstein's monster <https://www.gutenberg.org/files/42324/42324-h/42324-h.htm>`_ of you and your friend by concatenating your names and averaging your ages.  Print your creation to the screen using string formatting.
 
+#. Recreate the pattern on the screen below with **one print statement** using string concatenation, string multiplication, and newline characters/tabs.  Use only ``star = "*"``, ``up = "^"``, ``line = '|'`` and ``space = ' '`` as initial variables (you may create intermediates!).
 
+   .. code-block:: python
 
+       *
+      ^^^
+     *^*^*
+    ^^*^*^^
+      |||
+
+#. Perform the reverse of the last section: convert ``True`` and ``False`` into integer, float, and string types.  Write *in words* what happens.  Practice *predicting* what might happen and then connecting that with what actually happened.
+
+#. **BONUS** Consider the following:
+
+	.. code-block:: python
+
+		a, b = 'Eric', "Johnson"  ## Can we do *double* assignment!?
+		print(a, b)
+		b, a = a, b
+		print(a, b)
+		my_name = ", ".join([a, b])  ## This is NEW SYNTAX
+		print(my_name)
+		output = a = b
+		print(a, b, output)
+		output = (a = b)
+		print(a, b, output)
+
+	Write a sentence or two about what you think is happening.   In particular, which direction does assignment "flow" in line 3?  Again, comment out lines that cause errors if you want to ignore them.
 
 .. |cmd|     unicode:: U+2318 .. Mac Command Symbol

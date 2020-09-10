@@ -50,6 +50,7 @@ With all this in mind, continue to the :doc:`/1_Introduction/introduction` secti
 
 	testpage
    2_Variables_DataTypes/floats2ints
+   2_Variables_DataTypes/everything2bool
 
 .. toctree::
    :maxdepth: 2
