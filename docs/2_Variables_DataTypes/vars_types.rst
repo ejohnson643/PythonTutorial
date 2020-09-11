@@ -81,7 +81,7 @@ A Few Notes about Jupyter Notebooks
 
 .. sidebar:: Pro-Tip
 
-	You can comment or uncomment many lines at once by selecting them with your mouse and then entering ``cmd`` / |cmd| ``+ /``.  (Try this out for yourself!)  As a result of this, I often use a double ``##`` to indicate descriptive comments that I don't accidentally want to uncover with |cmd| + ``/``, but this is not necessary.
+	You can comment or uncomment many lines at once by selecting them with your mouse and then entering ``cmd + /``  or |cmd| ``+ /``.  (Try this out for yourself!)  As a result of this, I often use a double ``##`` to indicate descriptive comments that I don't accidentally want to uncover with |cmd| + ``/``, but this is not necessary.
 
 #. In the cell containing ``x = x + 2``, I also asked you to type ``## What is happening here!?``  This is known as a **comment**, where you can use anything to the right of a ``#`` to provide a text annotation of what your code is doing.  Comments do not affect how your code runs, but they are **imperative** for how your code is used, both by others and your *future* self.  You can also use them while working through broken code to discover bugs by "commenting out" lines of code by placing a ``#`` at the beginning of the lines and then "uncommenting" them one by one until you find the part that's breaking.  This is how commenting works in Python, and is not unique to Jupyter.  
 
@@ -108,7 +108,7 @@ You should get a ``TypeError: 'int' object is not callable``.  This is telling y
 .. warning:: You will have to restart your kernel after this if you want to use ``print`` anymore!  (Kernel -> Restart)
 
 
-Exercise 2.1
+Exercise 3.1
 ==============
 
 Now that we've given you an overview of what variables are and how we can and can't (and should and shouldn't) assign them, give these exercises a whirl!
@@ -446,7 +446,7 @@ To see the explanation, :doc:`go here </2_Variables_DataTypes/everything2bool>`
 
 At this point, you've seen enough of the details of types in Python to start to see how we can use Python to hold and start to manipulate different pieces of data.  After these exercises, the next section will introduce you to how you deal with *lots of data* and you will have your first introduction to `numpy <https://numpy.org/>`_, which is "the fundamental package for scientific computing in Python".  With those pieces in place, you'll be ready to start shredding real data of all shapes and sizes.
 
-Exercise 2.2
+Exercise 3.2
 ==============
 #. Create a variable for your name and another for your age.  Use string formatting to introduce your name and age to Python.  Create the same for a  friend (real or imaginary).  Then create a `Frankenstein's monster <https://www.gutenberg.org/files/42324/42324-h/42324-h.htm>`_ of you and your friend by concatenating your names and averaging your ages.  Print your creation to the screen using string formatting.
 
