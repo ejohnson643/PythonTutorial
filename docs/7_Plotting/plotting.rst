@@ -2,5 +2,21 @@
 Plotting
 =========================
 
+PLOTTING IS SUPER IMPORTANT
 
-These are data types
+*************************
+Matplotlib
+*************************
+
+Line and Scatter Plots
+========================
+
+Figures and Axes
+====================
+
+Formatting Figures
+====================
+
+***********************
+Seaborn
+***********************

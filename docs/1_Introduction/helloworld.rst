@@ -74,7 +74,7 @@ You can also use parentheses as we're used to in algebra to indicate correct ord
 Now that we've explored the basic functionality of Jupyter notebooks and Python scripts, take a crack at the following exercises:
 
 ********************
-Exercise 1.1
+Exercise 2.1
 ********************
 
 1. Use :py:func:`help` to read the documentation for :py:func:`print`.

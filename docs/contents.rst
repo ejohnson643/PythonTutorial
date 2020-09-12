@@ -27,9 +27,9 @@ How to Use this Tutorial
    Writing code is a creative enterprise.  You don't learn to paint by reading about painting, and you similarly won't learn to code just by reading this guide.  Instead, each part of this tutorial comes with a notebook with which you can follow along by typing for yourself **every Python command you see**.  This will allow you to practice as you learn and will help you get accustomed to Python's syntax.
 
 
-2. **Sections 1-6 are The Baseline**  
+2. **Sections 1-7 are The Baseline**  
 
-   Once you have finished these sections, you'll have enough tools to start to parse other Python code.  However, if you are taking `*What Do Your Data Say?* <https://www.whatdoyourdatasay.com/>`_, you should also complete the :doc:`/7_Plotting/plotting` and :doc:`/8_Loading_Writing/readwrite` sections.
+   Once you have finished the sections up to :doc:`functions </6_Functions/functions>`, you'll have enough tools to start to parse other Python code.  However, if you are taking `*What Do Your Data Say?* <https://www.whatdoyourdatasay.com/>`_, you should also complete the :doc:`/7_Plotting/plotting` and :doc:`/8_Loading_Writing/readwrite` sections.
    These first sections are cumulative and build on each other, so going in order is advised.  
    
 
@@ -45,10 +45,10 @@ Get Started!
 With all this in mind, continue to the :doc:`/1_Introduction/introduction` section to get started on your Python journey!
 
 .. toctree::
-	:maxdepth: 1
-	:hidden:
+   :maxdepth: 1
+   :hidden:
 
-	testpage
+   testpage
    2_Variables_DataTypes/floats2ints
    2_Variables_DataTypes/everything2bool
 
