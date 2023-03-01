@@ -1,0 +1,27 @@
+# Table of contents
+# Learn more at https://jupyterbook.org/customize/toc.html
+
+format: jb-book
+root: docs/intro
+parts:
+  - caption: Sections
+    numbered: true
+    chapters:
+    - file: docs/00_Introduction/00_introduction
+    # - file: docs/01_HelloWorld/01_HelloWorld
+    - file: docs/01_HelloWorld/01_HelloWorld_Notebook
+    # - file: docs/02_Variables_DataTypes/02_Variables_DataTypes
+    - file: docs/02_Variables_DataTypes/02_Variables_DataTypes_Notebook
+      sections:
+        - file: docs/02_Variables_DataTypes/Floats_to_Ints
+        - file: docs/02_Variables_DataTypes/Everything_to_Boolean
+    - file: docs/03_Lists_Arrays/03_Lists_Arrays_Notebook
+    - file: docs/04_Loops/04_Loops
+    - file: docs/05_ConditionalStatements/05_ConditionalStatements
+    - file: docs/06_Functions/06_Functions
+    - file: docs/07_Plotting/07_Plotting
+    - file: docs/08_Loading_Writing/08_Loading_Writing
+    - file: docs/09_Dictionaries/09_Dictionaries
+    - file: docs/10_RandomNumbers/10_RandomNumbers
+    - file: docs/11_Classes/11_Classes
+    - file: markdown-notebooks
