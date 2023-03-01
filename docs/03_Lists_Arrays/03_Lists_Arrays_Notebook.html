@@ -1,0 +1,1697 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>4. Lists and Arrays &#8212; A Python Tutorial for Data Scientists</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="5. Loops" href="../04_Loops/04_Loops.html" />
+    <link rel="prev" title="3.8. EVERYTHING TO BOOLEAN" href="../02_Variables_DataTypes/Everything_to_Boolean.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../index.html">
+      
+      
+      
+      <h1 class="site-logo" id="site-title">A Python Tutorial for Data Scientists</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Welcome to A Python Tutorial for Data Scientists!
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Sections
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../00_Introduction/00_introduction.html">
+   1. Introduction
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../01_HelloWorld/01_HelloWorld_Notebook.html">
+   2. Hello World!
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../02_Variables_DataTypes/02_Variables_DataTypes_Notebook.html">
+   3. Data in Python
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../02_Variables_DataTypes/Floats_to_Ints.html">
+     3.7. Converting floating-point numbers to integers
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../02_Variables_DataTypes/Everything_to_Boolean.html">
+     3.8. EVERYTHING TO BOOLEAN
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   4. Lists and Arrays
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../04_Loops/04_Loops.html">
+   5. Loops
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../05_ConditionalStatements/05_ConditionalStatements.html">
+   6. Conditional Statements
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../06_Functions/06_Functions.html">
+   7. Functions
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../07_Plotting/07_Plotting.html">
+   8. Plotting
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../08_Loading_Writing/08_Loading_Writing.html">
+   9. Loading and Writing Data
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../09_Dictionaries/09_Dictionaries.html">
+   10. Dictionaries
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../10_RandomNumbers/10_RandomNumbers.html">
+   11. Random Numbers
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../11_Classes/11_Classes.html">
+   12. Classes
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../markdown-notebooks.html">
+   13. Notebooks with MyST Markdown
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/ejohnson643/PythonTutorial/main?urlpath=tree/docs/docs/03_Lists_Arrays/03_Lists_Arrays_Notebook.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../../_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/ejohnson643/PythonTutorial"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/ejohnson643/PythonTutorial/issues/new?title=Issue%20on%20page%20%2Fdocs/03_Lists_Arrays/03_Lists_Arrays_Notebook.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../../_sources/docs/03_Lists_Arrays/03_Lists_Arrays_Notebook.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#lists">
+   4.1. Lists
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#accessing-list-elements">
+     4.1.1. Accessing List Elements
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#exercise-4-1">
+     4.1.2. Exercise 4.1
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#modifying-lists">
+     4.1.3. Modifying Lists
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#modifying-elements">
+       4.1.3.1. Modifying Elements
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#adding-elements">
+       4.1.3.2. Adding Elements
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#removing-elements">
+       4.1.3.3. Removing Elements
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#copying-lists">
+       4.1.3.4. Copying Lists
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#other-list-information">
+     4.1.4. Other List Information
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#the-list-function">
+       4.1.4.1. The
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         list
+        </span>
+       </code>
+       Function
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#lists-have-length">
+       4.1.4.2. Lists have Length
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#the-range-function">
+       4.1.4.3. The Range Function
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#useful-list-functions">
+       4.1.4.4. Useful List Functions
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#exercise-4-2">
+     4.1.5. Exercise 4.2
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#numpy-arrays">
+   4.2. Numpy Arrays
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#importing-packages-in-python">
+     4.2.1. Importing Packages in Python
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id1">
+     4.2.2. Numpy Arrays
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#array-size-dimension-and-type">
+     4.2.3. Array Size, Dimension, and Type
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#accessing-array-elements">
+     4.2.4. Accessing Array Elements
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#useful-array-functions">
+     4.2.5. Useful Array Functions
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#exercise-4-3">
+     4.2.6. Exercise 4.3
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Lists and Arrays</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#lists">
+   4.1. Lists
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#accessing-list-elements">
+     4.1.1. Accessing List Elements
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#exercise-4-1">
+     4.1.2. Exercise 4.1
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#modifying-lists">
+     4.1.3. Modifying Lists
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#modifying-elements">
+       4.1.3.1. Modifying Elements
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#adding-elements">
+       4.1.3.2. Adding Elements
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#removing-elements">
+       4.1.3.3. Removing Elements
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#copying-lists">
+       4.1.3.4. Copying Lists
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#other-list-information">
+     4.1.4. Other List Information
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#the-list-function">
+       4.1.4.1. The
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         list
+        </span>
+       </code>
+       Function
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#lists-have-length">
+       4.1.4.2. Lists have Length
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#the-range-function">
+       4.1.4.3. The Range Function
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#useful-list-functions">
+       4.1.4.4. Useful List Functions
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#exercise-4-2">
+     4.1.5. Exercise 4.2
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#numpy-arrays">
+   4.2. Numpy Arrays
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#importing-packages-in-python">
+     4.2.1. Importing Packages in Python
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id1">
+     4.2.2. Numpy Arrays
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#array-size-dimension-and-type">
+     4.2.3. Array Size, Dimension, and Type
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#accessing-array-elements">
+     4.2.4. Accessing Array Elements
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#useful-array-functions">
+     4.2.5. Useful Array Functions
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#exercise-4-3">
+     4.2.6. Exercise 4.3
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <section class="tex2jax_ignore mathjax_ignore" id="lists-and-arrays">
+<h1><span class="section-number">4. </span>Lists and Arrays<a class="headerlink" href="#lists-and-arrays" title="Permalink to this headline">#</a></h1>
+<p>In the previous section, we discussed working with variables that contained a single string/integer/number and how to check their type and convert them from one type to another.  While this was maybe interesting, real modern data is “big”, so we need to be able to deal with <em>collections</em> of data and not just one number at a time.  Thankfully, this is where Python has a native <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#typesseq-list"><code class="docutils literal notranslate"><span class="pre">list</span></code></a> type and where we’ll introduce the extremely useful <a class="reference external" href="https://www.numpy.org">numpy</a> array, (<code class="docutils literal notranslate"><span class="pre">numpy.ndarray</span></code>) to handle many data points.</p>
+<p>These data types are similar to those you just learned about except that now we have to worry about <em>where</em> our data is and not just <em>what</em> it is.  For example, if you have loaded into a variable the air temperature of Evanston, Illinois for the last 100 years, you might want to do an analysis of just the summer highs over time, so how do you access just those data points?  Alternately, you might be attempting to train a weather model, so you want to predict each time point based on the previous one in time, so how do you access elements in sequence?  These are the general techniques we’ll explore in this section.  The upcoming section on <a class="reference internal" href="../04_Loops/04_Loops.html"><span class="doc std std-doc">loops</span></a> will teach you how to apply operations and functions iteratively and in sequences (as in our time-series hypothetical), and the section on <a class="reference internal" href="../05_ConditionalStatements/05_ConditionalStatements.html"><span class="doc std std-doc">conditional statements</span></a> will give you the tools to select elements conditionally, so that you can only look at summer months, for example.  However, before we can use those techniques, we need to familiarize ourselves with the basics of lists and arrays in Python.</p>
+<p>Please open a new Jupyter notebook and follow along by <strong>copying</strong> all Python commands!</p>
+<section id="lists">
+<h2><span class="section-number">4.1. </span>Lists<a class="headerlink" href="#lists" title="Permalink to this headline">#</a></h2>
+<p>The Python <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#typesseq-list"><code class="docutils literal notranslate"><span class="pre">list</span></code></a> is one of the most flexible data structures in any programming language.  Most simply, a list operates as an <strong>ordered</strong> container of other variables, regardless of their type.  We’ll see shortly that Python lists can be appended to, iterated over, and edited.  Their <strong>elements</strong>, or list entries, can be accessed with <strong>indices</strong>, and we’ll see later that we can easily apply functions to all elements of a list with <strong>list comprehensions</strong>.  Simply put, if you only had Python lists to work with, you could probably get most computational tasks accomplished.</p>
+<p>Most simply, we indicate a Python list using square brackets, <code class="docutils literal notranslate"><span class="pre">[]</span></code>.  When entering a list manually, we separate elements with commas, as shown below.</p>
+<div class="cell tag_hide-output docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">list1</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;abcd&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mf">3.1415</span><span class="p">,</span> <span class="kc">False</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">list1</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">list1</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;abcd&#39;, 1, 3.1415, False]
+&lt;class &#39;list&#39;&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<p>The above list contains a string, integer, float, and boolean data point in turn, but the variable <code class="docutils literal notranslate"><span class="pre">list1</span></code> is type <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#typesseq-list"><code class="docutils literal notranslate"><span class="pre">list</span></code></a>.</p>
+<p>There isn’t any restriction on what can be put in lists, so we’re free to do things like:</p>
+<div class="cell tag_hide-output docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">crazy_list</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;abcd&#39;</span><span class="p">,</span> <span class="p">[</span><span class="mi">12</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="s1">&#39;no&#39;</span><span class="p">],</span> <span class="p">[</span><span class="s1">&#39;yes&#39;</span><span class="p">,</span> <span class="p">[</span><span class="kc">True</span><span class="p">,</span> <span class="s1">&#39;unique element&#39;</span><span class="p">]],</span> <span class="s1">&#39;False&#39;</span><span class="p">,</span> <span class="kc">False</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">crazy_list</span><span class="p">)</span>
+
+<span class="n">empty_list</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">empty_list</span><span class="p">)</span>
+
+<span class="n">all_lists</span> <span class="o">=</span> <span class="p">[</span><span class="n">list1</span><span class="p">,</span> <span class="n">crazy_list</span><span class="p">,</span> <span class="n">empty_list</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">all_lists</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;abcd&#39;, [12, 4, &#39;no&#39;], [&#39;yes&#39;, [True, &#39;unique element&#39;]], &#39;False&#39;, False]
+[]
+[[&#39;abcd&#39;, 1, 3.1415, False], [&#39;abcd&#39;, [12, 4, &#39;no&#39;], [&#39;yes&#39;, [True, &#39;unique element&#39;]], &#39;False&#39;, False], []]
+</pre></div>
+</div>
+</div>
+</div>
+<p>That is, we can have nested lists inside of lists!</p>
+<section id="accessing-list-elements">
+<h3><span class="section-number">4.1.1. </span>Accessing List Elements<a class="headerlink" href="#accessing-list-elements" title="Permalink to this headline">#</a></h3>
+<p>Of course, creating lists is all great and good, but once we’ve collected data, we need to be able to pull it back out.  To do this we use <strong>indices</strong>, which are just integers that indicate which element of the list we’d like to access, where the first element of a list is indicated by a <strong>0</strong>, the second by a 1, the third by a 2, and so on.  Specifically, we put these indices again into a square bracket notation as shown below:</p>
+<div class="cell tag_hide-output docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">animals</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;dogs&#39;</span><span class="p">,</span> <span class="s1">&#39;cats&#39;</span><span class="p">,</span> <span class="s1">&#39;birds&#39;</span><span class="p">]</span>
+<span class="n">first_animal</span> <span class="o">=</span> <span class="n">animals</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>  <span class="c1">## This is the SYNTAX for the FIRST ELEMENT</span>
+<span class="n">second_animal</span> <span class="o">=</span> <span class="n">animals</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="c1">## This is the SYNTAX for the SECOND ELEMENT</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">animals</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">first_animal</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">second_animal</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;dogs&#39;, &#39;cats&#39;, &#39;birds&#39;]
+dogs
+cats
+</pre></div>
+</div>
+</div>
+</div>
+<aside class="margin sidebar">
+<p class="sidebar-title"></p>
+<div class="admonition-zero-indexing admonition">
+<p class="admonition-title">Zero-Indexing</p>
+<p>Programming languages often either <a class="reference external" href="https://en.wikipedia.org/wiki/Comparison_of_programming_languages_(array)">start counting</a> at 0 or 1.  <strong>Python starts at 0.</strong>  This is just something to get used to compared to MATLAB and Fortran (1-indexed) or C and Perl (zero-indexed).</p>
+</div>
+</aside>
+<p>So we use the syntax <code class="docutils literal notranslate"><span class="pre">list[index]</span></code> to grab the <code class="docutils literal notranslate"><span class="pre">index+1</span></code>th element from the list.  This applies regardless of what type the list element is, for example</p>
+<div class="cell tag_hide-output docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">third_crazy_element</span> <span class="o">=</span> <span class="n">crazy_list</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">third_crazy_element</span><span class="p">)</span>
+
+<span class="n">second_third_crazy_element</span> <span class="o">=</span> <span class="n">third_crazy_element</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">second_third_crazy_element</span><span class="p">)</span>
+
+<span class="n">second_second_third_crazy_element</span> <span class="o">=</span> <span class="n">second_third_crazy_element</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">second_second_third_crazy_element</span><span class="p">)</span>
+
+<span class="n">other_element</span> <span class="o">=</span> <span class="n">crazy_list</span><span class="p">[</span><span class="mi">2</span><span class="p">][</span><span class="mi">1</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span>  <span class="c1">## What&#39;s happening here!?</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">other_element</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;yes&#39;, [True, &#39;unique element&#39;]]
+[True, &#39;unique element&#39;]
+unique element
+unique element
+</pre></div>
+</div>
+</div>
+</div>
+<p>Each of the elements was a list, so we could continue asking for indices.  (If I’d added another layer you could have asked for the <a class="reference external" href="https://www.imdb.com/title/tt0119116/">fifth element</a>.)  The last line, which defines <code class="docutils literal notranslate"><span class="pre">other_element</span></code> shows how we can chain together index requests into nested lists.  This should not be super obvious, but as we’ll continue, we’ll see how Python commands can often be concatenated into one-liners like above.</p>
+<p>There are then some caveats to this.  In Python, you cannot ask for an element at an index that does not exist.  Consider the following example:</p>
+<div class="cell tag_raises-exception docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tenth_animal</span> <span class="o">=</span> <span class="n">animals</span><span class="p">[</span><span class="mi">9</span><span class="p">]</span>  <span class="c1">## Index 9 is asking for the TENTH element</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">IndexError</span><span class="g g-Whitespace">                                </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">5</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">tenth_animal</span> <span class="o">=</span> <span class="n">animals</span><span class="p">[</span><span class="mi">9</span><span class="p">]</span>  <span class="c1">## Index 9 is asking for the TENTH element</span>
+
+<span class="ne">IndexError</span>: list index out of range
+</pre></div>
+</div>
+</div>
+</div>
+<p>This should result in an <code class="docutils literal notranslate"><span class="pre">IndexError:</span> <span class="pre">list</span> <span class="pre">index</span> <span class="pre">out</span> <span class="pre">of</span> <span class="pre">range</span></code> because the index you asked for, 9, was beyond the range of this 3-element list.  (There is no 10th element to return!)</p>
+<p>Lists are often flexible and we don’t always know their length, so we can use the :<a class="reference external" href="https://docs.python.org/3/library/functions.html#len"><code class="docutils literal notranslate"><span class="pre">len</span></code></a> function to return the number of elements in a list.</p>
+<div class="cell tag_hide-output docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">third_crazy_element</span> <span class="o">=</span> <span class="n">crazy_list</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;The length of the third element is </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">third_crazy_element</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="n">second_third_crazy_element</span> <span class="o">=</span> <span class="n">third_crazy_element</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;The length of the second-third element is </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">second_third_crazy_element</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="c1">## Write down your prediction before running!</span>
+<span class="c1"># second_second_third_crazy_element = second_third_crazy_element[1]</span>
+<span class="c1"># print(f&quot;The length of the second-second-third element is {len(second_second_third_crazy_element)}&quot;)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The length of the third element is 2
+The length of the second-third element is 2
+</pre></div>
+</div>
+</div>
+</div>
+<p>This also offers an easy way to access the last element in a list:</p>
+<div class="cell tag_hide-output docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">longer_list</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">,</span> <span class="s1">&#39;d&#39;</span><span class="p">,</span> <span class="s1">&#39;e&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+
+<span class="n">len_list</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">longer_list</span><span class="p">)</span>
+
+<span class="c1">## Guess which one will work before uncommenting!</span>
+<span class="c1"># last_element = longer_list[len_list]</span>
+<span class="c1"># last_element = longer_list[len_list - 1]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">last_element</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">7</span><span class="p">],</span> <span class="n">line</span> <span class="mi">8</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">len_list</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">longer_list</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="c1">## Guess which one will work before uncommenting!</span>
+<span class="g g-Whitespace">      </span><span class="mi">6</span> <span class="c1"># last_element = longer_list[len_list]</span>
+<span class="g g-Whitespace">      </span><span class="mi">7</span> <span class="c1"># last_element = longer_list[len_list - 1]</span>
+<span class="ne">----&gt; </span><span class="mi">8</span> <span class="nb">print</span><span class="p">(</span><span class="n">last_element</span><span class="p">)</span>
+
+<span class="ne">NameError</span>: name &#39;last_element&#39; is not defined
+</pre></div>
+</div>
+</div>
+</div>
+<p>However, Python also supports <strong>negative indexing</strong> where entering negative integers counts from the <em>end</em> of the list to the front.</p>
+<div class="cell tag_hide-output tag_raises-exception docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">last_el</span> <span class="o">=</span> <span class="n">longer_list</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+<span class="n">second_to_last_el</span> <span class="o">=</span> <span class="n">longer_list</span><span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">]</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">last_el</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">second_to_last_el</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">longer_list</span><span class="p">[</span><span class="o">-</span><span class="mi">20</span><span class="p">])</span>  <span class="c1">## Does this work!?</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3
+2
+</pre></div>
+</div>
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">IndexError</span><span class="g g-Whitespace">                                </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">8</span><span class="p">],</span> <span class="n">line</span> <span class="mi">7</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="nb">print</span><span class="p">(</span><span class="n">last_el</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="nb">print</span><span class="p">(</span><span class="n">second_to_last_el</span><span class="p">)</span>
+<span class="ne">----&gt; </span><span class="mi">7</span> <span class="nb">print</span><span class="p">(</span><span class="n">longer_list</span><span class="p">[</span><span class="o">-</span><span class="mi">20</span><span class="p">])</span>  <span class="c1">## Does this work!?</span>
+
+<span class="ne">IndexError</span>: list index out of range
+</pre></div>
+</div>
+</div>
+</div>
+<p>Most importantly we can also access list elements via <strong>slicing</strong>; we can ask for a “slice” of the list using the <code class="docutils literal notranslate"><span class="pre">list[start:end:increment]</span></code> notation, which gives elements starting at index <code class="docutils literal notranslate"><span class="pre">start</span></code>, up to <strong>but not including</strong> <code class="docutils literal notranslate"><span class="pre">end</span></code>, in steps of size <code class="docutils literal notranslate"><span class="pre">increment</span></code>.  For example, consider</p>
+<div class="cell tag_hide-output docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">longer_list</span><span class="p">[::</span><span class="mi">2</span><span class="p">])</span> <span class="c1"># This grabs every other element starting at 0</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">longer_list</span><span class="p">[</span><span class="mi">1</span><span class="p">::</span><span class="mi">2</span><span class="p">])</span> <span class="c1"># This grabs every other element starting at 1</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">longer_list</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">6</span><span class="p">:</span><span class="mi">3</span><span class="p">])</span> <span class="c1"># Every third element starting at 0, ending at 6</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;a&#39;, &#39;c&#39;, &#39;e&#39;, 2]
+[&#39;b&#39;, &#39;d&#39;, 1, 3]
+[&#39;a&#39;, &#39;d&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<p>This might seem confusing, or really simple, but having a strong grasp of indexing is <em>essential</em> to coding in Python, so please take the time to complete the following exercises:</p>
+</section>
+<section id="exercise-4-1">
+<h3><span class="section-number">4.1.2. </span>Exercise 4.1<a class="headerlink" href="#exercise-4-1" title="Permalink to this headline">#</a></h3>
+<ol class="simple">
+<li><p>Make a list containing the integers 1 through 13 and the first 8 letters of the English alphabet.  Save into new variables the:</p>
+<ol class="simple">
+<li><p>First 5 elements of the list</p></li>
+<li><p>The last 12 elements of the list</p></li>
+<li><p>The odd-indexed elements of the list</p></li>
+<li><p>Every other even-indexed element of the list</p></li>
+</ol>
+</li>
+<li><p>Put the names of yourself and three friends into a list called <code class="docutils literal notranslate"><span class="pre">names</span></code> and put your corresponding favorite colors into <code class="docutils literal notranslate"><span class="pre">colors</span></code>.  Confirm that these lists have the same length using the <code class="docutils literal notranslate"><span class="pre">len</span></code> function and an appropriately formatted print statement.  Define a variable <code class="docutils literal notranslate"><span class="pre">idx</span> <span class="pre">=</span> <span class="pre">0</span></code> and write a print statement that prints out you and your friends’ names and corresponding favorite colors by accessing <code class="docutils literal notranslate"><span class="pre">names[idx]</span></code> and <code class="docutils literal notranslate"><span class="pre">colors[idx]</span></code>.  Copy and paste this printing code four times and insert <code class="docutils literal notranslate"><span class="pre">idx</span> <span class="pre">=</span> <span class="pre">idx</span> <span class="pre">+</span> <span class="pre">1</span></code> in between each print.  Can you describe each of you and your friends’ favorite colors in turn?</p></li>
+<li><p>Create several variables containing an integer, boolean, string, and list data type in turn.  Print the result of applying the :py:func:<code class="docutils literal notranslate"><span class="pre">list</span></code> function to them in turn.</p></li>
+<li><p>Consider the following code and explain the output in the context of what you know about boolean variables.</p></li>
+</ol>
+<div class="cell tag_remove-output docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="nb">bool</span><span class="p">([</span><span class="kc">True</span><span class="p">]))</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">bool</span><span class="p">([</span><span class="s1">&#39;True&#39;</span><span class="p">]))</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">bool</span><span class="p">([</span><span class="s1">&#39;False&#39;</span><span class="p">]))</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">bool</span><span class="p">([</span><span class="kc">False</span><span class="p">]))</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">bool</span><span class="p">([</span><span class="kc">False</span><span class="p">,</span> <span class="kc">False</span><span class="p">,</span> <span class="kc">False</span><span class="p">]))</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">bool</span><span class="p">([]))</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="modifying-lists">
+<h3><span class="section-number">4.1.3. </span>Modifying Lists<a class="headerlink" href="#modifying-lists" title="Permalink to this headline">#</a></h3>
+<p>Now that you can access list elements, it’s important to note that lists are <a class="reference external" href="https://medium.com/&#64;meghamohan/mutable-and-immutable-side-of-python-c2145cf72747">mutable</a> data types in that they can be changed (mutated).  That is, once we’ve defined a variable as a list, we can come back, after the fact, and edit the elements, size, and structure of the list.  This is not always the case with data structures, so it’s worth point out.  There are many ways to modify lists in Python, and I’ll point out the most useful here.</p>
+<section id="modifying-elements">
+<h4><span class="section-number">4.1.3.1. </span>Modifying Elements<a class="headerlink" href="#modifying-elements" title="Permalink to this headline">#</a></h4>
+<p>Consider our earlier <code class="docutils literal notranslate"><span class="pre">crazy_list</span></code>.  We can always change any specific element by directing an assignment operation at it.  For example:</p>
+<div class="cell tag_hide-output docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">crazy_list</span><span class="p">)</span>
+<span class="n">best_list_element</span> <span class="o">=</span> <span class="n">crazy_list</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">best_list_element</span><span class="p">)</span>
+<span class="n">crazy_list</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="mi">4</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">crazy_list</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">crazy_list</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;abcd&#39;, [12, 4, &#39;no&#39;], [&#39;yes&#39;, [True, &#39;unique element&#39;]], &#39;False&#39;, False]
+[&#39;yes&#39;, [True, &#39;unique element&#39;]]
+[&#39;abcd&#39;, [12, 4, &#39;no&#39;], 4, &#39;False&#39;, False]
+4
+</pre></div>
+</div>
+</div>
+</div>
+<p>We see that we’ve changed the 3rd element of crazy list from <code class="docutils literal notranslate"><span class="pre">best_list_element</span> <span class="pre">=</span> <span class="pre">['yes',</span> <span class="pre">[True,</span> <span class="pre">'unique</span> <span class="pre">element']]</span></code> to <code class="docutils literal notranslate"><span class="pre">4</span></code>.</p>
+</section>
+<section id="adding-elements">
+<h4><span class="section-number">4.1.3.2. </span>Adding Elements<a class="headerlink" href="#adding-elements" title="Permalink to this headline">#</a></h4>
+<p>Elements can be added to lists in several ways.  First of all, we can concatenate lists with the <code class="docutils literal notranslate"><span class="pre">+</span></code> operation:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">some_animals</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;dog&#39;</span><span class="p">,</span> <span class="s1">&#39;cat&#39;</span><span class="p">,</span> <span class="s1">&#39;gerbil&#39;</span><span class="p">]</span>
+<span class="n">other_animals</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;iguana&#39;</span><span class="p">,</span> <span class="s1">&#39;flying squirrel&#39;</span><span class="p">,</span> <span class="s1">&#39;parakeet&#39;</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">some_animals</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">other_animals</span><span class="p">)</span>
+
+<span class="n">many_animals</span> <span class="o">=</span> <span class="n">some_animals</span> <span class="o">+</span> <span class="n">other_animals</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">many_animals</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;dog&#39;, &#39;cat&#39;, &#39;gerbil&#39;]
+[&#39;iguana&#39;, &#39;flying squirrel&#39;, &#39;parakeet&#39;]
+[&#39;dog&#39;, &#39;cat&#39;, &#39;gerbil&#39;, &#39;iguana&#39;, &#39;flying squirrel&#39;, &#39;parakeet&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<p>But we can also use the <a class="reference external" href="https://docs.python.org/3/tutorial/datastructures.html"><code class="docutils literal notranslate"><span class="pre">list.append</span></code></a> and <code class="docutils literal notranslate"><span class="pre">list.insert</span></code> methods to add elements to either the end or a specific index of a list, respectively.</p>
+<div class="cell tag_hide-output docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">many_animals</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;chinchilla&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">many_animals</span><span class="p">)</span>
+
+<span class="n">many_animals</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;turtle&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">many_animals</span><span class="p">)</span>
+
+<span class="n">many_animals</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;tortoise&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">many_animals</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;dog&#39;, &#39;cat&#39;, &#39;gerbil&#39;, &#39;iguana&#39;, &#39;flying squirrel&#39;, &#39;parakeet&#39;, &#39;chinchilla&#39;]
+[&#39;dog&#39;, &#39;cat&#39;, &#39;turtle&#39;, &#39;gerbil&#39;, &#39;iguana&#39;, &#39;flying squirrel&#39;, &#39;parakeet&#39;, &#39;chinchilla&#39;]
+[&#39;dog&#39;, &#39;cat&#39;, &#39;tortoise&#39;, &#39;turtle&#39;, &#39;gerbil&#39;, &#39;iguana&#39;, &#39;flying squirrel&#39;, &#39;parakeet&#39;, &#39;chinchilla&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Additionally, we can multiply lists using the <code class="docutils literal notranslate"><span class="pre">*</span></code> operator as with strings.  Try <code class="docutils literal notranslate"><span class="pre">print(4*many_animals)</span></code> and <code class="docutils literal notranslate"><span class="pre">print(24*[True,</span> <span class="pre">0])</span></code> and see what happens!</p>
+</section>
+<section id="removing-elements">
+<h4><span class="section-number">4.1.3.3. </span>Removing Elements<a class="headerlink" href="#removing-elements" title="Permalink to this headline">#</a></h4>
+<p>Similarly, we can remove elements from either the end or a specific index of a list using <code class="docutils literal notranslate"><span class="pre">list.pop</span></code>.</p>
+<div class="cell tag_hide-output docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">last_animal</span> <span class="o">=</span> <span class="n">many_animals</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">last_animal</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">many_animals</span><span class="p">)</span>
+
+<span class="n">middle_animal</span> <span class="o">=</span> <span class="n">many_animals</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">middle_animal</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">many_animals</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>chinchilla
+[&#39;dog&#39;, &#39;cat&#39;, &#39;tortoise&#39;, &#39;turtle&#39;, &#39;gerbil&#39;, &#39;iguana&#39;, &#39;flying squirrel&#39;, &#39;parakeet&#39;]
+turtle
+[&#39;dog&#39;, &#39;cat&#39;, &#39;tortoise&#39;, &#39;gerbil&#39;, &#39;iguana&#39;, &#39;flying squirrel&#39;, &#39;parakeet&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Notice that the <code class="docutils literal notranslate"><span class="pre">list.pop</span></code> function can save the removed value into a variable.  This can be useful if you need to iterate through a list and use each element for something one time.</p>
+<p>You can also use the <code class="docutils literal notranslate"><span class="pre">list.remove</span></code> function to remove elements <em>by value</em>.  That is, we can remove the <em>first</em> instance of a specific value with <code class="docutils literal notranslate"><span class="pre">list.remove</span></code>.</p>
+<div class="cell tag_hide-output docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">many_animals</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;turtle&#39;</span><span class="p">)</span>
+<span class="n">many_animals</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;turtle&#39;</span><span class="p">)</span>
+<span class="n">many_animals</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;turtle&#39;</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">many_animals</span><span class="p">)</span>
+
+<span class="n">many_animals</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="s1">&#39;turtle&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">many_animals</span><span class="p">)</span>
+<span class="n">many_animals</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="s1">&#39;turtle&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">many_animals</span><span class="p">)</span>
+<span class="n">many_animals</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="s1">&#39;turtle&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">many_animals</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;turtle&#39;, &#39;dog&#39;, &#39;cat&#39;, &#39;turtle&#39;, &#39;tortoise&#39;, &#39;gerbil&#39;, &#39;iguana&#39;, &#39;flying squirrel&#39;, &#39;turtle&#39;, &#39;parakeet&#39;]
+[&#39;dog&#39;, &#39;cat&#39;, &#39;turtle&#39;, &#39;tortoise&#39;, &#39;gerbil&#39;, &#39;iguana&#39;, &#39;flying squirrel&#39;, &#39;turtle&#39;, &#39;parakeet&#39;]
+[&#39;dog&#39;, &#39;cat&#39;, &#39;tortoise&#39;, &#39;gerbil&#39;, &#39;iguana&#39;, &#39;flying squirrel&#39;, &#39;turtle&#39;, &#39;parakeet&#39;]
+[&#39;dog&#39;, &#39;cat&#39;, &#39;tortoise&#39;, &#39;gerbil&#39;, &#39;iguana&#39;, &#39;flying squirrel&#39;, &#39;parakeet&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="copying-lists">
+<h4><span class="section-number">4.1.3.4. </span>Copying Lists<a class="headerlink" href="#copying-lists" title="Permalink to this headline">#</a></h4>
+<p>In previous examples we have done things like <code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">=</span> <span class="pre">y</span></code> to copy values to multiple variables with impunity.  Unfortunately we can’t continue this with lists.  To see why, consider the following:</p>
+<div class="cell tag_hide-output docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">many_animals</span><span class="p">)</span>
+<span class="n">copied_list</span> <span class="o">=</span> <span class="n">many_animals</span>
+
+<span class="n">copied_list</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;tiger&#39;</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">copied_list</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">many_animals</span><span class="p">)</span>  <span class="c1">## This list has a tiger in it now!</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;dog&#39;, &#39;cat&#39;, &#39;tortoise&#39;, &#39;gerbil&#39;, &#39;iguana&#39;, &#39;flying squirrel&#39;, &#39;parakeet&#39;]
+[&#39;dog&#39;, &#39;cat&#39;, &#39;tortoise&#39;, &#39;gerbil&#39;, &#39;tiger&#39;, &#39;flying squirrel&#39;, &#39;parakeet&#39;]
+[&#39;dog&#39;, &#39;cat&#39;, &#39;tortoise&#39;, &#39;gerbil&#39;, &#39;tiger&#39;, &#39;flying squirrel&#39;, &#39;parakeet&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<p>We can see that the <code class="docutils literal notranslate"><span class="pre">copied_list</span></code> wasn’t just a copy because modifying it also changed the original list, <code class="docutils literal notranslate"><span class="pre">many_animals</span></code>.  This is because in Python, variables don’t actually <em>contain</em> the data we’ve assigned them to, instead they <em>point</em> to that data in the computer’s storage.  So when we type <code class="docutils literal notranslate"><span class="pre">copied_list</span> <span class="pre">=</span> <span class="pre">many_animals</span></code>, we’re just telling Python that <em>both</em> <code class="docutils literal notranslate"><span class="pre">copied_list</span></code> and <code class="docutils literal notranslate"><span class="pre">many_animals</span></code> should direct to the same data in storage.</p>
+<p>This may seem like an odd point to make, but this is an insidious problem to encounter because it will raise no error messages, but data that you don’t expect to change might be modified if you don’t copy lists correctly.  The easiest way to truly create a <em>new</em> copy of data is to use the <code class="docutils literal notranslate"><span class="pre">copy</span> <span class="pre">=</span> <span class="pre">old[:]</span></code> syntax, where the <code class="docutils literal notranslate"><span class="pre">[:]</span></code> simply says “create a slice of everything,” which Python dutifully places in an actually new list (a new part of your computer’s storage is allocated).</p>
+</section>
+</section>
+<section id="other-list-information">
+<h3><span class="section-number">4.1.4. </span>Other List Information<a class="headerlink" href="#other-list-information" title="Permalink to this headline">#</a></h3>
+<p>There are several other useful things you can do with lists that we’ll discuss below.  You should not worry about memorizing these, just try to keep in mind that these sort of things can be done with lists.</p>
+<section id="the-list-function">
+<h4><span class="section-number">4.1.4.1. </span>The <code class="docutils literal notranslate"><span class="pre">list</span></code> Function<a class="headerlink" href="#the-list-function" title="Permalink to this headline">#</a></h4>
+<p>Just as we saw with <a class="reference internal" href="../02_Variables_DataTypes/02_Variables_DataTypes.html"><span class="doc std std-doc">other data types</span></a>, we can attempt to convert variables into a list with the <code class="docutils literal notranslate"><span class="pre">list</span></code> function.  For some data types, this will simply add a pair of square brackets around your data, but for other data types that you’ll eventually learn about, such as arrays, this type conversion can be more signficant.  In particular, Python thinks of lists as <em>collections</em> of stuff so for some data types that can’t really be thought of that way, like a single integer or float, <code class="docutils literal notranslate"><span class="pre">list</span></code> will throw a <code class="docutils literal notranslate"><span class="pre">TypeError</span></code> as you’ll see below.  Try out the code below to see how this works.</p>
+<div class="cell tag_hide-output tag_raises-exception docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">my_str</span> <span class="o">=</span> <span class="s2">&quot;the quick brown fox&quot;</span>
+<span class="n">my_int</span> <span class="o">=</span> <span class="mi">6543</span>
+<span class="n">my_float</span> <span class="o">=</span> <span class="mf">65.43</span>
+<span class="n">my_bool</span> <span class="o">=</span> <span class="kc">True</span> <span class="ow">or</span> <span class="kc">False</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">my_str</span><span class="p">))</span>  <span class="c1">## What happened here!?</span>
+<span class="c1">## What errors do these lines create?</span>
+<span class="c1"># print(list(my_int))  </span>
+<span class="c1"># print(list(my_float))</span>
+<span class="c1"># print(list(my_bool))</span>
+
+<span class="c1">## What about this?</span>
+<span class="c1"># print([my_int])</span>
+<span class="c1"># print(type([my_int]))</span>
+<span class="c1"># print(list([my_int]))</span>
+<span class="c1"># print(type(list([my_int])))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;t&#39;, &#39;h&#39;, &#39;e&#39;, &#39; &#39;, &#39;q&#39;, &#39;u&#39;, &#39;i&#39;, &#39;c&#39;, &#39;k&#39;, &#39; &#39;, &#39;b&#39;, &#39;r&#39;, &#39;o&#39;, &#39;w&#39;, &#39;n&#39;, &#39; &#39;, &#39;f&#39;, &#39;o&#39;, &#39;x&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="lists-have-length">
+<h4><span class="section-number">4.1.4.2. </span>Lists have Length<a class="headerlink" href="#lists-have-length" title="Permalink to this headline">#</a></h4>
+<p>We’ve already mentioned this, but it can be very useful to know how many elements are in your lists.  This is done via the <code class="docutils literal notranslate"><span class="pre">len</span></code> like this:</p>
+<div class="cell tag_hide-output docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">my_list</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="mi">1234</span><span class="p">,</span> <span class="s1">&#39;list_element&#39;</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="mi">4</span><span class="o">+</span><span class="mi">6</span><span class="p">]</span>
+<span class="n">list_len</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">my_list</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;There are </span><span class="si">{</span><span class="n">list_len</span><span class="si">}</span><span class="s2"> elements in &#39;my_list&#39;&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>There are 6 elements in &#39;my_list&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<p>We can see that the <code class="docutils literal notranslate"><span class="pre">len</span></code> function returns the number of elements in a list.  This may seem simple, but it can be very useful in many contexts.</p>
+<p>We’ll see that this output is always a non-negative integer, where we can get a length of 0 by asking for the length of an <a class="reference external" href="https://stackoverflow.com/questions/2972212/creating-an-empty-list-in-python">empty list</a> like so:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">empty_list</span> <span class="o">=</span> <span class="p">[]</span>  <span class="c1">## Square brackets with nothing in between!</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;This is an empty list:&quot;</span><span class="p">,</span> <span class="n">empty_list</span><span class="p">)</span>
+
+<span class="n">zero_length</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">empty_list</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;The length of the empty list is </span><span class="si">{</span><span class="n">zero_length</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>This is an empty list: []
+The length of the empty list is 0
+</pre></div>
+</div>
+</div>
+</div>
+<p>We’ll use this frequently in the <a class="reference internal" href="../04_Loops/04_Loops.html"><span class="doc std std-doc">section on loops</span></a> to <em>intialize</em> code that will be repeated many times, using the <code class="docutils literal notranslate"><span class="pre">list.append</span></code> function, for example, to fill the list with useful calculations.</p>
+</section>
+<section id="the-range-function">
+<h4><span class="section-number">4.1.4.3. </span>The Range Function<a class="headerlink" href="#the-range-function" title="Permalink to this headline">#</a></h4>
+<p>We’ll talk in a moment about a bunch of useful list functions, but the <a class="reference external" href="https://docs.python.org/3/library/functions.html#func-range"><code class="docutils literal notranslate"><span class="pre">range</span></code></a> function is too useful to not highlight specifically.  The <code class="docutils literal notranslate"><span class="pre">range</span></code> function can be used to make collections of integers to cover a specific range (hence the name).  We can use the <code class="docutils literal notranslate"><span class="pre">list</span></code> type conversion function to return a list of these numbers.  Try out the example below and use <code class="docutils literal notranslate"><span class="pre">help(range)</span></code> to read the documentation.</p>
+<div class="cell tag_hide-output tag_raises-exception docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">start</span><span class="p">,</span> <span class="n">stop</span><span class="p">,</span> <span class="n">step</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">2</span>
+<span class="n">my_range1</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="n">start</span><span class="p">,</span> <span class="n">stop</span><span class="p">,</span> <span class="n">step</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">my_range1</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">my_range1</span><span class="p">))</span>  <span class="c1">## What type does &#39;my_range1&#39; appear to be?</span>
+
+<span class="c1">## Apply the list() function:</span>
+<span class="n">my_range1</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">my_range1</span><span class="p">)</span>  
+<span class="nb">print</span><span class="p">(</span><span class="n">my_range1</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">my_range1</span><span class="p">))</span>
+
+<span class="c1">## If we don&#39;t supply a step size, it increments by 1</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="n">start</span><span class="p">,</span> <span class="n">stop</span><span class="p">)))</span>
+
+<span class="c1">## If we don&#39;t supply a starting point, it assumes 0</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="n">stop</span><span class="p">)))</span>
+
+<span class="c1">## We can use negative step sizes</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="n">stop</span><span class="p">,</span> <span class="n">start</span><span class="p">,</span> <span class="o">-</span><span class="n">step</span><span class="p">)))</span>
+
+<span class="c1">## Is &#39;stop&#39;=10 in this list?</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">)))</span>
+
+<span class="c1">## What happens if we try to use a float?</span>
+<span class="c1"># print(list(range(10.1)))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>range(0, 10, 2)
+&lt;class &#39;range&#39;&gt;
+[0, 2, 4, 6, 8]
+&lt;class &#39;list&#39;&gt;
+[0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+[0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+[10, 8, 6, 4, 2]
+[0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Note that range only works for integers and that the <code class="docutils literal notranslate"><span class="pre">stop</span></code> input is <em>excluded</em> from the range.</p>
+<p>This function will again be extremely useful in the <a class="reference internal" href="../04_Loops/04_Loops.html"><span class="doc std std-doc">section on loops</span></a>, but having a way to get a regularly spaced range of numbers is something that could be handy in a variety of circumstances.</p>
+</section>
+<section id="useful-list-functions">
+<h4><span class="section-number">4.1.4.4. </span>Useful List Functions<a class="headerlink" href="#useful-list-functions" title="Permalink to this headline">#</a></h4>
+<p>As a final note, I just want to highlight a few really useful list functions.</p>
+<p>If we have a list of all “numbers”, then the :py:func:<code class="docutils literal notranslate"><span class="pre">sum</span></code>, :py:func:<code class="docutils literal notranslate"><span class="pre">max</span></code>, and :py:func:<code class="docutils literal notranslate"><span class="pre">min</span></code> functions can be very useful!</p>
+<div class="cell tag_hide-output docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">num_list</span> <span class="o">=</span> <span class="nb">list</span><span class="p">([</span><span class="mi">3</span><span class="p">,</span> <span class="mf">6.3</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mf">12.52</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">])</span>
+<span class="n">list_max</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">num_list</span><span class="p">)</span>
+<span class="n">list_min</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">num_list</span><span class="p">)</span>
+<span class="n">list_sum</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">num_list</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;The max of &#39;num_list&#39; is </span><span class="si">{</span><span class="n">list_max</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;The min of &#39;num_list&#39; is </span><span class="si">{</span><span class="n">list_min</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;The sum of &#39;num_list&#39; is </span><span class="si">{</span><span class="n">list_sum</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The max of &#39;num_list&#39; is 12.52
+The min of &#39;num_list&#39; is 0.1
+The sum of &#39;num_list&#39; is 44.92
+</pre></div>
+</div>
+</div>
+</div>
+<p>We can <em>sort</em> lists using the <a class="reference external" href="https://docs.python.org/3/library/functions.html#sorted"><code class="docutils literal notranslate"><span class="pre">sorted</span></code></a> function or the :py:func:<code class="docutils literal notranslate"><span class="pre">list.sort</span></code> method.  The difference between these is that :py:func:<code class="docutils literal notranslate"><span class="pre">sorted</span></code> returns a <em>copy</em> of the list that is now sorted, while :py:func:<code class="docutils literal notranslate"><span class="pre">list.sort</span></code> will sort the list <strong>in-place</strong>.  This is somewhat important, because if the order of your original list is important, then you don’t want to mess that up with a <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list.sort"><code class="docutils literal notranslate"><span class="pre">list.sort</span></code></a>.</p>
+<div class="cell tag_hide-output docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">orig_names</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Eric&#39;</span><span class="p">,</span> <span class="s1">&#39;Madhav&#39;</span><span class="p">,</span> <span class="s1">&#39;Bill&#39;</span><span class="p">,</span> <span class="s1">&#39;Caroline&#39;</span><span class="p">,</span> <span class="s1">&#39;Tiffany&#39;</span><span class="p">]</span>
+<span class="n">names_to_sort</span> <span class="o">=</span> <span class="n">orig_names</span><span class="p">[:]</span>
+
+<span class="n">sorted_names</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">names_to_sort</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">names_to_sort</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">sorted_names</span><span class="p">)</span>
+
+<span class="n">names_to_sort</span><span class="o">.</span><span class="n">sort</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">names_to_sort</span><span class="p">)</span>
+
+<span class="c1">## We can reverse the sort order with the &quot;reverse&quot; keyword:</span>
+<span class="n">sorted_names</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">names_to_sort</span><span class="p">,</span> <span class="n">reverse</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">names_to_sort</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">reverse</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">sorted_names</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">names_to_sort</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;Eric&#39;, &#39;Madhav&#39;, &#39;Bill&#39;, &#39;Caroline&#39;, &#39;Tiffany&#39;]
+[&#39;Bill&#39;, &#39;Caroline&#39;, &#39;Eric&#39;, &#39;Madhav&#39;, &#39;Tiffany&#39;]
+[&#39;Bill&#39;, &#39;Caroline&#39;, &#39;Eric&#39;, &#39;Madhav&#39;, &#39;Tiffany&#39;]
+[&#39;Tiffany&#39;, &#39;Madhav&#39;, &#39;Eric&#39;, &#39;Caroline&#39;, &#39;Bill&#39;]
+[&#39;Tiffany&#39;, &#39;Madhav&#39;, &#39;Eric&#39;, &#39;Caroline&#39;, &#39;Bill&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<p>We can <em>count</em> the number of times a certain element appears in a list with the <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#common-sequence-operations"><code class="docutils literal notranslate"><span class="pre">list.count</span></code></a> method.  Using the <code class="docutils literal notranslate"><span class="pre">num_list</span></code> from the earlier example, we can see:</p>
+<div class="cell tag_hide-output docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">num_3</span> <span class="o">=</span> <span class="n">num_list</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">num_4</span> <span class="o">=</span> <span class="n">num_list</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+<span class="n">num_8</span> <span class="o">=</span> <span class="n">num_list</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;There are </span><span class="si">{</span><span class="n">num_3</span><span class="si">}</span><span class="s2"> 3s in &#39;num_list&#39;&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;There are </span><span class="si">{</span><span class="n">num_4</span><span class="si">}</span><span class="s2"> 4s in &#39;num_list&#39;&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;There are </span><span class="si">{</span><span class="n">num_8</span><span class="si">}</span><span class="s2"> 8s in &#39;num_list&#39;&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>There are 3 3s in &#39;num_list&#39;
+There are 2 4s in &#39;num_list&#39;
+There are 1 8s in &#39;num_list&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<p>Finally, we can check if an element exists in a list using the <code class="docutils literal notranslate"><span class="pre">in</span></code> operation.  If an element exists in the list, we can find the <strong>index</strong> of <em>the first instance</em> of it using the <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#common-sequence-operations"><code class="docutils literal notranslate"><span class="pre">list.index</span></code></a> function.</p>
+<div class="cell tag_hide-output docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="mi">3</span> <span class="ow">in</span> <span class="n">num_list</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="mi">5</span> <span class="ow">in</span> <span class="n">num_list</span><span class="p">)</span>
+
+<span class="n">idx_3</span> <span class="o">=</span> <span class="n">num_list</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">idx_5</span> <span class="o">=</span> <span class="n">num_list</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>  <span class="c1">## What is the error message here?</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;There is a 3 in &#39;num_list&#39; at index </span><span class="si">{</span><span class="n">idx_3</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
+False
+</pre></div>
+</div>
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ValueError</span><span class="g g-Whitespace">                                </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">24</span><span class="p">],</span> <span class="n">line</span> <span class="mi">5</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="nb">print</span><span class="p">(</span><span class="mi">5</span> <span class="ow">in</span> <span class="n">num_list</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="n">idx_3</span> <span class="o">=</span> <span class="n">num_list</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<span class="ne">----&gt; </span><span class="mi">5</span> <span class="n">idx_5</span> <span class="o">=</span> <span class="n">num_list</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>  <span class="c1">## What is the error message here?</span>
+<span class="g g-Whitespace">      </span><span class="mi">7</span> <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;There is a 3 in &#39;num_list&#39; at index </span><span class="si">{</span><span class="n">idx_3</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="ne">ValueError</span>: 5 is not in list
+</pre></div>
+</div>
+</div>
+</div>
+<p>If this is your first time working with lists, don’t worry about trying to memorize everything you’ve seen here.  Coding is a <em>skill</em> and you will remember things that you use more frequently and look up things that you don’t.  I have been coding in Python for years and I constantly look up functions or syntaxes.  These notes on lists have thus been given to you as a reference and to show you the things that you <em>could do</em> with a Python list, which you <em>should</em> try and remember.  That is, you should know that there’s a function for sorting lists, but it’s ok if you don’t remember the exact syntax off the top of your head.  For a good reference on list methods, see <a class="reference external" href="https://docs.python.org/3/tutorial/datastructures.html">python.org</a>.</p>
+</section>
+</section>
+<section id="exercise-4-2">
+<h3><span class="section-number">4.1.5. </span>Exercise 4.2<a class="headerlink" href="#exercise-4-2" title="Permalink to this headline">#</a></h3>
+<ol>
+<li><p>Create a nested list using your <code class="docutils literal notranslate"><span class="pre">names</span></code> list from exericise 4.1.2 by placing <code class="docutils literal notranslate"><span class="pre">names</span></code> in between two square brackets.  Save this list to a variable <code class="docutils literal notranslate"><span class="pre">names_colors</span></code>.</p>
+<ol class="simple">
+<li><p>What is the length of this list?  What is the length of <code class="docutils literal notranslate"><span class="pre">names_colors[0]</span></code>?</p></li>
+<li><p>Undo the extra bracketing with <code class="docutils literal notranslate"><span class="pre">names_colors</span> <span class="pre">=</span> <span class="pre">names_colors[0]</span></code>.  Set <code class="docutils literal notranslate"><span class="pre">idx=0</span></code> and use <code class="docutils literal notranslate"><span class="pre">idx</span></code> as an index to replace each element of <code class="docutils literal notranslate"><span class="pre">names_colors</span></code> with a list <code class="docutils literal notranslate"><span class="pre">[names[idx],</span> <span class="pre">colors[idx]]</span></code> (where <code class="docutils literal notranslate"><span class="pre">colors</span></code> is the same list from 4.1.2).  You should now have a list of lists, where each sub-list has a name and a color.</p></li>
+<li><p>You’ve had a falling out and need to remove the last friend from <code class="docutils literal notranslate"><span class="pre">names_colors</span></code>.  However, at the same time, you’ve made two new friends!  Add one of them (and their favorite color) right after your name+color using <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#mutable-sequence-types"><code class="docutils literal notranslate"><span class="pre">list.insert</span></code></a>.  Add the other friend to the end of <code class="docutils literal notranslate"><span class="pre">names_colors</span></code> using <code class="docutils literal notranslate"><span class="pre">list.append</span></code>.</p></li>
+<li><p>Use <code class="docutils literal notranslate"><span class="pre">sorted</span></code> to sort <code class="docutils literal notranslate"><span class="pre">names_colors</span></code>.  How did it sort the list?  Execute the following code and try to explain what happened differently.</p></li>
+</ol>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sorted_friends</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">names_colors</span><span class="p">,</span> <span class="n">key</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+</pre></div>
+</div>
+</li>
+<li><p>Create a list containing 10 numbers of your choice.  Use the <a class="reference external" href="https://docs.python.org/3/library/functions.html#sum"><code class="docutils literal notranslate"><span class="pre">sum</span></code></a> and <a class="reference external" href="https://docs.python.org/3/library/functions.html#range"><code class="docutils literal notranslate"><span class="pre">len</span></code></a> functions to calculate the average of the list elements.  Print this result to the screen in a formatted string.</p></li>
+<li><p>Let’s practice using the <a class="reference external" href="https://docs.python.org/3/library/functions.html#range"><code class="docutils literal notranslate"><span class="pre">range</span></code></a> function:</p>
+<ol class="simple">
+<li><p>Create a list of all the integers from -12 to 8.</p></li>
+<li><p>Create a list containing the first 10,000 even integers.</p></li>
+<li><p>Create a list of the first 5 positive integers that are divisible by 7 as <code class="docutils literal notranslate"><span class="pre">list_of_sevens</span></code>.  Use <code class="docutils literal notranslate"><span class="pre">idx</span> <span class="pre">=</span> <span class="pre">list(range(len(list_of_sevens)))</span></code> to make a list of indices for the elements in <code class="docutils literal notranslate"><span class="pre">list_of_sevens</span></code>.  Use <code class="docutils literal notranslate"><span class="pre">ii</span> <span class="pre">=</span> <span class="pre">idx.pop()</span></code> and <code class="docutils literal notranslate"><span class="pre">list_of_sevens[ii]</span></code> several times to print out the elements in reverse order in a formatted string.</p></li>
+</ol>
+</li>
+<li><p>Consider the <a class="reference external" href="http://rosalind.info/problems/dna/">problem here</a>. Save the sample DNA as a string and use string formatting to print the number of A’s, C’s, G’s and T’s to the screen.</p></li>
+<li><p>Convert a string containing a DNA sequence into the corresponding RNA, as indicated <a class="reference external" href="http://rosalind.info/problems/rna/">here</a>.  This process involves replacing all T’s in the DNA with U’s.  As a hint, consider using <code class="docutils literal notranslate"><span class="pre">list.index</span></code> or <code class="docutils literal notranslate"><span class="pre">list.replace</span></code>.</p></li>
+</ol>
+</section>
+</section>
+<section id="numpy-arrays">
+<h2><span class="section-number">4.2. </span>Numpy Arrays<a class="headerlink" href="#numpy-arrays" title="Permalink to this headline">#</a></h2>
+<p>Hopefully the first part of this section has convinced you that Python lists might be useful and flexible tools for holding multiple data points.  However, Python lists are sometimes <em>too flexible</em>, in allowing for the collection of arbitrary data, they lose some potentially useful functionality.  In particular, applying operations to each element in a list requires that we access each list element individually (which you will still do in the <a class="reference internal" href="../04_Loops/04_Loops.html"><span class="doc std std-doc">section on loops</span></a>), which can quickly become very slow!  To fill the need for a slightly more structured collection of data, the <a class="reference external" href="https://numpy.org/">numpy</a> package was developed as “The fundamental package for scientific computing in Python.”  Going forward as a data scientist, familiarity with numpy will be essential.</p>
+<p>Here we’ll introduce you to the <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html"><code class="docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a>, which is the data structure we’re looking for.  We’ll see that this structure, informally known as a numpy <strong>array</strong>, trades some of the list’s flexibility for functionality and speed.  But before we talk about working with numpy, let’s spend a moment talking about Python <strong>packages</strong>.</p>
+<section id="importing-packages-in-python">
+<h3><span class="section-number">4.2.1. </span>Importing Packages in Python<a class="headerlink" href="#importing-packages-in-python" title="Permalink to this headline">#</a></h3>
+<p>In the <a class="reference internal" href="../00_Introduction/00_introduction.html"><span class="doc std std-doc">introduction</span></a>, I noted that Python has a large, active online community of developers.  What this means is that <strong>packages</strong> (also called <strong>modules</strong>) of Python code are constantly being created and disseminated for all sorts of applications.  This is facilitated by the Python programming language via the powerful <a class="reference external" href="https://realpython.com/python-import/"><code class="docutils literal notranslate"><span class="pre">import</span></code></a> operation that let’s a programmer “import” the contents of any other package on their computer into a Python code to be used.  That is, if you write a couple tools for doing some useful data analysis, you can send them to me (or put them on the internet!) and I can use <code class="docutils literal notranslate"><span class="pre">import</span></code> to give my code access to your tools.  This may sound somewhat complicated or abstract, and it can be, which is why environments like Anaconda can be especially useful.</p>
+<p>In particular, advanced projects may involve building on dozens of other people’s code in many packages.  It could quickly become tedious to download and manage new packages.  To assist with this, Python installs generally include the <a class="reference external" href="https://pypi.org/project/pip/"><code class="docutils literal notranslate"><span class="pre">pip</span></code></a> function, or the Anaconda Navigator has the <a class="reference external" href="https://docs.anaconda.com/anaconda/navigator/overview/#environments-tab">environments</a> tab.  As a bonus, Anaconda also includes common packages, such as numpy and matplotlib, pre-installed.  However, to install a new package using Anaconda, you can search for the package in the environments tab.  If you are not using Anaconda, follow the instructions <a class="reference external" href="https://packaging.python.org/tutorials/installing-packages">here</a>, typically the important command will be <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">my_package</span></code>.  Again, this is mostly for your reference later on, anyone using Anaconda will not have to worry about the next step.</p>
+<p>The important information on importing packages is then how to use the <code class="docutils literal notranslate"><span class="pre">import</span></code> functionality in your code.  Typically what this looks like is the line <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">numpy</span> <span class="pre">as</span> <span class="pre">np</span></code> near the top of your code.  In a Jupyter notebook, put this in the first cell in the notebook and run it, so that all cells have access to the package.  What this command tells Python is that you are importing the numpy package, and you’re calling it <code class="docutils literal notranslate"><span class="pre">np</span></code>, so that numpy functions can be accessed as <code class="docutils literal notranslate"><span class="pre">np.function_I_want</span></code>.</p>
+<p>There are several options for the import statement.  For example, you can import all functions without the nickname using <code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">numpy</span> <span class="pre">import</span> <span class="pre">*</span></code>, where <code class="docutils literal notranslate"><span class="pre">*</span></code> is a <a class="reference external" href="https://en.wikipedia.org/wiki/Wildcard_character">wildcard character</a> so that Python reads “from the numpy package, import everything matching *”, but the * matches everything, so it imports all the numpy functions.  This is not usually recommended, as you are not guaranteed that a package won’t have a function with the same name as something you already have.  So, if numpy also has a <code class="docutils literal notranslate"><span class="pre">print</span></code> function, Python wouldn’t know whether to use the built-in <code class="docutils literal notranslate"><span class="pre">print</span></code> or numpy’s.  This is cleared up by insisting that the functions be prepended with something, so there’s no ambiguity between <code class="docutils literal notranslate"><span class="pre">np.print</span></code> and <code class="docutils literal notranslate"><span class="pre">print</span></code>.  Also, <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">numpy</span></code> imports numpy functions that can now be accessed with <code class="docutils literal notranslate"><span class="pre">numpy.function</span></code>, the <code class="docutils literal notranslate"><span class="pre">as</span> <span class="pre">np</span></code> just makes things easier to type.</p>
+<p>You can also import specific functions or sub-modules from a package using the <code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">package</span> <span class="pre">import</span> <span class="pre">func1,</span> <span class="pre">func2</span></code> syntax.  This is useful when you know you’re only going to be using a few things from the package.</p>
+<div class="admonition-tldr-importing-packages admonition">
+<p class="admonition-title">TLDR: importing packages</p>
+<p>Going forward, we’ll often use <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">numpy</span> <span class="pre">as</span> <span class="pre">np</span></code> to tell Python we want to access numpy functions.  Throughout the rest of the tutorial, if you see <code class="docutils literal notranslate"><span class="pre">np.function</span></code>, it is <em>assuming</em> that you have imported numpy at the beginning of your code.</p>
+</div>
+</section>
+<section id="id1">
+<h3><span class="section-number">4.2.2. </span>Numpy Arrays<a class="headerlink" href="#id1" title="Permalink to this headline">#</a></h3>
+<p>As promised, we will now introduce the <code class="docutils literal notranslate"><span class="pre">numpy.ndarray</span></code>, or the numpy (N-dimensional) array.  Most simply, an array operates like a matrix that you may know from math class, or like an Excel spreadsheet.  Elements are laid in a grid so that each element can be identified by its row and column.  The caveat is that arrays can <em>only contain one data type</em>, unlike lists.</p>
+<p>To make an array, we can apply the <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.array.html"><code class="docutils literal notranslate"><span class="pre">np.array</span></code></a> function to a list.  We can also use the <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.empty.html"><code class="docutils literal notranslate"><span class="pre">np.empty</span></code></a> function to make an “empty” array of a given size or the <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.zeros.html"><code class="docutils literal notranslate"><span class="pre">np.zeros</span></code></a> and <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ones.html"><code class="docutils literal notranslate"><span class="pre">np.ones</span></code></a> functions to make arrays of zeros or ones, respectively.</p>
+<div class="cell tag_hide-output docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">num_list</span> <span class="o">=</span> <span class="nb">list</span><span class="p">([</span><span class="mi">3</span><span class="p">,</span> <span class="mf">6.3</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mf">12.52</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">])</span>
+<span class="n">num_arr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">num_list</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">num_arr</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">num_arr</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">num_arr</span><span class="o">.</span><span class="n">dtype</span><span class="p">)</span>
+
+<span class="n">n_rows</span><span class="p">,</span> <span class="n">n_cols</span> <span class="o">=</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">3</span>
+<span class="n">empty_arr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">((</span><span class="n">n_rows</span><span class="p">,</span> <span class="n">n_cols</span><span class="p">))</span> <span class="c1">## SYNTAX ALERT NOTE THE DOUBLE</span>
+                                       <span class="c1">## PARENTHESES</span>
+<span class="n">zero_arr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">n_rows</span><span class="p">,</span> <span class="n">n_cols</span><span class="p">))</span>
+<span class="n">one_arr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="n">n_rows</span><span class="p">,</span> <span class="n">n_cols</span><span class="p">))</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Arrays of size </span><span class="si">{</span><span class="n">n_rows</span><span class="si">}</span><span class="s2"> x </span><span class="si">{</span><span class="n">n_cols</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">An empty array:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">empty_arr</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">An zero array:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">zero_arr</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">An one array:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">one_arr</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">25</span><span class="p">],</span> <span class="n">line</span> <span class="mi">2</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="n">num_list</span> <span class="o">=</span> <span class="nb">list</span><span class="p">([</span><span class="mi">3</span><span class="p">,</span> <span class="mf">6.3</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mf">12.52</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">])</span>
+<span class="ne">----&gt; </span><span class="mi">2</span> <span class="n">num_arr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">num_list</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="nb">print</span><span class="p">(</span><span class="n">num_arr</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">num_arr</span><span class="p">))</span>
+
+<span class="ne">NameError</span>: name &#39;np&#39; is not defined
+</pre></div>
+</div>
+</div>
+</div>
+<p>In these examples, you can see that converting a list of mixed types (<code class="docutils literal notranslate"><span class="pre">num_list</span></code> has ints, floats, and booleans) coerced everything into one type in <code class="docutils literal notranslate"><span class="pre">num_arr</span></code> (floats, in this case).  You can check the <strong>datatype</strong> using the <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.dtype.html"><code class="docutils literal notranslate"><span class="pre">numpy.ndarray.dtype</span></code></a> <strong>attribute</strong>.  We haven’t talked about attributes yet, but you can think of them as properties of a piece of data.</p>
+<p>You should also see that the <code class="docutils literal notranslate"><span class="pre">np.empty</span></code>, <code class="docutils literal notranslate"><span class="pre">np.zeros</span></code>, and <code class="docutils literal notranslate"><span class="pre">np.ones</span></code> functions all made 5 by 3 arrays.  The important note is that the input to these functions is a <a class="reference external" href="https://docs.python.org/3.3/library/stdtypes.html#tuples">tuple</a> of the dimension sizes.  Tuples are another data type that we won’t spend time on that are indicated like a list, with elements separated by commas, but using parentheses, <code class="docutils literal notranslate"><span class="pre">()</span></code>, instead of square brackets.</p>
+<p>As a final note, you can see that the <code class="docutils literal notranslate"><span class="pre">empty_arr</span></code> is definitely not empty!  This is because what it tells Python to do is to just set aside some space in the storage for the array data to be placed.  Since your computer generally doesn’t actually “delete” things by setting all the bits to zero, when you ask Python what’s in the empty array, it looks at the bits that have been allocated, and interprets them according to <code class="docutils literal notranslate"><span class="pre">dtype</span></code> (float in this case).  So this part of memory could have previously been some file I’d written, but when interpreted as an array of floats, looks like some weird numbers.  As a result, this function, while ostensibly faster than <code class="docutils literal notranslate"><span class="pre">np.zeros</span></code> or [<code class="docutils literal notranslate"><span class="pre">np.ones</span></code>], can be more dangerous because it’s harder to detect what is real data vs uninitialized elements.</p>
+</section>
+<section id="array-size-dimension-and-type">
+<h3><span class="section-number">4.2.3. </span>Array Size, Dimension, and Type<a class="headerlink" href="#array-size-dimension-and-type" title="Permalink to this headline">#</a></h3>
+<p>Keeping track of your arrays is essential in more complicated programs.  To do this, it is often useful to check that the arrays you are creating are the correct shape, dimension, and type.  To check these, you can use the <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.shape.html"><code class="docutils literal notranslate"><span class="pre">shape</span></code></a>, <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.ndim.html"><code class="docutils literal notranslate"><span class="pre">ndim</span></code></a>, and <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.dtype.html"><code class="docutils literal notranslate"><span class="pre">dtype</span></code></a> attributes.</p>
+<div class="cell tag_hide-output docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">n_rows</span><span class="p">,</span> <span class="n">n_cols</span> <span class="o">=</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">3</span>
+<span class="n">zero_arr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">n_rows</span><span class="p">,</span> <span class="n">n_cols</span><span class="p">))</span>
+<span class="n">arr_shape</span> <span class="o">=</span> <span class="n">zero_arr</span><span class="o">.</span><span class="n">shape</span>
+<span class="n">arr_ndim</span> <span class="o">=</span> <span class="n">zero_arr</span><span class="o">.</span><span class="n">ndim</span>
+<span class="n">arr_datatype</span> <span class="o">=</span> <span class="n">zero_arr</span><span class="o">.</span><span class="n">dtype</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;The shape of &#39;zero_arr&#39; is </span><span class="si">{</span><span class="n">arr_shape</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;The number of dimensions of &#39;zero_arr&#39; is </span><span class="si">{</span><span class="n">arr_ndim</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;The type of data in &#39;zero_arr&#39; is </span><span class="si">{</span><span class="n">arr_datatype</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">26</span><span class="p">],</span> <span class="n">line</span> <span class="mi">2</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="n">n_rows</span><span class="p">,</span> <span class="n">n_cols</span> <span class="o">=</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">3</span>
+<span class="ne">----&gt; </span><span class="mi">2</span> <span class="n">zero_arr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">n_rows</span><span class="p">,</span> <span class="n">n_cols</span><span class="p">))</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">arr_shape</span> <span class="o">=</span> <span class="n">zero_arr</span><span class="o">.</span><span class="n">shape</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="n">arr_ndim</span> <span class="o">=</span> <span class="n">zero_arr</span><span class="o">.</span><span class="n">ndim</span>
+
+<span class="ne">NameError</span>: name &#39;np&#39; is not defined
+</pre></div>
+</div>
+</div>
+</div>
+<p>Note that the <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.shape.html"><code class="docutils literal notranslate"><span class="pre">shape</span></code></a> attribute returns a tuple, so that we can use it to create similarly sized arrays.  We can access tuple elements using normal list indexing (<code class="docutils literal notranslate"><span class="pre">tuple[index]</span></code>) and we can use the <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.empty_like.html"><code class="docutils literal notranslate"><span class="pre">numpy.empty_like</span></code></a>, <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.zeros_like.html"><code class="docutils literal notranslate"><span class="pre">numpy.zeros_like</span></code></a>, <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ones_like.html"><code class="docutils literal notranslate"><span class="pre">numpy.ones_like</span></code></a> functions to create empty, zero-filled, and one-filled arrays of the same size as an input array, respectively.</p>
+<div class="cell tag_hide-output docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">more_cols</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">arr_shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="mi">10</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">more_cols</span><span class="p">)</span>
+
+<span class="n">fewer_rows</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="mi">2</span><span class="p">,</span> <span class="n">arr_shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">fewer_rows</span><span class="p">)</span>
+
+<span class="n">same_but_ones</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones_like</span><span class="p">(</span><span class="n">zero_arr</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">same_but_ones</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">27</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">more_cols</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">arr_shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="mi">10</span><span class="p">))</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="nb">print</span><span class="p">(</span><span class="n">more_cols</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="n">fewer_rows</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="mi">2</span><span class="p">,</span> <span class="n">arr_shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]))</span>
+
+<span class="ne">NameError</span>: name &#39;np&#39; is not defined
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="accessing-array-elements">
+<h3><span class="section-number">4.2.4. </span>Accessing Array Elements<a class="headerlink" href="#accessing-array-elements" title="Permalink to this headline">#</a></h3>
+<p>As noted just above, accessing tuple elements uses the same syntax as for listsA: <code class="docutils literal notranslate"><span class="pre">my_tuple[index_I_want]</span></code>.  The same syntax holds for arrays, except now we have multiple dimensions whose indices we need to specify.  The syntax for array indexing is <code class="docutils literal notranslate"><span class="pre">my_arr[index1,</span> <span class="pre">index2,</span> <span class="pre">index3]</span></code>  where each subsequent index corresponds to each subsequent dimension of the array: the first index indicates the row, the second the column, the third the “sheet”, etc.  We can use the slicing operations above on any dimension, using different slices in different dimensions to grab different sections of the array.</p>
+<div class="cell tag_hide-output docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">big_arr</span> <span class="o">=</span> <span class="n">big_arr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="s1">&#39;abcdefghijklmnopqrstuvwxyz&#39;</span><span class="p">)</span> <span class="o">+</span> <span class="p">[</span><span class="s1">&#39;aa&#39;</span><span class="p">,</span> <span class="s1">&#39;bb&#39;</span><span class="p">]))</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">8</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">big_arr</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;The shape of &#39;big_arr&#39; is </span><span class="si">{</span><span class="n">big_arr</span><span class="o">.</span><span class="n">shape</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;The number of dimensions of &#39;big_arr&#39; is </span><span class="si">{</span><span class="n">big_arr</span><span class="o">.</span><span class="n">ndim</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;The type of data in &#39;big_arr&#39; is </span><span class="si">{</span><span class="n">big_arr</span><span class="o">.</span><span class="n">dtype</span><span class="si">}</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="n">first_row</span> <span class="o">=</span> <span class="n">big_arr</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">first_col</span> <span class="o">=</span> <span class="n">big_arr</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The first row is:&quot;</span><span class="p">,</span> <span class="n">first_row</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The first column is:&quot;</span><span class="p">,</span> <span class="n">first_col</span><span class="p">)</span>
+
+<span class="n">subset1</span> <span class="o">=</span> <span class="n">big_arr</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">:</span><span class="mi">6</span><span class="p">]</span>
+<span class="n">subset2</span> <span class="o">=</span> <span class="n">big_arr</span><span class="p">[</span><span class="o">-</span><span class="mi">3</span><span class="p">:,</span> <span class="p">:</span><span class="mi">5</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&#39;subset1&#39; is:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">subset1</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;The shape of &#39;subset1&#39; is </span><span class="si">{</span><span class="n">subset1</span><span class="o">.</span><span class="n">shape</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;&#39;subset2&#39; is:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">subset2</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;The shape of &#39;subset2&#39; is </span><span class="si">{</span><span class="n">subset2</span><span class="o">.</span><span class="n">shape</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">28</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">big_arr</span> <span class="o">=</span> <span class="n">big_arr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="s1">&#39;abcdefghijklmnopqrstuvwxyz&#39;</span><span class="p">)</span> <span class="o">+</span> <span class="p">[</span><span class="s1">&#39;aa&#39;</span><span class="p">,</span> <span class="s1">&#39;bb&#39;</span><span class="p">]))</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">8</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="nb">print</span><span class="p">(</span><span class="n">big_arr</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;The shape of &#39;big_arr&#39; is </span><span class="si">{</span><span class="n">big_arr</span><span class="o">.</span><span class="n">shape</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="ne">NameError</span>: name &#39;np&#39; is not defined
+</pre></div>
+</div>
+</div>
+</div>
+<p>We can also access array elements via <strong>masking</strong> which we’ll talk more about in the <a class="reference internal" href="../05_ConditionalStatements/05_ConditionalStatements.html"><span class="doc std std-doc">section on conditional statements</span></a> and by providing lists or arrays of indices directly.  For example, if we want to access the first and third rows of a list directly, we can use <code class="docutils literal notranslate"><span class="pre">my_arr[[0,</span> <span class="pre">2]]</span></code>.</p>
+</section>
+<section id="useful-array-functions">
+<h3><span class="section-number">4.2.5. </span>Useful Array Functions<a class="headerlink" href="#useful-array-functions" title="Permalink to this headline">#</a></h3>
+<p>As you may have seen in the previous example, we can use the <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.reshape.html"><code class="docutils literal notranslate"><span class="pre">numpy.reshape</span></code></a> function to change the size of an array.  So if we use the <a class="reference external" href="https://docs.python.org/3/library/functions.html#func-range"><code class="docutils literal notranslate"><span class="pre">range</span></code></a> function to make a list of numbers, we can do <code class="docutils literal notranslate"><span class="pre">np.array(range(20)).reshape(4,</span> <span class="pre">5)</span></code> to make a 4x5 array.</p>
+<div class="cell tag_hide-output docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">reshaped_arr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">20</span><span class="p">))</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">reshaped_arr</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">29</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">reshaped_arr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">20</span><span class="p">))</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="nb">print</span><span class="p">(</span><span class="n">reshaped_arr</span><span class="p">)</span>
+
+<span class="ne">NameError</span>: name &#39;np&#39; is not defined
+</pre></div>
+</div>
+</div>
+</div>
+<p>Perhaps the most useful thing that we can do with arrays is <strong>vectorize</strong> our code by applying operations <strong>element-wise</strong>.  For example,</p>
+<div class="cell tag_hide-output docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">added_arr</span> <span class="o">=</span> <span class="n">reshaped_arr</span> <span class="o">+</span> <span class="mf">3.4</span>
+<span class="n">minus_arr</span> <span class="o">=</span> <span class="n">added_arr</span> <span class="o">-</span> <span class="n">reshaped_arr</span>
+<span class="n">mult_arr</span> <span class="o">=</span> <span class="p">(</span><span class="mi">4</span> <span class="o">*</span> <span class="n">reshaped_arr</span> <span class="o">/</span> <span class="mf">5.345</span><span class="p">)</span><span class="o">**</span><span class="mf">2.3</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">added_arr</span><span class="p">,</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">minus_arr</span><span class="p">,</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">mult_arr</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">30</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">added_arr</span> <span class="o">=</span> <span class="n">reshaped_arr</span> <span class="o">+</span> <span class="mf">3.4</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">minus_arr</span> <span class="o">=</span> <span class="n">added_arr</span> <span class="o">-</span> <span class="n">reshaped_arr</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">mult_arr</span> <span class="o">=</span> <span class="p">(</span><span class="mi">4</span> <span class="o">*</span> <span class="n">reshaped_arr</span> <span class="o">/</span> <span class="mf">5.345</span><span class="p">)</span><span class="o">**</span><span class="mf">2.3</span>
+
+<span class="ne">NameError</span>: name &#39;reshaped_arr&#39; is not defined
+</pre></div>
+</div>
+</div>
+</div>
+<p>If we have row or column arrays that match the size of another array, Python will assume that we want to do the operations row-wise or column-wise.  This is known as <a class="reference external" href="https://numpy.org/doc/stable/user/basics.broadcasting.html">broadcasting</a>.</p>
+<div class="cell tag_hide-output docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">row_arr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+<span class="n">col_arr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>  <span class="c1">## WHAT DOES THE -1 DO HERE?</span>
+                                       <span class="c1">## (check the shape!)</span>
+                                       <span class="c1">## (try removing the reshape)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&#39;reshaped_array&#39;:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">reshaped_arr</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&#39;row_arr&#39;:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">row_arr</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&#39;col_arr&#39;:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">col_arr</span><span class="p">)</span>
+
+<span class="n">row_added</span> <span class="o">=</span> <span class="n">reshaped_arr</span> <span class="o">+</span> <span class="n">row_arr</span>
+<span class="n">col_added</span> <span class="o">=</span> <span class="n">reshaped_arr</span> <span class="o">+</span> <span class="n">col_arr</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Adding a row array:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">row_added</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Adding a column array:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">col_added</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">31</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">row_arr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">col_arr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>  <span class="c1">## WHAT DOES THE -1 DO HERE?</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span>                                        <span class="c1">## (check the shape!)</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span>                                        <span class="c1">## (try removing the reshape)</span>
+
+<span class="ne">NameError</span>: name &#39;np&#39; is not defined
+</pre></div>
+</div>
+</div>
+</div>
+<p>Generally, arrays have pre-set sizes, but the <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.concatenate.html"><code class="docutils literal notranslate"><span class="pre">numpy.concatenate</span></code></a>, <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.hstack.html"><code class="docutils literal notranslate"><span class="pre">numpy.hstack</span></code></a>, <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.vstack.html"><code class="docutils literal notranslate"><span class="pre">numpy.vstack</span></code></a> functions can be used to combine arrays (if their shapes match!).  The <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.concatenate.html"><code class="docutils literal notranslate"><span class="pre">numpy.concatenate</span></code></a> function will assume that you want to use the last dimension for concatenating, <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.hstack.html"><code class="docutils literal notranslate"><span class="pre">numpy.hstack</span></code></a> assumes you want to concatenate along rows, and <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.vstack.html"><code class="docutils literal notranslate"><span class="pre">numpy.vstack</span></code></a> assumes columns.</p>
+<p>Alongside the <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.reshape.html"><code class="docutils literal notranslate"><span class="pre">numpy.ndarray.reshape</span></code></a> function, the <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.squeeze.html"><code class="docutils literal notranslate"><span class="pre">numpy.ndarray.squeeze</span></code></a> function “squeezes” the array to get rid of extra dimensions.</p>
+<p>We also can still use <a class="reference external" href="https://docs.python.org/3/library/functions.html#sum"><code class="docutils literal notranslate"><span class="pre">sum</span></code></a>, <a class="reference external" href="https://docs.python.org/3/library/functions.html#min"><code class="docutils literal notranslate"><span class="pre">min</span></code></a>, and <a class="reference external" href="https://docs.python.org/3/library/functions.html#max"><code class="docutils literal notranslate"><span class="pre">max</span></code></a>, but now we also can use the numpy versions <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.sum.html"><code class="docutils literal notranslate"><span class="pre">numpy.sum</span></code></a>, <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.min.html"><code class="docutils literal notranslate"><span class="pre">numpy.min</span></code></a>, and <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.max.html"><code class="docutils literal notranslate"><span class="pre">numpy.max</span></code></a> which allow for the specification along which dimension (or <strong>axis</strong>) that we want to perform the operation:</p>
+<div class="cell tag_hide-output docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">arr_mean</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">reshaped_arr</span><span class="p">)</span>
+<span class="n">row_mean</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">reshaped_arr</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">col_mean</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">reshaped_arr</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;The mean of &#39;reshaped_arr&#39; is </span><span class="si">{</span><span class="n">arr_mean</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;The row-wise mean of &#39;reshaped_arr&#39; is </span><span class="si">{</span><span class="n">row_mean</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;The column-wise mean of &#39;reshaped_arr&#39; is </span><span class="si">{</span><span class="n">col_mean</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">32</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">arr_mean</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">reshaped_arr</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">row_mean</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">reshaped_arr</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">col_mean</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">reshaped_arr</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+
+<span class="ne">NameError</span>: name &#39;np&#39; is not defined
+</pre></div>
+</div>
+</div>
+</div>
+<p>The numpy package also has a <a class="reference external" href="https://numpy.org/doc/stable/reference/routines.html">host of functions</a> for scientific and numeric purposes.  The <a class="reference external" href="https://numpy.org/doc/stable/reference/routines.math.html">mathematical functions</a> in particular are especially useful, including <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.mean.html#numpy.mean"><code class="docutils literal notranslate"><span class="pre">numpy.mean</span></code></a>, <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.mean.html#numpy.exp"><code class="docutils literal notranslate"><span class="pre">numpy.exp</span></code></a>, <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.mean.html#numpy.log"><code class="docutils literal notranslate"><span class="pre">numpy.log</span></code></a>, and <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.mean.html#numpy.round"><code class="docutils literal notranslate"><span class="pre">numpy.round</span></code></a>.  You can use <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.info.html#numpy.info"><code class="docutils literal notranslate"><span class="pre">numpy.info</span></code></a> to access detailed numpy documentation.  If you ever want a basic math operation in Python, Google “python numpy my_operation” first!</p>
+</section>
+<section id="exercise-4-3">
+<h3><span class="section-number">4.2.6. </span>Exercise 4.3<a class="headerlink" href="#exercise-4-3" title="Permalink to this headline">#</a></h3>
+<ol class="simple">
+<li><p>The numpy analog to <code class="docutils literal notranslate"><span class="pre">range</span></code> is <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.arange.html"><code class="docutils literal notranslate"><span class="pre">numpy.arange</span></code></a>.  Use it to make an array of integers from -50 to 50.  Divide by 25 to make an array of 101 equally spaced numbers from -2 to 2.</p></li>
+<li><p>Use <code class="docutils literal notranslate"><span class="pre">numpy.info</span></code> to look up how the <code class="docutils literal notranslate"><span class="pre">numpy.linspace</span></code> function works.  Use it to make an array of 101 numbers between -2 and 2 named <code class="docutils literal notranslate"><span class="pre">my_grid</span></code>.</p></li>
+<li><p>Create an array of indices for <code class="docutils literal notranslate"><span class="pre">my_grid</span></code> (using <code class="docutils literal notranslate"><span class="pre">arange</span></code>??).  Add this array of indices to <code class="docutils literal notranslate"><span class="pre">my_grid</span></code>.</p></li>
+<li><p>Create a new array omitting the last element using slicing.  Name this array <code class="docutils literal notranslate"><span class="pre">my_grid2</span></code>.  What is <code class="docutils literal notranslate"><span class="pre">len(my_grid2)</span></code>?  Reshape <code class="docutils literal notranslate"><span class="pre">my_grid2</span></code> into a 10x10 array named <code class="docutils literal notranslate"><span class="pre">my_arr</span></code>. What is <code class="docutils literal notranslate"><span class="pre">len(my_arr)</span></code>?  How does it seem that <code class="docutils literal notranslate"><span class="pre">len</span></code> works?  Try reshaping into a 25x4 array or a 4x25 array as a hint!</p></li>
+<li><p>Create a new array <code class="docutils literal notranslate"><span class="pre">y_values</span></code> from <code class="docutils literal notranslate"><span class="pre">my_grid3</span> <span class="pre">=</span> <span class="pre">np.linspace(-2,</span> <span class="pre">2,</span> <span class="pre">100)</span></code> using the function <span class="math notranslate nohighlight">\(y = \frac{6}{5}x^{-2} + x - 3.4\)</span>.  (<span class="math notranslate nohighlight">\(y\)</span> is <code class="docutils literal notranslate"><span class="pre">y_values</span></code> and <code class="docutils literal notranslate"><span class="pre">my_grid3</span></code> is <span class="math notranslate nohighlight">\(x\)</span>.)  What are the maximum and minimum values of <code class="docutils literal notranslate"><span class="pre">y_values</span></code>?  Use the <code class="docutils literal notranslate"><span class="pre">numpy.argmin</span></code> and <code class="docutils literal notranslate"><span class="pre">numpy.argmax</span></code> functions to find <em>where</em> (the index location) of these maximum and minimum values - save them as <code class="docutils literal notranslate"><span class="pre">max_idx</span></code> and <code class="docutils literal notranslate"><span class="pre">min_idx</span></code>.  Use <code class="docutils literal notranslate"><span class="pre">max_idx</span></code> and <code class="docutils literal notranslate"><span class="pre">min_idx</span></code> to show the values of <code class="docutils literal notranslate"><span class="pre">my_grid3</span></code> at which the min and max occur!</p></li>
+<li><p>Apply <code class="docutils literal notranslate"><span class="pre">numpy.unique</span></code> to the list <code class="docutils literal notranslate"><span class="pre">num_list</span></code> from earlier in the section.  What does it seem to do?</p></li>
+</ol>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./docs/03_Lists_Arrays"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="../02_Variables_DataTypes/Everything_to_Boolean.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title"><span class="section-number">3.8. </span>EVERYTHING TO BOOLEAN</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="../04_Loops/04_Loops.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">5. </span>Loops</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Eric Johnson, Ph.D.<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>

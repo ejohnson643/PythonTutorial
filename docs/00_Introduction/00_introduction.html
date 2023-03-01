@@ -1,0 +1,653 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>1. Introduction &#8212; A Python Tutorial for Data Scientists</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="2. Hello World!" href="../01_HelloWorld/01_HelloWorld_Notebook.html" />
+    <link rel="prev" title="Welcome to A Python Tutorial for Data Scientists!" href="../intro.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../index.html">
+      
+      
+      
+      <h1 class="site-logo" id="site-title">A Python Tutorial for Data Scientists</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Welcome to A Python Tutorial for Data Scientists!
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Sections
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   1. Introduction
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../01_HelloWorld/01_HelloWorld_Notebook.html">
+   2. Hello World!
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../02_Variables_DataTypes/02_Variables_DataTypes_Notebook.html">
+   3. Data in Python
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../02_Variables_DataTypes/Floats_to_Ints.html">
+     3.7. Converting floating-point numbers to integers
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../02_Variables_DataTypes/Everything_to_Boolean.html">
+     3.8. EVERYTHING TO BOOLEAN
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../03_Lists_Arrays/03_Lists_Arrays.html">
+   4. Lists and Arrays
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../04_Loops/04_Loops.html">
+   5. Loops
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../05_ConditionalStatements/05_ConditionalStatements.html">
+   6. Conditional Statements
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../06_Functions/06_Functions.html">
+   7. Functions
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../07_Plotting/07_Plotting.html">
+   8. Plotting
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../08_Loading_Writing/08_Loading_Writing.html">
+   9. Loading and Writing Data
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../09_Dictionaries/09_Dictionaries.html">
+   10. Dictionaries
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../10_RandomNumbers/10_RandomNumbers.html">
+   11. Random Numbers
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../11_Classes/11_Classes.html">
+   12. Classes
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../markdown-notebooks.html">
+   13. Notebooks with MyST Markdown
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/ejohnson643/PythonTutorial"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/ejohnson643/PythonTutorial/issues/new?title=Issue%20on%20page%20%2Fdocs/00_Introduction/00_introduction.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../../_sources/docs/00_Introduction/00_introduction.md"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.md</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#what-is-a-programming-language">
+   1.1. What is a programming language?
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#why-python">
+   1.2. Why Python?
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#installing-python-and-jupyter">
+   1.3. Installing Python and Jupyter
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#no-anaconda-install">
+     1.3.1. No-Anaconda Install
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#how-to-use-python-jupyter-notebooks">
+   1.4. How to use Python: Jupyter Notebooks
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#jupyter-notebooks-from-the-command-line">
+     1.4.1. Jupyter notebooks from the command line
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#other-ways-to-use-python">
+     1.4.2. Other ways to use Python
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#final-introductory-notes">
+   1.5. Final Introductory Notes
+  </a>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Introduction</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#what-is-a-programming-language">
+   1.1. What is a programming language?
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#why-python">
+   1.2. Why Python?
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#installing-python-and-jupyter">
+   1.3. Installing Python and Jupyter
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#no-anaconda-install">
+     1.3.1. No-Anaconda Install
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#how-to-use-python-jupyter-notebooks">
+   1.4. How to use Python: Jupyter Notebooks
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#jupyter-notebooks-from-the-command-line">
+     1.4.1. Jupyter notebooks from the command line
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#other-ways-to-use-python">
+     1.4.2. Other ways to use Python
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#final-introductory-notes">
+   1.5. Final Introductory Notes
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <section class="tex2jax_ignore mathjax_ignore" id="introduction">
+<h1><span class="section-number">1. </span>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">#</a></h1>
+<p>As promised, for the purposes of this tutorial, I am going to assume no prior experience with computer programming, as these early steps are often a huge barrier to new programmers.  However, if you do have experience with programming, I hope that you will still read through this section as I will discuss some more high-level topics concerning programming and programming in Python specifically.</p>
+<p>In particular, I want to spend a moment answering the questions, “What even is a programming language?” and “How, specifically, in my computer, do I do stuff with Python?”  I personally found these to be an extremely difficult questions to find answers to when I was learning to program, as most introductory coding resources focus more on the coding than the “where do I even type the code?”  I will then present some details on how to start working in Python, including how to download and install it and how to open the programs that let you start coding.  I will also leave you with a few philosophical comments about programming before the tutorial will begin in earnest.</p>
+<p>I also want to note that my claim to expertise in writing this tutorial is solely that of a self-taught programmer who has been using Python for scientific work for over 10 years.  I also am a co-instructor of <a class="reference external" href="https://ejohnson643.github.io/WhatDoYourDataSay"><em>What Do Your Data Say?</em></a> at Northwestern University, and the first version of this tutorial was written for that course.  The current version is primarily dedicated toward improving student success in that course, particularly with respect to getting students quickly up to speed on attacking quantitative data sets.</p>
+<section id="what-is-a-programming-language">
+<h2><span class="section-number">1.1. </span>What is a programming language?<a class="headerlink" href="#what-is-a-programming-language" title="Permalink to this headline">#</a></h2>
+<p>For many people, interactions with computers are mediated through the use of <strong>applications</strong>, such as a web browser or a document editor.  These applications have been put together by a software company like Microsoft or Google and either came with your computer or you downloaded and installed them yourself.  In general, these applications are self-contained and are used to do one or a few things on your computer.  That is, Chrome and Firefox are for accessing the internet and Minecraft is for playing Minecraft, and you can’t play Minecraft or access the internet via Microsoft Word.</p>
+<p>These applications are essential for the modern use of computers and their development was a revolution in terms of how they allowed regular non-experts to efficiently use computers.  However, the fact that you can now use computers solely via applications means that the way that your computer really works is somewhat hidden.  In particular, the fact that your computer can really be directed to do <em>almost any task</em> is obscured by the way that we generally don’t think about doing things with our computer that don’t have an associated application.  And yet, new applications are constantly being created and disseminated by mysterious computer <em>programmers</em>, so how is it that they have access to more of a computer’s abilities than you do?</p>
+<div class="admonition-discussion admonition">
+<p class="admonition-title">Discussion</p>
+<p>Can you think of something you wish your computer could do but it currently cannot?</p>
+</div>
+<p>To understand this, it’s worth stating what a computer actually is; at its most basic, a computer is a pair of tools: a <em>processor</em> and some <em>storage</em>.  Storage is your hard drive, SDD, RAM, etc. - a collection of places in which the computer can <em>store</em> information, which it codes as 0’s and 1’s.  The processor then knows how to access, manipulate, move, and create these 0’s and 1’s in a set of operations that is determined by how the computer chip was designed.  In this way, any task that can be mapped to reading and writing information and then manipulating that information (which is a pretty broad class of things!) can be performed in some way by a computer.  Computer programmers can create new programs by stringing together stored information and processor-known operations in meaningful ways, such as to add two numbers or to search a database to find you a date!</p>
+<p>When programmers work directly with the 0’s and 1’s in storage they are constructing <strong>machine code</strong>, but this quickly becomes tedious for even simple tasks, so programming is often mediated by a <strong>programming language</strong> that acts as an intermediary between regular language “computer, please add 2 to 3” and binary operations to return “2 + 3 = 5”.  There are <a class="reference external" href="https://en.wikipedia.org/wiki/List_of_programming_languages">hundreds of programming languages</a>, including <a class="reference external" href="https://en.wikipedia.org/wiki/C_(programming_language)">C</a>, <a class="reference external" href="https://en.wikipedia.org/wiki/Fortran/">Fortran</a>, <a class="reference external" href="https://en.wikipedia.org/wiki/Java_(programming_language)">Java</a>, and of course <a class="reference external" href="https://www.python.org">Python</a>.  Each of these languages differ in what and how they can translate from “human” to binary, making them more or less useful in different circumstances.</p>
+<p>To be clear then, a programming language is a set of operations and protocols that can be combined and constructed into a <strong>computer program</strong> (a “code”) that can be fed to a computer such that the computer will execute machine code that does something.  What you will learn in this tutorial is how to write such programs and use Python to allow your computer to interpret your program and (eventually) do useful data analysis.  This structure of constructing a code that your computer can interpret is something that all programming languages have in common, but the actual execution of that process can differ greatly from language to language.  We want to learn to write these programs to “teach” our computer how to do new things that it couldn’t do before, such as visualize and analyze a novel data set.</p>
+</section>
+<section id="why-python">
+<h2><span class="section-number">1.2. </span>Why Python?<a class="headerlink" href="#why-python" title="Permalink to this headline">#</a></h2>
+<p>Now that we’ve tackled the larger question to determine that programming languages allow us to tell computers how to do new, interesting things, you may wonder why we would choose Python out of the hundreds of possible options!  There are several reasons, some practical, and some aesthetic that I recommend Python as the best language for working with data:</p>
+<ol class="simple">
+<li><p>Python is a <strong>versatile language</strong> that is used by programmers and scientists in a wide variety of fields.  This means that Python has a broad and robust community with many, many resources for its use and development.  This makes it easier to learn and use, but is also practical in that learning Python doesn’t pigeonhole you into a specific application.</p></li>
+<li><p>Python is <strong>free</strong>!  Unlike other programs for data analysis like MATLAB or SPSS, you will never lose access to programming in Python.</p></li>
+<li><p>Python was <strong>designed intentionally</strong> to have a specific user experience, which means that reading and writing Python code is easy compared to many other languages.  It also wasn’t designed with a specific application in mind, which is largely why it has been adopted and adapted into so many areas.</p></li>
+<li><p>As mentioned, Python has an <strong>active online community</strong>, which is facilitated by the ease with which Python packages (also called <strong>modules</strong>) can be shared between users.  As a result, it is a common experience for Python programmers to type <code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">my-problem</span></code> into Google in order to find that someone has written usable code to solve your problem!  Python itself is maintained by the non-profit <a class="reference external" href="https://www.python.org/psf">Python Software Foundation</a>.</p></li>
+<li><p>Python is an <strong>object-oriented language</strong>.  We’ll talk about this later, but this type of language has some advantages, especially in working with data.</p></li>
+<li><p>Python can be used both to write large applications that can be packaged up and sent to other people or as a quick interactive language via programs such as <a class="reference external" href="https://jupyter.org">Jupyter Notebooks</a>.  This means that Python can be used from the very early exploratory phases of a project through to the very end of a pipeline development (for example).  We’ll make exclusive use of Jupyter notebooks in this tutorial, and explain how they work shortly.</p></li>
+</ol>
+<p>Now that we’ve framed what we’re doing, let’s get to work!</p>
+</section>
+<section id="installing-python-and-jupyter">
+<h2><span class="section-number">1.3. </span>Installing Python and Jupyter<a class="headerlink" href="#installing-python-and-jupyter" title="Permalink to this headline">#</a></h2>
+<p>While Python is usually installed on Mac and Linux computers by default, we still recommend that Python beginners start by downloading the <a class="reference external" href="https://www.anaconda.com">Anaconda</a> data science platform, which will provide a more traditional, application-style interface for accessing Python and Jupyter.  To install this program, you can follow the instructions <a class="reference external" href="https://docs.anaconda.com/anaconda/install">here</a>.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>If at any point you find yourself being asked to chose a Python version, please choose <strong>Python 3</strong>.  If you are not asked, you are probably getting Python 3.</p>
+</div>
+<p>Depending on whether you are using a <a class="reference external" href="https://docs.anaconda.com/anaconda/install/windows">Windows</a> or <a class="reference external" href="https://docs.anaconda.com/anaconda/install/mac-os">Mac</a> computer (or <a class="reference external" href="https://docs.anaconda.com/anaconda/install/linux">Linux</a>!) you should follow the appropriate set of instructions.  For Windows and Mac, this should be a familiar process: download the installer and click next until it’s done.  You will be presented with options for changing where Anaconda will be installed and for how many users, but the defaults should work perfectly for most users.  At the end, the installer will ask you if you want to install <a class="reference external" href="https://www.jetbrains.com/pycharm">PyCharm</a>, which is an application for interacting with Python.  You can do so if you want, but it will not be used or discussed further in this tutorial.</p>
+<div class="admonition-windows-users admonition">
+<p class="admonition-title">Windows Users</p>
+<p>The installer will ask you if you want to “Register Anaconda3 as my default Python 3.7”.  Unless you know what you are doing, I would <strong>strongly suggest</strong> that you check this option.  (See image below.)</p>
+</div>
+<a class="reference internal image-reference" href="../../_images/win-install-options.png"><img alt="../../_images/win-install-options.png" class="align-center" src="../../_images/win-install-options.png" style="height: 400px;" /></a>
+<section id="no-anaconda-install">
+<h3><span class="section-number">1.3.1. </span>No-Anaconda Install<a class="headerlink" href="#no-anaconda-install" title="Permalink to this headline">#</a></h3>
+<p>If you do not want to use Anaconda in order to use Python, you have a few different options.  You can always download and install Python directly from <a class="reference external" href="https://www.python.org/downloads/">python.org</a> (making sure to get Python 3!) you can then install Jupyter by entering the following into the <a class="reference external" href="https://www.lifewire.com/how-to-open-command-prompt-2618089">Windows Command Prompt</a> or <a class="reference external" href="https://support.apple.com/guide/terminal/open-or-quit-terminal-apd5265185d-f365-44cb-8b09-71a064a42125/2.10/mac/10.15/">Mac/Linux Terminal</a>:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>upgrade<span class="w"> </span>pip
+</pre></div>
+</div>
+<p>This installs <a class="reference external" href="https://pypi.org/project/pip">pip</a>, the package installer for Python and makes sure it’s up to date.  You can then run</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>jupyter
+</pre></div>
+</div>
+<p>To install Jupyter notebooks.  You will have to access Jupyter notebooks from the Command Prompt/Terminal as explained below.</p>
+</section>
+</section>
+<section id="how-to-use-python-jupyter-notebooks">
+<h2><span class="section-number">1.4. </span>How to use Python: Jupyter Notebooks<a class="headerlink" href="#how-to-use-python-jupyter-notebooks" title="Permalink to this headline">#</a></h2>
+<p>As mentioned, there are a variety of ways that we can actually enter Python commands and feed them to our computer to do things, but one of the most popular is to use <a class="reference external" href="https://jupyter.org">Jupyter Notebooks</a>.  As you’ll see, these are interactive browser-based sessions that quickly allow you to start typing Python commands.</p>
+<p>If you installed Anaconda as recommended above, then you can open the <a class="reference external" href="https://docs.anaconda.com/anaconda/user-guide/getting-started/#open-navigator">Anaconda Navigator</a> where you will see a suite of data science applications like those in the image below.</p>
+<a class="reference internal image-reference" href="../../_images/AnacondaNavigator.png"><img alt="../../_images/AnacondaNavigator.png" class="align-center" src="../../_images/AnacondaNavigator.png" style="height: 500px;" /></a>
+<p>The Anaconda Navigator gives you a user interface to managing the Python packages available on your computer (via the Environments tab on the left) and to read the Python documentation (via the Learning tab).  You can learn more about <a class="reference external" href="https://docs.conda.io/projects/conda/en/latest/user-guide/concepts/environments.html">managing Anaconda environments</a> if you are iterested.</p>
+<p>However, what we’re interested in is the Jupyter Notebook tab, through which you can access Jupyter Notebooks.  To get started running Python on a Jupyter Notebook, you can follow the directions <a class="reference external" href="https://docs.anaconda.com/anaconda/user-guide/getting-started/#run-python-in-a-jupyter-notebook">here</a>, which basically say to click the “Launch” button.  The result, which should appear shortly in a web browser, will look something like this:</p>
+<a class="reference internal image-reference" href="../../_images/jupyter-dashboard.png"><img alt="../../_images/jupyter-dashboard.png" class="align-center" src="../../_images/jupyter-dashboard.png" style="height: 170px;" /></a>
+<p>This is the <a class="reference external" href="https://jupyter-notebook-beginner-guide.readthedocs.io/en/latest/what_is_jupyter.html#notebook-dashboard">Notebook Dashboard</a>, which is basically like <a class="reference external" href="https://en.wikipedia.org/wiki/File_Explorer">File Explorer</a> or <a class="reference external" href="https://en.wikipedia.org/wiki/Finder_(software)">Finder</a>, and probably opened in your <a class="reference external" href="https://www.pcmag.com/encyclopedia/term/home-directory">home directory</a>.  To make a new Jupyter notebook, you can use the “New” dropdown menu and select “Python 3,” which will look something like this:</p>
+<a class="reference internal image-reference" href="../../_images/getting-started_Jupyter.png"><img alt="../../_images/getting-started_Jupyter.png" class="align-center" src="../../_images/getting-started_Jupyter.png" style="height: 200px;" /></a>
+<p>As a reference for Jupyter basics, please bookmark <a class="reference external" href="https://jupyter-notebook.readthedocs.io/en/stable/examples/Notebook/Notebook%20Basics.html">this site</a>.</p>
+<section id="jupyter-notebooks-from-the-command-line">
+<h3><span class="section-number">1.4.1. </span>Jupyter notebooks from the command line<a class="headerlink" href="#jupyter-notebooks-from-the-command-line" title="Permalink to this headline">#</a></h3>
+<p>If you don’t want to use the Anaconda Navigator, to access Jupyter notebooks, either because you didn’t install it or you just don’t want to open it, you can use the <a class="reference external" href="https://docs.anaconda.com/anaconda/user-guide/getting-started/#optional-launch-spyder-or-jupyter-notebook-from-the-command-line">command line</a>.  This consists of opening Terminal (or the Anaconda Prompt/Command Prompt on Windows) and then entering <code class="docutils literal notranslate"><span class="pre">jupyter</span> <span class="pre">notebook</span></code>, which will automatically open your default web browser to the Notebook Dashboard.</p>
+</section>
+<section id="other-ways-to-use-python">
+<h3><span class="section-number">1.4.2. </span>Other ways to use Python<a class="headerlink" href="#other-ways-to-use-python" title="Permalink to this headline">#</a></h3>
+<p>As we noted earlier, you can use Python in several ways, where we’re prioritizing the Jupyter notebook for its flexibility and ease of use.</p>
+<ol>
+<li><p>You can  use Python as a scripting language, where you write Python commands in a <a class="reference external" href="http://cs.uky.edu/~keen/115/howto/howtomaketext.html">regular text file</a> with the <code class="docutils literal notranslate"><span class="pre">.py</span></code> extension.  You can do this in any <a class="reference external" href="https://en.wikipedia.org/wiki/List_of_text_editors">text editor</a>, such as <a class="reference external" href="https://en.wikipedia.org/wiki/Microsoft_Notepad">Notepad</a>, <a class="reference external" href="https://en.wikipedia.org/wiki/Emacs">Emacs</a>, <a class="reference external" href="https://en.wikipedia.org/wiki/Vi">Vi</a>, or my favorite, <a class="reference external" href="https://www.sublimetext.com">Sublime</a>.  (If you use Word or Pages, you will need to make sure to export your file as a “.txt” file and then manually change the ending from “.txt” to “.py”, so these programs are not recommended.)</p>
+<p>Once you have written your <strong>script</strong> (what files that contain programs are often called), you can then go to the command line and type <code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">my_prog.py</span></code> to execute the commands that you put into <code class="docutils literal notranslate"><span class="pre">my_prog.py</span></code>.  This sort of interface with Python works well if you have a long program that you want others to use as-is (or with limited inputs), as you will only need to share the <code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">my_prog.py</span></code> file with them.  This is also useful for writing <strong>modules</strong>, or libraries of custom Python functions that you can then <a class="reference external" href="https://docs.python.org/3/reference/simple_stmts.html#import"><code class="docutils literal notranslate"><span class="pre">import</span></code></a> into another Python program. (We’ll discuss this in <a class="reference internal" href="../03_Lists_Arrays/03_Lists_Arrays.html"><span class="doc std std-doc">Lists and Arrays</span></a>.)</p>
+<p>To summarize: you can open up a text editor and write Python commands and save it as a “.py” file.  Then you can execute these scripts in the command line to run the commands in order (you can also run these scripts in IPython and Jupyter!).  If you are writing a module, you can import these files as we’ll talk about in <a class="reference internal" href="../03_Lists_Arrays/03_Lists_Arrays.html"><span class="doc std std-doc">Lists and Arrays</span></a>.</p>
+</li>
+<li><p><strong>Interactively</strong> via <a class="reference external" href="https://ipython.org">IPython</a>, <a class="reference external" href="https://docs.anaconda.com/anaconda/user-guide/getting-started/#run-python-in-spyder-ide-integrated-development-environment">Spyder</a>, or <a class="reference external" href="https://www.jetbrains.com/pycharm">PyCharm</a>, which provide an interactive shell in which to type Python commands or run scripts, storing all the results that are created along the way.  Spyder in particular may be good for programmers who are used to MATLAB or RStudio’s <strong>Interactive Development Environments</strong> (IDEs).</p></li>
+</ol>
+<p>I point these other options out as references when you see someone online saying something like “put it in a script” or if you see someone talking about IDEs.  We won’t assume any familiarity with these other processes in this tutorial.</p>
+</section>
+</section>
+<section id="final-introductory-notes">
+<h2><span class="section-number">1.5. </span>Final Introductory Notes<a class="headerlink" href="#final-introductory-notes" title="Permalink to this headline">#</a></h2>
+<p>At this point you are probably ready to get a move on, but I want to make a few final notes about the process of programming.</p>
+<p>First, programming is a <em>creative</em> endeavor.  It requires imagination and diligence.  Good code is rarely written quickly or in one draft.  Contrary to what you might expect, there are rarely “right answers” when it comes to writing and structuring programs.  In particular, as a novice programmer, you should <strong>not</strong> preoccupy yourself with aesthetics and code efficiency.  If your code runs and <em>you know why it runs</em>, then you should be proud of yourself.  Thinking about coding in analogy to writing, it is often very useful to do things like outline your code (this is called <strong>pseudocode</strong>) or write your “thesis” (what you want your code to do) on a piece of paper and keep it next to you while you write.  Just as in writing an essay, the <em>precision</em> of your language will be important, although now logical precision will be more important than rhetorical.</p>
+<p>Second, and building on the first point, I find that coding is easier when I think about it in the context of <em>translation</em> as we noted earlier.  That is to say, not only am I writing an essay, but it needs to be <em>understandable to my computer</em> - the audience is my computer, not a person.  When structuring code, beginners are often tripped up because they omit steps that are obvious to a person, but need to be provided for your computer to get what’s going on.  This is also where pseudocode can be useful, as you can write down the steps and try to follow them yourself to see if they work as a program.</p>
+<p>Finally, the best advice that I can give you is to <strong>READ THE ERROR MESSAGE</strong>.  There will be error messages.  They are often colored red and can be quite scary looking.  However, they contain everything Python can tell you about something that is broken in your code, so it’s important to take the time to see what they say.</p>
+<p>With all this said, please proceed to <a class="reference internal" href="../01_HelloWorld/01_HelloWorld.html"><span class="doc std std-doc">the next section</span></a> to write your first Python program!</p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./docs/00_Introduction"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="../intro.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Welcome to <em>A Python Tutorial for Data Scientists!</em></p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="../01_HelloWorld/01_HelloWorld_Notebook.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">2. </span>Hello World!</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Eric Johnson, Ph.D.<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>

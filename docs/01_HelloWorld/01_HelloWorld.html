@@ -1,0 +1,637 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Hello World! &#8212; A Python Tutorial for Data Scientists</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../index.html">
+      
+      
+      
+      <h1 class="site-logo" id="site-title">A Python Tutorial for Data Scientists</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Welcome to A Python Tutorial for Data Scientists!
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Sections
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../00_Introduction/00_introduction.html">
+   1. Introduction
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="01_HelloWorld_Notebook.html">
+   2. Hello World!
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../02_Variables_DataTypes/02_Variables_DataTypes_Notebook.html">
+   3. Data in Python
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../02_Variables_DataTypes/Floats_to_Ints.html">
+     3.7. Converting floating-point numbers to integers
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../02_Variables_DataTypes/Everything_to_Boolean.html">
+     3.8. EVERYTHING TO BOOLEAN
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../03_Lists_Arrays/03_Lists_Arrays.html">
+   4. Lists and Arrays
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../04_Loops/04_Loops.html">
+   5. Loops
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../05_ConditionalStatements/05_ConditionalStatements.html">
+   6. Conditional Statements
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../06_Functions/06_Functions.html">
+   7. Functions
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../07_Plotting/07_Plotting.html">
+   8. Plotting
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../08_Loading_Writing/08_Loading_Writing.html">
+   9. Loading and Writing Data
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../09_Dictionaries/09_Dictionaries.html">
+   10. Dictionaries
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../10_RandomNumbers/10_RandomNumbers.html">
+   11. Random Numbers
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../11_Classes/11_Classes.html">
+   12. Classes
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../markdown-notebooks.html">
+   13. Notebooks with MyST Markdown
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/ejohnson643/PythonTutorial/main?urlpath=tree/docs/docs/01_HelloWorld/01_HelloWorld.md"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../../_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/ejohnson643/PythonTutorial"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/ejohnson643/PythonTutorial/issues/new?title=Issue%20on%20page%20%2Fdocs/01_HelloWorld/01_HelloWorld.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../../_sources/docs/01_HelloWorld/01_HelloWorld.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download notebook file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-code"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="../../_sources/docs/01_HelloWorld/01_HelloWorld.md"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.md</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#your-first-program">
+   Your first program
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#the-print-function">
+     The
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       print
+      </span>
+     </code>
+     function
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#python-as-a-calculator">
+   Python as a Calculator
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#exercise-2-1">
+   Exercise 2.1
+  </a>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Hello World!</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#your-first-program">
+   Your first program
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#the-print-function">
+     The
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       print
+      </span>
+     </code>
+     function
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#python-as-a-calculator">
+   Python as a Calculator
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#exercise-2-1">
+   Exercise 2.1
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <section class="tex2jax_ignore mathjax_ignore" id="hello-world">
+<h1>Hello World!<a class="headerlink" href="#hello-world" title="Permalink to this headline">#</a></h1>
+<p>To begin your Python journey, open a new Jupyter notebook, either from the <a class="reference external" href="https://docs.anaconda.com/anaconda/navigator">Anaconda Navigator</a> or from the <a class="reference external" href="https://docs.anaconda.com/anaconda/user-guide/getting-started/#optional-launch-spyder-or-jupyter-notebook-from-the-command-line">command line</a> (for beginners, I strongly recommend the Navigator).  Recall that once you have launched the Jupyter Notebook from the Anaconda Navigator (or command line), it will bring you to the Notebook Dashboard, where you can open a new notebook by selecting <code class="docutils literal notranslate"><span class="pre">New</span> <span class="pre">-&gt;</span> <span class="pre">Python</span> <span class="pre">3</span></code> from the dropdown menu on the top right.  Your new notebook should look something like this:</p>
+<a class="reference internal image-reference" href="../../_images/ExampleBlankNotebook.png"><img alt="../../_images/ExampleBlankNotebook.png" class="align-center" src="../../_images/ExampleBlankNotebook.png" style="height: 200px;" /></a>
+<p>If you have any additional questions, look <a class="reference external" href="https://jupyter-notebook.readthedocs.io/en/stable/examples/Notebook/Notebook%20Basics.html">here</a> or ask Google!</p>
+<section id="your-first-program">
+<h2>Your first program<a class="headerlink" href="#your-first-program" title="Permalink to this headline">#</a></h2>
+<p>To execute your first Python command, click on the grey box with a blue bar to the left as shown below.  This is known as a <strong>cell</strong>, and it is where you will enter your Python commands.</p>
+<a class="reference internal image-reference" href="../../_images/ExampleBlankNotebook_Cell.png"><img alt="../../_images/ExampleBlankNotebook_Cell.png" class="align-center" src="../../_images/ExampleBlankNotebook_Cell.png" style="height: 50px;" /></a>
+<p>In the cell, type <code class="docutils literal notranslate"><span class="pre">print(&quot;Hello</span> <span class="pre">World!&quot;)</span></code> and then hold <code class="docutils literal notranslate"><span class="pre">shift</span></code> and hit <code class="docutils literal notranslate"><span class="pre">enter</span></code> (or hit ⌘ + <code class="docutils literal notranslate"><span class="pre">enter</span></code> ).  You should now see:</p>
+<a class="reference internal image-reference" href="../../_images/MyFirstCommand_Jupyter.png"><img alt="../../_images/MyFirstCommand_Jupyter.png" class="align-center" src="../../_images/MyFirstCommand_Jupyter.png" style="height: 100px;" /></a>
+<p>Congratulations!  If all has gone well, you have now executed your first Python command and your computer has greeted the world!</p>
+<p>In some ways, this is all there is to programming: you type some commands, hit <code class="docutils literal notranslate"><span class="pre">shift</span> <span class="pre">+</span> <span class="pre">enter</span></code>, and something happens!  In Jupyter we use the cells to break up the code into chunks and we can execute those chunks independently.  We’ll explore this more shortly, but you should test this yourself by typing something else into the new cell that popped up (Try <code class="docutils literal notranslate"><span class="pre">print(&quot;Hello</span> <span class="pre">Computer!&quot;)</span></code>).</p>
+<p>The difficulty then comes in learning Python’s commands and syntax in order to put down code that means something.  The <a class="reference external" href="https://docs.python.org/3/library/functions.html#print"><code class="docutils literal notranslate"><span class="pre">print</span></code></a> command that you just entered is an example of a Python <strong>function</strong>.  Functions are ubiquitous in Python as they are how we wrap up useful actions like <a class="reference external" href="https://docs.python.org/3/library/functions.html#sum"><code class="docutils literal notranslate"><span class="pre">sum</span></code></a> to add up numbers or <a class="reference external" href="https://docs.python.org/3/library/functions.html#sorted"><code class="docutils literal notranslate"><span class="pre">sorted</span></code></a> to put items in order.  We’ll learn all about Python’s builtin functions and in <a class="reference internal" href="../06_Functions/06_Functions.html"><span class="doc std std-doc">section 7</span></a>, you will learn to write your own!</p>
+<p>In general, the syntax for a Python function is <code class="docutils literal notranslate"><span class="pre">func(args)</span></code>, where the function <code class="docutils literal notranslate"><span class="pre">func</span></code> takes in <code class="docutils literal notranslate"><span class="pre">args</span></code> as inputs.  The inputs to a function are called <strong>arguments</strong>, hence the name <code class="docutils literal notranslate"><span class="pre">args</span></code>.  The <code class="docutils literal notranslate"><span class="pre">func</span></code> function then does some prescribed actions involving <code class="docutils literal notranslate"><span class="pre">args</span></code> to do something.  The parentheses indicate that you are invoking <code class="docutils literal notranslate"><span class="pre">func</span></code> on the stuff inside the parentheses (<code class="docutils literal notranslate"><span class="pre">args</span></code>), and if you see this syntax - <code class="docutils literal notranslate"><span class="pre">something_new(some_stuff)</span></code>, for example - you can safely assume that <code class="docutils literal notranslate"><span class="pre">something_new</span></code> is a function.  This is your first introduction to Python’s <strong>syntax</strong>, i.e. its “grammar”, for how we tell it to do things.  Getting a handle on syntax is something that will come with time, but I’ll try to point it out whenever something new is happening.</p>
+<p>As a final note, another very useful function is the <code class="docutils literal notranslate"><span class="pre">help</span></code> function.  If you discover a new function, you can feed it to <code class="docutils literal notranslate"><span class="pre">help</span></code> as an input (<code class="docutils literal notranslate"><span class="pre">help(mystery_func)</span></code>) and the function’s <strong>documentation</strong> will be shown.  Part of the Python ethos is to strongly encourage documentation of everything, and there are <a class="reference external" href="https://www.python.org/dev/peps/pep-0008">guidelines</a> for how they should be written so that you can always follow along.</p>
+<section id="the-print-function">
+<h3>The <a class="reference external" href="https://docs.python.org/3/library/functions.html#print"><code class="docutils literal notranslate"><span class="pre">print</span></code></a> function<a class="headerlink" href="#the-print-function" title="Permalink to this headline">#</a></h3>
+<p>In the case of <code class="docutils literal notranslate"><span class="pre">print(&quot;Hello</span> <span class="pre">World!&quot;)</span></code>, the input is <code class="docutils literal notranslate"><span class="pre">&quot;Hello</span> <span class="pre">World!&quot;</span></code> and the <code class="docutils literal notranslate"><span class="pre">print</span></code> function “prints” the input to the screen, which is why we see <code class="docutils literal notranslate"><span class="pre">Hello</span> <span class="pre">World</span></code> below the first cell.  In general, Python does not display everything to the user, so the <a class="reference external" href="https://docs.python.org/3/library/functions.html#print"><code class="docutils literal notranslate"><span class="pre">print</span></code></a> function is a <strong>SUPER USEFUL</strong> way to keep track of what is going on in your code.  Throughout this tutorial, we will liberally use <a class="reference external" href="https://docs.python.org/3/library/functions.html#print"><code class="docutils literal notranslate"><span class="pre">print</span></code></a> to make sure that we know what is going on in our codes.</p>
+<p>As we’ll see shortly, Jupyter notebooks automatically “print” the last line of any cell, making <code class="docutils literal notranslate"><span class="pre">print</span></code> somewhat redundant, but since we’ll often want to look at more than one thing per cell, we’ll keep <a class="reference external" href="https://docs.python.org/3/library/functions.html#print"><code class="docutils literal notranslate"><span class="pre">print</span></code></a> at the top of the toolbox.</p>
+</section>
+</section>
+<section id="python-as-a-calculator">
+<h2>Python as a Calculator<a class="headerlink" href="#python-as-a-calculator" title="Permalink to this headline">#</a></h2>
+<p>Some of the most basic things that computers can do are to do basic arithmetic, and Python allows easy access to this computer-as-calculator power via the <strong>operations</strong> <code class="docutils literal notranslate"><span class="pre">+</span></code>, <code class="docutils literal notranslate"><span class="pre">-</span></code>, <code class="docutils literal notranslate"><span class="pre">*</span></code>, <code class="docutils literal notranslate"><span class="pre">/</span></code>, and <code class="docutils literal notranslate"><span class="pre">**</span></code>.  To see this in action, type and execute the following in a new cell:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="mi">2</span> <span class="o">+</span> <span class="mi">2</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="mi">4</span> <span class="o">-</span> <span class="mi">7</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="mi">7</span> <span class="o">*</span> <span class="mf">32.46</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="mi">3</span> <span class="o">/</span> <span class="mf">2.2</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="mi">3</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>4
+-3
+227.22
+1.3636363636363635
+9
+</pre></div>
+</div>
+</div>
+</div>
+<aside class="margin sidebar">
+<p class="sidebar-title"></p>
+<div class="admonition-discussion admonition">
+<p class="admonition-title">Discussion</p>
+<p>Try removing the <code class="docutils literal notranslate"><span class="pre">print</span></code> function and just entering <code class="docutils literal notranslate"><span class="pre">2+2</span></code>, for example.  What happens?</p>
+</div>
+</aside>
+<p>You should see the correct results of the addition, subtraction, multiplication, division, and exponentiation of these numbers.  Notice that Python has no problem with decimals or negative numbers.</p>
+<p>You can also use parentheses as we’re used to in algebra to indicate correct order of operations.  For example execute the following:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">((</span><span class="mi">2</span> <span class="o">+</span> <span class="mi">22</span><span class="p">)</span><span class="o">/</span><span class="mi">3</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="mi">2</span> <span class="o">+</span> <span class="mi">22</span><span class="o">/</span><span class="mi">3</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>8.0
+9.333333333333332
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now that we’ve explored the basic functionality of Jupyter notebooks and Python scripts, take a crack at the following exercises:</p>
+</section>
+<section id="exercise-2-1">
+<h2>Exercise 2.1<a class="headerlink" href="#exercise-2-1" title="Permalink to this headline">#</a></h2>
+<ol class="simple">
+<li><p>Use <a class="reference external" href="https://docs.python.org/3/library/functions.html#help"><code class="docutils literal notranslate"><span class="pre">help</span></code></a> to read the documentation for <a class="reference external" href="https://docs.python.org/3/library/functions.html#print"><code class="docutils literal notranslate"><span class="pre">print</span></code></a>.</p></li>
+<li><p>Select a notebook cell and hit <code class="docutils literal notranslate"><span class="pre">esc</span></code> to enter <a class="reference external" href="https://jupyter-notebook.readthedocs.io/en/stable/examples/Notebook/Notebook%20Basics.html#Command-mode">Command Mode</a> (the left edge of the cell should turn blue).  Hit <code class="docutils literal notranslate"><span class="pre">h</span></code> on your keyboard to bring up the keyboard shortcuts!  These are great shortcuts to improve your Jupyter experience.  The opposite of command mode is <a class="reference external" href="https://jupyter-notebook.readthedocs.io/en/stable/examples/Notebook/Notebook%20Basics.html#Edit-mode">Edit Mode</a> (the cell will have a green edge) and is where you can enter commands and run code.</p></li>
+<li><p>Use Python to compute the result of dividing 42 by the sum of 3.1415 and 1.618.  Also, square this result.  Make sure to print everything!</p></li>
+</ol>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./docs/01_HelloWorld"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Eric Johnson, Ph.D.<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>

@@ -1,0 +1,1268 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>3. Data in Python &#8212; A Python Tutorial for Data Scientists</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="3.7. Converting floating-point numbers to integers" href="Floats_to_Ints.html" />
+    <link rel="prev" title="2. Hello World!" href="../01_HelloWorld/01_HelloWorld_Notebook.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../index.html">
+      
+      
+      
+      <h1 class="site-logo" id="site-title">A Python Tutorial for Data Scientists</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Welcome to A Python Tutorial for Data Scientists!
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Sections
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../00_Introduction/00_introduction.html">
+   1. Introduction
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../01_HelloWorld/01_HelloWorld_Notebook.html">
+   2. Hello World!
+  </a>
+ </li>
+ <li class="toctree-l1 current active has-children">
+  <a class="current reference internal" href="#">
+   3. Data in Python
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Floats_to_Ints.html">
+     3.7. Converting floating-point numbers to integers
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Everything_to_Boolean.html">
+     3.8. EVERYTHING TO BOOLEAN
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../03_Lists_Arrays/03_Lists_Arrays_Notebook.html">
+   4. Lists and Arrays
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../04_Loops/04_Loops.html">
+   5. Loops
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../05_ConditionalStatements/05_ConditionalStatements.html">
+   6. Conditional Statements
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../06_Functions/06_Functions.html">
+   7. Functions
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../07_Plotting/07_Plotting.html">
+   8. Plotting
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../08_Loading_Writing/08_Loading_Writing.html">
+   9. Loading and Writing Data
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../09_Dictionaries/09_Dictionaries.html">
+   10. Dictionaries
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../10_RandomNumbers/10_RandomNumbers.html">
+   11. Random Numbers
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../11_Classes/11_Classes.html">
+   12. Classes
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../markdown-notebooks.html">
+   13. Notebooks with MyST Markdown
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/ejohnson643/PythonTutorial/main?urlpath=tree/docs/docs/02_Variables_DataTypes/02_Variables_DataTypes_Notebook.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../../_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/ejohnson643/PythonTutorial"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/ejohnson643/PythonTutorial/issues/new?title=Issue%20on%20page%20%2Fdocs/02_Variables_DataTypes/02_Variables_DataTypes_Notebook.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../../_sources/docs/02_Variables_DataTypes/02_Variables_DataTypes_Notebook.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#variables-in-python">
+   3.1. Variables in Python
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#a-few-notes-about-jupyter-notebooks">
+   3.2. A Few Notes about Jupyter Notebooks
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#a-few-notes-about-variable-names">
+   3.3. A Few Notes about Variable Names
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#exercise-3-1">
+   3.4. Exercise 3.1
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#python-data-types">
+   3.5. Python Data Types
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#integers-and-floats">
+     3.5.1. Integers and Floats
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#booleans">
+     3.5.2. Booleans
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#strings">
+     3.5.3. Strings
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#operations-with-strings">
+       3.5.3.1. Operations with Strings
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#special-characters">
+       3.5.3.2. Special Characters
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#string-formatting">
+       3.5.3.3. String Formatting
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#string-functions">
+       3.5.3.4. String Functions
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#converting-data-types">
+     3.5.4. Converting Data Types
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#exercise-3-2">
+   3.6. Exercise 3.2
+  </a>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Data in Python</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#variables-in-python">
+   3.1. Variables in Python
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#a-few-notes-about-jupyter-notebooks">
+   3.2. A Few Notes about Jupyter Notebooks
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#a-few-notes-about-variable-names">
+   3.3. A Few Notes about Variable Names
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#exercise-3-1">
+   3.4. Exercise 3.1
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#python-data-types">
+   3.5. Python Data Types
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#integers-and-floats">
+     3.5.1. Integers and Floats
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#booleans">
+     3.5.2. Booleans
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#strings">
+     3.5.3. Strings
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#operations-with-strings">
+       3.5.3.1. Operations with Strings
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#special-characters">
+       3.5.3.2. Special Characters
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#string-formatting">
+       3.5.3.3. String Formatting
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#string-functions">
+       3.5.3.4. String Functions
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#converting-data-types">
+     3.5.4. Converting Data Types
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#exercise-3-2">
+   3.6. Exercise 3.2
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <section class="tex2jax_ignore mathjax_ignore" id="data-in-python">
+<h1><span class="section-number">3. </span>Data in Python<a class="headerlink" href="#data-in-python" title="Permalink to this headline">#</a></h1>
+<p>Now that you’ve entered your <a class="reference internal" href="../01_HelloWorld/01_HelloWorld.html"><span class="doc std std-doc">first Python commands</span></a> you’re completely prepared to do practical things in Python!  <a class="reference external" href="https://jupyter-notebook-beginner-guide.readthedocs.io/en/latest/execute.html">Open a new notebook</a> and follow along.  Again, as a reminder, coding is a <em>creative</em> process so make sure to <strong>type everything</strong> that you see on this page!  (If not more!)</p>
+<p>In this section of the tutorial, we’re going to talk about how we can use <strong>variables</strong> in our code as containers to hold data.  We’ll then talk about the different kinds, or <strong>types</strong>, of data that Python can work with and how the type of data that a variable holds determines what we can do with it.  We’ll then discuss many of the useful and interesting things that you can do with Python’s basic data types.</p>
+<section id="variables-in-python">
+<h2><span class="section-number">3.1. </span>Variables in Python<a class="headerlink" href="#variables-in-python" title="Permalink to this headline">#</a></h2>
+<p>We noted in the <a class="reference internal" href="../01_HelloWorld/01_HelloWorld.html"><span class="doc std std-doc">previous section</span></a> that Python can act most trivially as a calculator.  Of course, if this were all that Python could do, it would not be a very useful language!  Instead, the way that Python and most other programming languages move beyond simple operations is via the use of <strong>variables</strong>, which allow us to store and manipulate data more abstractly.</p>
+<p>These variables operate very similar to the variables you may know from algebra: they are symbols that stand for a specific piece of data, and they can be manipulated abstractly (ignoring the specific values of the data) or evaluated explicitly (plugging in the data values).  Thinking of variables as analogous to those in math class can be useful.</p>
+<p>In Python, we <strong>assign</strong> data to a variable using the assignment operator <code class="docutils literal notranslate"><span class="pre">=</span></code>.  For example, the following code assigns the value 2 to the variable <code class="docutils literal notranslate"><span class="pre">x</span></code>.</p>
+<div class="cell tag_hide-output docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="mi">2</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Once you have executed this code (<code class="docutils literal notranslate"><span class="pre">shift</span> <span class="pre">+</span> <span class="pre">enter</span></code> in the Jupyter cell), Python will now look at the symbol <code class="docutils literal notranslate"><span class="pre">x</span></code> and think to itself “2”.  To see this, in a new cell type <code class="docutils literal notranslate"><span class="pre">print(x)</span></code>.  The output will not be “x”, but <code class="docutils literal notranslate"><span class="pre">2</span></code>!</p>
+<p>You can create as many variables as you want, and as long as they have different names (more on naming in a minute), Python will keep track of each of them.  For example, let’s set <code class="docutils literal notranslate"><span class="pre">var2</span> <span class="pre">=</span> <span class="pre">5</span></code>.  (Print <code class="docutils literal notranslate"><span class="pre">var2</span></code> and verify that it returns 5.)</p>
+<p>What is exciting about all of this then is that we can operate on these variables and Python will operate on the underlying data as if we had only supplied that data!  For example, execute the following commands:</p>
+<div class="cell tag_hide-output docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">y</span> <span class="o">=</span> <span class="mi">12</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">y</span> <span class="o">+</span> <span class="mi">3</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">x</span> <span class="o">+</span> <span class="n">y</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>4
+15
+14
+</pre></div>
+</div>
+</div>
+</div>
+<p>We can also use variables to assign new variables:</p>
+<div class="cell tag_hide-output docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x_times_var2</span> <span class="o">=</span> <span class="n">x</span> <span class="o">*</span> <span class="n">var2</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">x_times_var2</span> <span class="o">=</span> <span class="n">x</span> <span class="o">*</span> <span class="n">var2</span>
+
+<span class="ne">NameError</span>: name &#39;var2&#39; is not defined
+</pre></div>
+</div>
+</div>
+</div>
+<p>What is the value of <code class="docutils literal notranslate"><span class="pre">x_times_var2</span></code>?</p>
+<p>You can also use variables to update the value to which they have been assigned.  Type the following into a new cell:</p>
+<div class="cell tag_hide-output docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Before self-assignment:&quot;</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="mi">2</span> <span class="c1">## What is happening here!?</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;After self-assignment:&quot;</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Before self-assignment: 2
+After self-assignment: 4
+</pre></div>
+</div>
+</div>
+</div>
+<aside class="margin sidebar">
+<p class="sidebar-title"></p>
+<div class="admonition-new-syntax admonition">
+<p class="admonition-title">New Syntax!</p>
+<p>Notice the new syntax for <a class="reference external" href="https://docs.python.org/3/library/functions.html#print"><code class="docutils literal notranslate"><span class="pre">print</span></code></a> in the example above.  Try removing the commas between <code class="docutils literal notranslate"><span class="pre">&quot;...assignment:&quot;</span></code> and <code class="docutils literal notranslate"><span class="pre">x</span></code>.  What happens?</p>
+</div>
+</aside>
+<p>The value of <code class="docutils literal notranslate"><span class="pre">x</span></code> has been used to assign a new value to <code class="docutils literal notranslate"><span class="pre">x</span></code>!  What happens if you run this cell again?  Return to the earlier cell where you typed only <code class="docutils literal notranslate"><span class="pre">print(x)</span></code>, what is the output?  What you should see is that when you reassigned the value of <code class="docutils literal notranslate"><span class="pre">x</span></code>, this change is propagated in the Python code <em>everywhere</em>.  This can make things tricky, so we’ll make some quick notes about variables and working in Jupyter in just a moment.</p>
+<p>As a final introductory point on creating variables, please type <code class="docutils literal notranslate"><span class="pre">print(my_favorite_variable)</span></code> into a new cell and execute it.  You should now see an angry <strong>error message</strong>!</p>
+<div class="cell tag_raises-exception docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">my_favorite_variable</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">5</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="nb">print</span><span class="p">(</span><span class="n">my_favorite_variable</span><span class="p">)</span>
+
+<span class="ne">NameError</span>: name &#39;my_favorite_variable&#39; is not defined
+</pre></div>
+</div>
+</div>
+</div>
+<p>Once you have overcome the shape of the odd message that Python has regurgitated, I ask that you read the last line: <code class="docutils literal notranslate"><span class="pre">NameError:</span> <span class="pre">name</span> <span class="pre">'my_favorite_variable'</span> <span class="pre">is</span> <span class="pre">not</span> <span class="pre">defined</span></code>.  This is Python telling you that there’s been an error with a variable <em>name</em> (hence the <code class="docutils literal notranslate"><span class="pre">NameError</span></code>).  Specifically, <code class="docutils literal notranslate"><span class="pre">my_favorite_variable</span></code> “is not defined”! This is because at no point in our notebook have we <em>defined</em> the <code class="docutils literal notranslate"><span class="pre">my_favorite_variable</span></code> variable by assigning data to it!  Try running <code class="docutils literal notranslate"><span class="pre">my_favorite_variable</span> <span class="pre">=</span> <span class="pre">&quot;This</span> <span class="pre">exists!&quot;</span></code> and then printing.  The error message disappears!  This is your first (guided) experience with error messages, but we will continue to practice parsing them.  Your take-away here should be that the last line of the error message gives the most direct reason why some code cannot run as you have written.</p>
+<p>So, now that we know we have to <em>define</em> variables in order to use them in later pieces of code, and we know how to perform variable assignment in simple ways, it’s time to make a few overarching comments about working in Jupyter and naming variables.</p>
+</section>
+<section id="a-few-notes-about-jupyter-notebooks">
+<h2><span class="section-number">3.2. </span>A Few Notes about Jupyter Notebooks<a class="headerlink" href="#a-few-notes-about-jupyter-notebooks" title="Permalink to this headline">#</a></h2>
+<ol>
+<li><p>You have already seen this, but once a cell has been executed, any variables that have been assigned or updated in that cell have also been assigned or updated in the workspace of <em>all other cells</em> in the notebook <em>even those above</em> that cell!  As a result, it is strongly recommended that your logical flow move downward through the notebook.  Use the print function <em>liberally</em> to make sure everything is working as you expect (you can always delete them once you’re sure everything’s ok).</p></li>
+<li><p>Sometimes, thing will break or become confusing or messy.  Or maybe you’re not sure whether you’ve defined a variable correctly above or below a new cell.  In this case, you should turn to the <strong>Kernel</strong> menu at the top toolbar.  There you will see several very useful options, especially <strong>interrupt</strong> and <strong>restart</strong>.  If something is taking too long (or forever), you can use interrupt to stop Python from continuing to execute, <em>interrupting</em> Python wherever it currently is in your code.  Less drastically, but also useful, you can use restart and its variants to clear away everything you’ve done and start the notebook over in terms of variable assignments but while keeping the code you’ve written.  This is a good way to make sure that your logical flow works (restart &amp; run all) or to clean up your notebook before sharing (please do this before turning in notebooks for homework!).</p>
+<aside class="margin sidebar">
+<p class="sidebar-title"></p>
+<div class="admonition-pro-tip admonition">
+<p class="admonition-title">Pro-Tip</p>
+<p>You can comment or uncomment many lines at once by selecting them with your mouse and then entering <code class="docutils literal notranslate"><span class="pre">cmd</span> <span class="pre">+</span> <span class="pre">/</span></code>  or  ⌘ + <code class="docutils literal notranslate"><span class="pre">/</span></code>.  (Try this out for yourself!)  As a result of this, I often use a double <code class="docutils literal notranslate"><span class="pre">##</span></code> to indicate descriptive comments that I don’t accidentally want to uncover with ⌘ + <code class="docutils literal notranslate"><span class="pre">/</span></code>, but this is not necessary.</p>
+</div>
+</aside>
+</li>
+<li><p>In the cell containing <code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">=</span> <span class="pre">x</span> <span class="pre">+</span> <span class="pre">2</span></code>, I also asked you to type <code class="docutils literal notranslate"><span class="pre">##</span> <span class="pre">What</span> <span class="pre">is</span> <span class="pre">happening</span> <span class="pre">here!?</span></code>  This is known as a <strong>comment</strong>, where you can use anything to the right of a <code class="docutils literal notranslate"><span class="pre">#</span></code> to provide a text annotation of what your code is doing.  Comments do not affect how your code runs, but they are <strong>imperative</strong> for how your code is used, both by others and your <em>future</em> self.  You can also use them while working through broken code to discover bugs by “commenting out” lines of code by placing a <code class="docutils literal notranslate"><span class="pre">#</span></code> at the beginning of the lines and then “uncommenting” them one by one until you find the part that’s breaking.  This is how commenting works in Python, and is not unique to Jupyter.</p></li>
+</ol>
+</section>
+<section id="a-few-notes-about-variable-names">
+<h2><span class="section-number">3.3. </span>A Few Notes about Variable Names<a class="headerlink" href="#a-few-notes-about-variable-names" title="Permalink to this headline">#</a></h2>
+<p>With a few exceptions, you can use any set of connected alphanumeric characters (and the underscore, <code class="docutils literal notranslate"><span class="pre">_</span></code>) to name your variables.  As a result, you may be tempted to use <code class="docutils literal notranslate"><span class="pre">x</span></code> and <code class="docutils literal notranslate"><span class="pre">y</span></code> as in math class.  This is not advised!  The flexibility of variable names means that you should err on the side of <em>descriptiveness</em> over brevity.  If you are calculating the length of bird’s beaks, name your variable <code class="docutils literal notranslate"><span class="pre">beak_lens</span></code>.  If you calculate the mean, save it as <code class="docutils literal notranslate"><span class="pre">mean_beak_len</span></code>.  This may seem tedious, but space (in memory and on the screen) is cheap, and the description will help you and others know what your code is doing.  Furthermore, Jupyter (and many other Python IDEs) have <strong>tab-completion</strong> meaning that at any point in typing you can hit the <code class="docutils literal notranslate"><span class="pre">tab</span></code> button and a drop-down menu will populate with variables and functions that could complete the word you’ve already started, meaning that long variables take just as long as short ones!  (This also greatly diminishes typos!)</p>
+<p>The only real constraint you might encounter on variable names are that they can’t contain non-alphanumeric characters or the underscore (A-Z, a-z, 0-9, and <code class="docutils literal notranslate"><span class="pre">_</span></code> only) and that they can’t start with a number.  (You <em>can</em> start a variable with <code class="docutils literal notranslate"><span class="pre">_</span></code>.  In Python it is convention that variables that start with an underscore are <strong>private</strong> variables, which are not meant to be accessed by an end user.  You don’t need to worry about this, I just want to point it out in case you see such a variable.)</p>
+<p>Variable names are <strong>case-sensitive</strong>!  <code class="docutils literal notranslate"><span class="pre">Var</span></code> is different from <code class="docutils literal notranslate"><span class="pre">var</span></code> is different from <code class="docutils literal notranslate"><span class="pre">vAR</span></code> is different from <code class="docutils literal notranslate"><span class="pre">VAR</span></code>.  As a result, don’t use capitalization to distinguish variables!  It will quickly become very confusing!  (Similarly, don’t use <code class="docutils literal notranslate"><span class="pre">var1</span></code>, <code class="docutils literal notranslate"><span class="pre">var2</span></code>, <code class="docutils literal notranslate"><span class="pre">var3</span></code>, etc.  You will quickly forget what they all are!)</p>
+<p>The other main exception to variable names is that you shouldn’t give variables names that already correspond to Python functions, like <code class="docutils literal notranslate"><span class="pre">print</span></code>.  To see why, type the following:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span> <span class="o">=</span> <span class="mi">43</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">print</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>You should get a <code class="docutils literal notranslate"><span class="pre">TypeError:</span> <span class="pre">'int'</span> <span class="pre">object</span> <span class="pre">is</span> <span class="pre">not</span> <span class="pre">callable</span></code>.  This is telling you that you have tried to “call” a function (<code class="docutils literal notranslate"><span class="pre">print</span></code>) but that <code class="docutils literal notranslate"><span class="pre">print</span></code> is now an “<code class="docutils literal notranslate"><span class="pre">int</span></code>” object that cannot be called!  (Python designates functions “callable” because you can “call” on them to do something.)  This is because you just said <code class="docutils literal notranslate"><span class="pre">print</span> <span class="pre">=</span> <span class="pre">43</span></code> - you’ve assigned <code class="docutils literal notranslate"><span class="pre">print</span></code> to be the number 43 - so it no longer corresponds to the Python function of printing values to the screen.  This shouldn’t come up too often, but the error message is opaque enough that you should be warned!</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>You will have to restart your kernel after this if you want to use <code class="docutils literal notranslate"><span class="pre">print</span></code> anymore!  (Kernel -&gt; Restart)</p>
+</div>
+</section>
+<section id="exercise-3-1">
+<h2><span class="section-number">3.4. </span>Exercise 3.1<a class="headerlink" href="#exercise-3-1" title="Permalink to this headline">#</a></h2>
+<p>Now that we’ve given you an overview of what variables are and how we can and can’t (and should and shouldn’t) assign them, give these exercises a whirl!</p>
+<ol class="simple">
+<li><p>Create two variables assigned to your favorite numbers.  Use these two variables to create another new variable <code class="docutils literal notranslate"><span class="pre">num1_times_num2</span></code> that contains their product.</p></li>
+<li><p>Calculate the <em>average</em> of your favorite numbers and save it as a new variable, <code class="docutils literal notranslate"><span class="pre">my_favorite_sum</span></code>.  Print your favorite numbers and this average with a description using the <code class="docutils literal notranslate"><span class="pre">print(&quot;My</span> <span class="pre">message</span> <span class="pre">goes</span> <span class="pre">here&quot;,</span> <span class="pre">my_var)</span></code> syntax.</p></li>
+<li><p>Implement the compound interest formula below in a cell <strong>without defining any variables</strong>.</p></li>
+</ol>
+<div class="math notranslate nohighlight">
+\[A = P\left(1 + \frac{r}{n}\right)^{nt}\]</div>
+<p>That is, your cell should just have</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">A</span> <span class="o">=</span> <span class="n">some_operations_involving</span> <span class="n">P</span><span class="p">,</span> <span class="n">r</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">t</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Execute the cell to get a <code class="docutils literal notranslate"><span class="pre">NameError</span></code>.  Which variable is said to be undefined?</p>
+<p>Add a new cell above the cell containing your formula (Hint: look at the <a class="reference external" href="https://jupyter-notebook.readthedocs.io/en/stable/examples/Notebook/Notebook%20Basics.html#Command-mode">Command mode</a> shortcuts) and execute:</p>
+<div class="cell tag_hide-output docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">P</span> <span class="o">=</span> <span class="mi">1000</span> <span class="c1">## Principal (in dollars)</span>
+<span class="n">r</span> <span class="o">=</span> <span class="mf">0.07</span> <span class="c1">## A great interest rate!</span>
+<span class="n">n</span> <span class="o">=</span> <span class="mi">12</span>   <span class="c1">## Compounded monthly</span>
+<span class="n">t</span> <span class="o">=</span> <span class="mi">5</span>    <span class="c1">## Years invested</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Use <code class="docutils literal notranslate"><span class="pre">A</span></code> and <code class="docutils literal notranslate"><span class="pre">P</span></code> to verify that you will have made over $400 on your investment!  That is, print out (with a descriptive message) exactly how much your investment has <em>increased</em>, not just the final amount, <code class="docutils literal notranslate"><span class="pre">A</span></code>.</p>
+</section>
+<section id="python-data-types">
+<h2><span class="section-number">3.5. </span>Python Data Types<a class="headerlink" href="#python-data-types" title="Permalink to this headline">#</a></h2>
+<p>At this point, we’ve mostly been working with numbers, but part of Python’s versatility is that it has the capability to work with arbitrary kinds of data, which are called <strong>types</strong>.  Python has several <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html">built-in types</a>, which we’ll discuss in turn, but eventually when you learn about classes, you will see how you can effectively make Python work for arbitrary data structures.  (This is because Python is <em>object-oriented</em>, but we’ll unpack that more later.)</p>
+<p>While this may not seem super crucial to know about right away, in Python it is important to know about data types because Python can do <strong>different things with different types</strong>.  That is, depending on the data type, Python will know automatically how to apply the  <code class="docutils literal notranslate"><span class="pre">+</span></code> operation, but for other types it will not.  We’ll show how this makes sense as we go through the main Python types and explore their capabilities.</p>
+<p>The four basic Python types are:</p>
+<ol class="simple">
+<li><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#text-sequence-type-str">Strings</a> - “strings” of alpha-numeric characters</p></li>
+<li><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#numeric-types-int-float-complex">Integers</a> - self-explanatory, includes positive and negative integers</p></li>
+<li><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#numeric-types-int-float-complex">Floats</a> - “floating-point numbers”, or how computers store decimal numbers</p></li>
+<li><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#boolean-values">Booleans</a> - binary true or false variables.</p></li>
+</ol>
+<p>To check what type a variable is, you can apply the <a class="reference external" href="https://docs.python.org/3/library/functions.html#type"><code class="docutils literal notranslate"><span class="pre">type</span></code></a> function.  Execute the following to see:</p>
+<div class="cell tag_hide-output docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">string</span> <span class="o">=</span> <span class="s2">&quot;Hello World!&quot;</span>     <span class="c1">## Notice the quotation marks!</span>
+<span class="n">integer</span> <span class="o">=</span> <span class="mi">9</span>                 <span class="c1">## Notice the LACK of a decimal</span>
+<span class="n">floating_point</span> <span class="o">=</span> <span class="mf">3.1415926</span>
+<span class="n">boolean</span> <span class="o">=</span> <span class="kc">True</span>              <span class="c1">## The options are True and False</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">string</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">string</span><span class="p">))</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">integer</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">integer</span><span class="p">))</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">floating_point</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">floating_point</span><span class="p">))</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">boolean</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">boolean</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Hello World!
+&lt;class &#39;str&#39;&gt;
+9
+&lt;class &#39;int&#39;&gt;
+3.1415926
+&lt;class &#39;float&#39;&gt;
+True
+&lt;class &#39;bool&#39;&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<p>If you ever receive a <code class="docutils literal notranslate"><span class="pre">TypeError</span></code>, it is, somewhat expectedly, an error arising from something being the wrong type!  We saw this earlier when we tried to treat an integer as a function - integers can’t be “called”, so it caused a <code class="docutils literal notranslate"><span class="pre">TypeError</span></code>.</p>
+<section id="integers-and-floats">
+<h3><span class="section-number">3.5.1. </span>Integers and Floats<a class="headerlink" href="#integers-and-floats" title="Permalink to this headline">#</a></h3>
+<p>You’ve already seen variables holding these data types in action, and they largely operate as you’d expect.  We only note that because computers have finite memory, they can only store numbers to a finite precision.  Typically, Python uses 32 <a class="reference external" href="https://en.wikipedia.org/wiki/Bit">bits</a> to store integers, meaning that the integer type can represent any integer from <span class="math notranslate nohighlight">\(-2^{31}\)</span> to <span class="math notranslate nohighlight">\(2^{31}-1\)</span> because it has one bit to indicate whether the integer is positive or negative and then 31 leftover 0’s and 1’s.  Similarly, floats use 64 bits, so that they can represet <span class="math notranslate nohighlight">\(2^{64}\)</span> numbers between <span class="math notranslate nohighlight">\(\pm 6.02\times 10^{23}\)</span>.  As a result, there are some (most) decimals that cannot be perfectly represented by your computer, which can result in <a class="reference external" href="https://mathworld.wolfram.com/RoundoffError.html">roundoff error</a>, which can be a big problem in numerical calculations.  In practice, this means that you might see that Python returns 0.30000000000000004 when you enter <code class="docutils literal notranslate"><span class="pre">print(3</span> <span class="pre">*</span> <span class="pre">0.1)</span></code> instead of 0.3, as you hoped.  This error is <span class="math notranslate nohighlight">\(4\times 10^{-16}\)</span>, which can be negigible in most applications.</p>
+</section>
+<section id="booleans">
+<h3><span class="section-number">3.5.2. </span>Booleans<a class="headerlink" href="#booleans" title="Permalink to this headline">#</a></h3>
+<p>These are perhaps the most straightforward data type: they are either <code class="docutils literal notranslate"><span class="pre">True</span></code> or <code class="docutils literal notranslate"><span class="pre">False</span></code>.  We’ll see that these can be very useful in selecting data that meet certain conditions, so we’ll take care to explain how booleans operate in comparison to other types later.  Briefly however, consider the following code:</p>
+<div class="cell tag_hide-output tag_raises-exception docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">truth</span> <span class="o">=</span> <span class="kc">True</span>
+<span class="n">falsehood</span> <span class="o">=</span> <span class="kc">False</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">truth</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">falsehood</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">truth</span> <span class="o">+</span> <span class="n">falsehood</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">truth</span> <span class="o">-</span> <span class="n">falsehood</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">truth</span> <span class="o">*</span> <span class="n">falsehood</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">truth</span> <span class="o">**</span> <span class="n">falsehood</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">truth</span> <span class="ow">and</span> <span class="n">falsehood</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">truth</span> <span class="ow">or</span> <span class="n">falsehood</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">truth</span> <span class="ow">and</span> <span class="p">(</span><span class="n">truth</span> <span class="ow">or</span> <span class="n">falsehood</span><span class="p">))</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">truth</span> <span class="o">/</span> <span class="n">falsehood</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
+False
+1
+1
+0
+1
+False
+True
+True
+</pre></div>
+</div>
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ZeroDivisionError</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">8</span><span class="p">],</span> <span class="n">line</span> <span class="mi">16</span>
+<span class="g g-Whitespace">     </span><span class="mi">13</span> <span class="nb">print</span><span class="p">(</span><span class="n">truth</span> <span class="ow">or</span> <span class="n">falsehood</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">14</span> <span class="nb">print</span><span class="p">(</span><span class="n">truth</span> <span class="ow">and</span> <span class="p">(</span><span class="n">truth</span> <span class="ow">or</span> <span class="n">falsehood</span><span class="p">))</span>
+<span class="ne">---&gt; </span><span class="mi">16</span> <span class="nb">print</span><span class="p">(</span><span class="n">truth</span> <span class="o">/</span> <span class="n">falsehood</span><span class="p">)</span>
+
+<span class="ne">ZeroDivisionError</span>: division by zero
+</pre></div>
+</div>
+</div>
+</div>
+<p>The output might not make sense right now, but make sure to read the error message at the end!  Notice that we introduced the new operations <code class="docutils literal notranslate"><span class="pre">and</span></code> and <code class="docutils literal notranslate"><span class="pre">or</span></code>.  What do they seem to do?</p>
+</section>
+<section id="strings">
+<h3><span class="section-number">3.5.3. </span>Strings<a class="headerlink" href="#strings" title="Permalink to this headline">#</a></h3>
+<p>The most nuanced of our basic data types are <strong>strings</strong>, which are sets of characters that we enclose with either single (<code class="docutils literal notranslate"><span class="pre">'</span></code>) or double (<code class="docutils literal notranslate"><span class="pre">&quot;</span></code>) quotation marks.  We did this in the earlier example with  <code class="docutils literal notranslate"><span class="pre">string</span> <span class="pre">=</span> <span class="pre">&quot;Hello</span> <span class="pre">World!&quot;</span></code>, but we can also use one type of quotation mark to enclose a string containing the other.  For example:</p>
+<div class="cell tag_hide-output docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">quote</span> <span class="o">=</span> <span class="s2">&quot;Harold Abelson once said, &#39;Programs must be written for people to read.&#39;&quot;</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">quote</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Harold Abelson once said, &#39;Programs must be written for people to read.&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<p>The start and end quotation marks must match, however:</p>
+<div class="cell tag_raises-exception docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">errorful_string</span> <span class="o">=</span> <span class="s2">&quot;This is a bad string&#39;</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span>  <span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">10</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+    <span class="n">errorful_string</span> <span class="o">=</span> <span class="s2">&quot;This is a bad string&#39;</span>
+                      <span class="o">^</span>
+<span class="ne">SyntaxError</span>: unterminated string literal (detected at line 1)
+</pre></div>
+</div>
+</div>
+</div>
+<p>Take the time to read this message!  Why does this cause a <code class="docutils literal notranslate"><span class="pre">SyntaxError</span></code>?</p>
+<section id="operations-with-strings">
+<h4><span class="section-number">3.5.3.1. </span>Operations with Strings<a class="headerlink" href="#operations-with-strings" title="Permalink to this headline">#</a></h4>
+<p>Strings are an interesting data type because they really show how type dictates output in Python.  For example, try the following (remember to try commenting out lines that throw errors to move on in a program):</p>
+<div class="cell tag_hide-output tag_raises-exception docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">string1</span> <span class="o">=</span> <span class="s2">&quot;This and&quot;</span>
+<span class="n">string2</span> <span class="o">=</span> <span class="s1">&#39;that&#39;</span>
+<span class="n">number1</span> <span class="o">=</span> <span class="mi">4</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">string1</span><span class="p">,</span> <span class="n">string2</span><span class="p">,</span> <span class="n">number1</span><span class="p">)</span> <span class="c1">## NOTE NEW SYNTAX</span>
+
+<span class="n">string3</span> <span class="o">=</span> <span class="n">string1</span> <span class="o">+</span> <span class="n">string2</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">string3</span><span class="p">)</span>
+
+<span class="n">string4</span> <span class="o">=</span> <span class="n">string1</span> <span class="o">-</span> <span class="n">string2</span>   <span class="c1">## COMMENT THIS OUT IF IT DOESN&#39;T WORK</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">string4</span><span class="p">)</span>                <span class="c1">## What does it mean to &quot;subtract&quot; two</span>
+                              <span class="c1">## strings anyways?</span>
+
+<span class="n">string_plus_int</span> <span class="o">=</span> <span class="n">string2</span> <span class="o">+</span> <span class="n">number1</span> <span class="c1">## Does this work?</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">string_plus_int</span><span class="p">)</span>
+
+<span class="n">string_times_int</span> <span class="o">=</span> <span class="n">string2</span> <span class="o">*</span> <span class="n">number1</span> <span class="c1">## Does this work?</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">string_times_int</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>This and that 4
+This andthat
+</pre></div>
+</div>
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">TypeError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">11</span><span class="p">],</span> <span class="n">line</span> <span class="mi">9</span>
+<span class="g g-Whitespace">      </span><span class="mi">6</span> <span class="n">string3</span> <span class="o">=</span> <span class="n">string1</span> <span class="o">+</span> <span class="n">string2</span>
+<span class="g g-Whitespace">      </span><span class="mi">7</span> <span class="nb">print</span><span class="p">(</span><span class="n">string3</span><span class="p">)</span>
+<span class="ne">----&gt; </span><span class="mi">9</span> <span class="n">string4</span> <span class="o">=</span> <span class="n">string1</span> <span class="o">-</span> <span class="n">string2</span>   <span class="c1">## COMMENT THIS OUT IF IT DOESN&#39;T WORK</span>
+<span class="g g-Whitespace">     </span><span class="mi">10</span> <span class="nb">print</span><span class="p">(</span><span class="n">string4</span><span class="p">)</span>                <span class="c1">## What does it mean to &quot;subtract&quot; two</span>
+<span class="g g-Whitespace">     </span><span class="mi">11</span>                               <span class="c1">## strings anyways?</span>
+
+<span class="ne">TypeError</span>: unsupported operand type(s) for -: &#39;str&#39; and &#39;str&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<p>What you will see above is that you can concatenate strings with the <code class="docutils literal notranslate"><span class="pre">+</span></code> operator and you can multiply a string by an integer to produce a string containing <code class="docutils literal notranslate"><span class="pre">integer</span></code> multiples of the string!  This is definitely different from how those operators worked on integers!</p>
+</section>
+<section id="special-characters">
+<h4><span class="section-number">3.5.3.2. </span>Special Characters<a class="headerlink" href="#special-characters" title="Permalink to this headline">#</a></h4>
+<p>Strings can also be used to indicate whitespace other than spaces with the <code class="docutils literal notranslate"><span class="pre">\n</span></code> <strong>newline</strong> and <code class="docutils literal notranslate"><span class="pre">\t</span></code> <strong>tab</strong> characters.  As an example, consider the following:</p>
+<div class="cell tag_hide-output docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">untabbed_string</span> <span class="o">=</span> <span class="s2">&quot;I&#39;m here!&quot;</span>
+<span class="n">tabbed_string</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="se">\t</span><span class="s2">I&#39;m over here!&quot;</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">untabbed_string</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">tabbed_string</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">()</span>   <span class="c1">## What does this do?  Comment it out and see what changes!</span>
+
+<span class="n">multiline_string</span> <span class="o">=</span> <span class="s2">&quot;This str</span><span class="se">\n</span><span class="s2">ing has </span><span class="se">\n</span><span class="s2"> ma</span><span class="se">\n\n</span><span class="s2">ny lines!&quot;</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">multiline_string</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>I&#39;m here!
+	I&#39;m over here!
+
+This str
+ing has 
+ ma
+
+ny lines!
+</pre></div>
+</div>
+</div>
+</div>
+<p>We’ll see shortly that aside from holding data that can only be stored as words or characters, string manipulation is also very useful for <em>annotating</em> outputs of your codes.</p>
+</section>
+<section id="string-formatting">
+<h4><span class="section-number">3.5.3.3. </span>String Formatting<a class="headerlink" href="#string-formatting" title="Permalink to this headline">#</a></h4>
+<p>The following will be the most syntax-heavy code that you’ve been exposed to, but is too useful to omit for much longer.  At some point in your Python career, you are going to want to format the legend of a plot or the header of an output file based on the <em>value</em> of a variable.  These will necessarily be strings because they will be combinations of words and (maybe) numbers, but part of the string will be filled in by Python via <strong>string formatting</strong>.  There are a few ways to accomplish this in Python, but I’ll bring up the two ways that I prefer.</p>
+<p>First, we can use the <a class="reference external" href="https://docs.python.org/3/library/functions.html#format"><code class="docutils literal notranslate"><span class="pre">format</span></code></a> function like this:</p>
+<div class="cell tag_hide-output docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">my_int</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="n">my_float</span> <span class="o">=</span> <span class="mf">1234.56789</span>
+<span class="n">my_string</span> <span class="o">=</span> <span class="s2">&quot;The integer is </span><span class="si">{}</span><span class="s2">.  The float is </span><span class="si">{}</span><span class="s2">.&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">my_int</span><span class="p">,</span> <span class="n">my_float</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">my_string</span><span class="p">)</span>
+
+<span class="n">my_other_string</span> <span class="o">=</span> <span class="s2">&quot;The float is </span><span class="si">{1}</span><span class="s2">. The integer is </span><span class="si">{0}</span><span class="s2">.&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">my_int</span><span class="p">,</span> <span class="n">my_float</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">my_other_string</span><span class="p">)</span>
+
+<span class="c1">## NOTE the &#39;f&#39; at the beginning of the string!</span>
+<span class="n">another_string</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;The integer is </span><span class="si">{</span><span class="n">my_int</span><span class="si">}</span><span class="s2">.  The float is </span><span class="si">{</span><span class="n">my_float</span><span class="si">}</span><span class="s2">.&quot;</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">another_string</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The integer is 2.  The float is 1234.56789.
+The float is 1234.56789. The integer is 2.
+The integer is 2.  The float is 1234.56789.
+</pre></div>
+</div>
+</div>
+</div>
+<p>Basically we can call the <a class="reference external" href="https://docs.python.org/3/library/functions.html#format"><code class="docutils literal notranslate"><span class="pre">format</span></code></a> function in a couple ways, or use the “f-string” (<code class="docutils literal notranslate"><span class="pre">f</span></code> <em>before</em> the quotation mark) to tell Python that we’d like to fill in the <code class="docutils literal notranslate"><span class="pre">{}</span></code> with variables that are either given to <code class="docutils literal notranslate"><span class="pre">format</span></code> as input (first and second strings) or put directly inside the braces (only works with f-strings).  The order in which they are inserted into the string is inferred from the order they are given to <code class="docutils literal notranslate"><span class="pre">format</span></code> or by a number indicating which input to put where (0 indicates the first input, 1 the second, etc.).  I prefer f-strings because they are the most concise, but all of these are equally valid by Python.  You can also specify how the inputs are formatted into the string (say you want fewer decimal places shown) by adding inputs as given <a class="reference external" href="https://docs.python.org/3.4/library/string.html#format-string-syntax">here</a>.</p>
+<div class="admonition-string-formatting-is-descriptive admonition">
+<p class="admonition-title">String Formatting is Descriptive!</p>
+<p>Throughout the rest of this tutorial I will encourage you to use string formatting to make it clear to yourself and any one else looking at your work what it is that you’re doing!  In real code for real problems, this is often very useful for diagnosing problems or communicating with users.</p>
+</div>
+</section>
+<section id="string-functions">
+<h4><span class="section-number">3.5.3.4. </span>String Functions<a class="headerlink" href="#string-functions" title="Permalink to this headline">#</a></h4>
+<p>Now that we’ve opened the can of worms with string formatting, it’s worth pointing out that there are several other functions that operate on strings to produce interesting changes.  We’ll highlight a few here that may seem cosmetic, but are useful for introducing you to the <strong>method</strong>-style for calling functions.  Consider the following:</p>
+<div class="cell tag_hide-output docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">my_name</span> <span class="o">=</span> <span class="s2">&quot;eric johnson&quot;</span>
+<span class="n">my_capitalized_name</span> <span class="o">=</span> <span class="n">my_name</span><span class="o">.</span><span class="n">capitalize</span><span class="p">()</span>
+<span class="n">my_corrected_name</span> <span class="o">=</span> <span class="n">my_name</span><span class="o">.</span><span class="n">title</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;My name is </span><span class="si">{</span><span class="n">my_name</span><span class="si">}</span><span class="s2">...&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;My name is </span><span class="si">{</span><span class="n">my_capitalized_name</span><span class="si">}</span><span class="s2">...&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;My name is </span><span class="si">{</span><span class="n">my_corrected_name</span><span class="si">}</span><span class="s2">...&quot;</span><span class="p">)</span>
+
+<span class="n">num_e</span> <span class="o">=</span> <span class="n">my_name</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="s2">&quot;e&quot;</span><span class="p">)</span>
+<span class="n">num_E</span> <span class="o">=</span> <span class="n">my_name</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="s2">&quot;E&quot;</span><span class="p">)</span>  <span class="c1">## This is a bad variable name outside this context!!!</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;My name has </span><span class="si">{</span><span class="n">num_e</span><span class="si">}</span><span class="s2"> e&#39;s in it?&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;My name has </span><span class="si">{</span><span class="n">num_E</span><span class="si">}</span><span class="s2"> E&#39;s in it?&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>My name is eric johnson...
+My name is Eric johnson...
+My name is Eric Johnson...
+My name has 1 e&#39;s in it?
+My name has 0 E&#39;s in it?
+</pre></div>
+</div>
+</div>
+</div>
+<p>There are many <a class="reference external" href="https://docs.python.org/3.4/library/stdtypes.html#string-methods">string methods</a>, but the syntax for these <strong>methods</strong> is <code class="docutils literal notranslate"><span class="pre">my_str.method(input1,</span> <span class="pre">input2)</span></code>.  We’ll talk more about what makes a function a method <a class="reference internal" href="../11_Classes/11_Classes.html"><span class="doc std std-doc">later</span></a>, but for now it suffices to note that there are functions in Python that exist <strong>independent</strong> of any variable, such as <code class="docutils literal notranslate"><span class="pre">print</span></code> and <code class="docutils literal notranslate"><span class="pre">help</span></code>, and there are those that are attached to a variable, such as <code class="docutils literal notranslate"><span class="pre">str.captialize()</span></code>.  Methods are the latter type.  Going forward, you will see both types of funtions, but you can always think of them as input-output relationships: they take some input, crank a wheel, and spit something out.  The syntax indicates whether it is something special that only strings (for example) can do, or whether it’s an operation outside any specific data structure.</p>
+<p>As another example of a non-method function, consider the :py:func:<code class="docutils literal notranslate"><span class="pre">len</span></code> function, which we’ll discuss more in the <a class="reference internal" href="../03_Lists_Arrays/03_Lists_Arrays.html"><span class="doc std std-doc">next section</span></a>.  This function returns the length of a string in characters, as you can see:</p>
+<div class="cell tag_hide-output docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">my_name</span> <span class="o">=</span> <span class="s2">&quot;eric johnson&quot;</span><span class="o">.</span><span class="n">title</span><span class="p">()</span> <span class="c1">## What is this output!?</span>
+<span class="n">my_str</span> <span class="o">=</span> <span class="s2">&quot;Eric is a good name&quot;</span>
+<span class="n">my_tabbed_str</span> <span class="o">=</span> <span class="s2">&quot;Eric,</span><span class="se">\t</span><span class="s2">is a good name&quot;</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;The length of </span><span class="si">{</span><span class="n">my_name</span><span class="si">}</span><span class="s2"> is </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">my_name</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;The length of </span><span class="si">{</span><span class="n">my_str</span><span class="si">}</span><span class="s2"> is </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">my_str</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;The length of </span><span class="si">{</span><span class="n">my_tabbed_str</span><span class="si">}</span><span class="s2"> is </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">my_tabbed_str</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The length of Eric Johnson is 12
+The length of Eric is a good name is 19
+The length of Eric,	is a good name is 20
+</pre></div>
+</div>
+</div>
+</div>
+<aside class="margin sidebar">
+<p class="sidebar-title"></p>
+<div class="admonition-how-am-i-supposed-to-keep-track-of-all-of-this admonition">
+<p class="admonition-title">How am I supposed to keep track of all of this!?</p>
+<p>The short answer is: you don’t.  You should get in the habit of Googling “python string capitalization”, for example.  Eventually you remember the useful stuff and you’ll learn where to resource the rest.  By the end of the tutorial, you’ll be able to cobble together what you need!  Don’t make not knowing the function name the roadblock in this process!</p>
+</div>
+</aside>
+<p>You may want to look into these <a class="reference external" href="https://docs.python.org/3.4/library/stdtypes.html#string-methods">string methods</a>, but I’ll highlight that <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str.isnumeric">str.isnumeric</a>, <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str.join">str.join</a>, <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str.join">str.strip</a>, and <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str.lower">str.lower</a> are ones that I use with some frequency.  Getting the length of a string with <a class="reference external" href="https://docs.python.org/3/library/functions.html#len">len</a> is also very useful.</p>
+</section>
+</section>
+<section id="converting-data-types">
+<h3><span class="section-number">3.5.4. </span>Converting Data Types<a class="headerlink" href="#converting-data-types" title="Permalink to this headline">#</a></h3>
+<p>One of the most interesting (and sometimes overwhelming) things about Python is the way that these data types can interact with each other.  For example, we already saw that adding booleans maybe results in integers, and that multiplying a string by and integer results in a longer string.  As a result, it’s worth noting how all these different data types interact and, when it’s not what you’re looking for, how you can convert between these types.</p>
+<p>More specifically, these Python types come with associated functions <a class="reference external" href="https://docs.python.org/3/library/functions.html#int">int</a>, <a class="reference external" href="https://docs.python.org/3/library/functions.html#float">float</a>, <a class="reference external" href="https://docs.python.org/3/library/functions.html#bool">bool</a>, and <a class="reference external" href="https://docs.python.org/3/library/functions.html#str">str</a>, that when applied to a variable, will attempt to convert it into the function’s named data type.  For example, consider:</p>
+<div class="cell tag_hide-output docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">number_str</span> <span class="o">=</span> <span class="s2">&quot;1234&quot;</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;&#39;number_str&#39; = </span><span class="si">{</span><span class="n">number_str</span><span class="si">}</span><span class="s2"> is type </span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">number_str</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="n">floated_number_str</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">number_str</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;&#39;floated_number_str&#39; = </span><span class="si">{</span><span class="n">floated_number_str</span><span class="si">}</span><span class="s2"> is type </span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">floated_number_str</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="c1">## Put this in a second cell!</span>
+<span class="n">not_number_str</span> <span class="o">=</span> <span class="s2">&quot;abcd&quot;</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&#39;not_number_str&#39; = </span><span class="si">{</span><span class="n">not_number_str</span><span class="si">}</span><span class="s2"> is type </span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">not_number_str</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="n">floated_not_number_str</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">not_number_str</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;&#39;floated_not_number_str&#39; = </span><span class="si">{</span><span class="n">floated_not_number_str</span><span class="si">}</span><span class="s2"> is type </span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">floated_not_number_str</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;number_str&#39; = 1234 is type &lt;class &#39;str&#39;&gt;
+&#39;floated_number_str&#39; = 1234.0 is type &lt;class &#39;float&#39;&gt;
+
+&#39;not_number_str&#39; = abcd is type &lt;class &#39;str&#39;&gt;
+</pre></div>
+</div>
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ValueError</span><span class="g g-Whitespace">                                </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">16</span><span class="p">],</span> <span class="n">line</span> <span class="mi">9</span>
+<span class="g g-Whitespace">      </span><span class="mi">7</span> <span class="n">not_number_str</span> <span class="o">=</span> <span class="s2">&quot;abcd&quot;</span>
+<span class="g g-Whitespace">      </span><span class="mi">8</span> <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&#39;not_number_str&#39; = </span><span class="si">{</span><span class="n">not_number_str</span><span class="si">}</span><span class="s2"> is type </span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">not_number_str</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="ne">----&gt; </span><span class="mi">9</span> <span class="n">floated_not_number_str</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">not_number_str</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">10</span> <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;&#39;floated_not_number_str&#39; = </span><span class="si">{</span><span class="n">floated_not_number_str</span><span class="si">}</span><span class="s2"> is type </span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">floated_not_number_str</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="ne">ValueError</span>: could not convert string to float: &#39;abcd&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<aside class="margin sidebar">
+<p class="sidebar-title"></p>
+<p>```{admonition} <code class="docutils literal notranslate"><span class="pre">ValueError</span></code>
+Note that this code generated a <code class="docutils literal notranslate"><span class="pre">ValueError</span></code> because the :py:func:<code class="docutils literal notranslate"><span class="pre">float</span></code> function wasn’t upset with the <em>type</em> of the input, <code class="docutils literal notranslate"><span class="pre">not_number_str</span></code>, but with its <em>value</em>.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+</aside>
+<p>You will see that <code class="docutils literal notranslate"><span class="pre">number_str</span></code> is originally a string type (indicated by <code class="docutils literal notranslate"><span class="pre">&lt;class</span> <span class="pre">'str'&gt;&gt;</span></code>), but can successfully be converted to a float with the <code class="docutils literal notranslate"><span class="pre">float</span></code> function.  On the other hand, the <code class="docutils literal notranslate"><span class="pre">not_number_str</span></code> cannot, because Python doesn’t know how to turn “abcd” into a number.  Conversely, you will find that Python has few problems converting things into strings.  As a result, the other way to format strings is to coerce everything into a string using <a class="reference external" href="https://docs.python.org/3/library/functions.html#func-str">str</a> and then add the strings together.</p>
+<p>We’ll leave it to the exercise to explore all the options, but I do want to draw your attention to two special cases.  First, consider several floats that we want to convert into integers.  Before you type the code, please write down what you <strong>expect</strong> the output to be.</p>
+<div class="cell tag_hide-output docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pos1</span> <span class="o">=</span> <span class="mf">2.1</span>
+<span class="n">pos2</span> <span class="o">=</span> <span class="mf">1.9</span>
+
+<span class="n">neg1</span> <span class="o">=</span> <span class="o">-</span><span class="mf">2.1</span>
+<span class="n">neg2</span> <span class="o">=</span> <span class="o">-</span><span class="mf">1.9</span>
+
+<span class="n">int_pos1</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">pos1</span><span class="p">)</span>
+<span class="n">int_pos2</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">pos2</span><span class="p">)</span>
+
+<span class="n">int_neg1</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">neg1</span><span class="p">)</span>
+<span class="n">int_neg2</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">neg2</span><span class="p">)</span>
+
+<span class="c1">## Comment this out AFTER you have made your predictions.</span>
+<span class="c1"># print(f&quot;int(&#39;pos1&#39; = {pos1}) is {int_pos1}&quot;)</span>
+<span class="c1"># print(f&quot;int(&#39;pos2&#39; = {pos2}) is {int_pos2}&quot;)</span>
+<span class="c1"># print()</span>
+<span class="c1"># print(f&quot;int(&#39;neg1&#39; = {neg1}) is {int_neg1}&quot;)</span>
+<span class="c1"># print(f&quot;int(&#39;neg2&#39; = {neg2}) is {int_neg2}&quot;)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>To see the explanation, <a class="reference internal" href="Floats_to_Ints.html"><span class="doc std std-doc">go here</span></a>.</p>
+<p>The other interesting case is what Python thinks should be turned into a <code class="docutils literal notranslate"><span class="pre">True</span></code> or a <code class="docutils literal notranslate"><span class="pre">False</span></code> in the context of booleans.  Again, first write down for yourself what you <strong>expect</strong> to result from the following code, then execute it.</p>
+<div class="cell tag_hide-output docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pos_int</span> <span class="o">=</span> <span class="mi">4</span>
+<span class="n">neg_int</span> <span class="o">=</span> <span class="o">-</span><span class="mi">3</span>
+<span class="n">zero_int</span> <span class="o">=</span> <span class="mi">0</span>
+
+<span class="n">pos_float</span> <span class="o">=</span> <span class="mf">7.13</span>
+<span class="n">small_pos_float</span> <span class="o">=</span> <span class="mf">0.0003</span>
+<span class="n">neg_float</span> <span class="o">=</span> <span class="o">-</span><span class="mf">4.67</span>
+<span class="n">zero_float</span> <span class="o">=</span> <span class="mf">0.0</span>
+
+<span class="n">number_str</span> <span class="o">=</span> <span class="s2">&quot;3.12&quot;</span>
+<span class="n">zero_str</span> <span class="o">=</span> <span class="s2">&quot;0&quot;</span>
+<span class="n">letter_str</span> <span class="o">=</span> <span class="s2">&quot;abcdef&quot;</span>
+<span class="n">empty_str</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span> <span class="c1">## What is this??? Check the type!</span>
+
+<span class="c1">## Comment this out AFTER you have made your predictions.</span>
+<span class="c1"># print(f&quot;Converting {pos_int} to boolean gives {bool(pos_int)}&quot;)</span>
+<span class="c1"># print(f&quot;Converting {neg_int} to boolean gives {bool(neg_int)}&quot;)</span>
+<span class="c1"># print(f&quot;Converting {zero_int} to boolean gives {bool(zero_int)}&quot;)</span>
+
+<span class="c1"># print(f&quot;\nConverting {pos_float} to boolean gives {bool(pos_float)}&quot;)</span>
+<span class="c1"># print(f&quot;Converting {small_pos_float} to boolean gives {bool(small_pos_float)}&quot;)</span>
+<span class="c1"># print(f&quot;Converting {neg_float} to boolean gives {bool(neg_float)}&quot;)</span>
+<span class="c1"># print(f&quot;Converting {zero_float} to boolean gives {bool(zero_float)}&quot;)</span>
+
+<span class="c1"># print(f&quot;\nConverting {number_str} to boolean gives {bool(number_str)}&quot;)</span>
+<span class="c1"># print(f&quot;Converting {zero_str} to boolean gives {bool(zero_str)}&quot;)</span>
+<span class="c1"># print(f&quot;Converting {letter_str} to boolean gives {bool(letter_str)}&quot;)</span>
+<span class="c1"># print(f&quot;Converting {empty_str} to boolean gives {bool(empty_str)}&quot;)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>To see the explanation, <a class="reference internal" href="Everything_to_Boolean.html"><span class="doc std std-doc">go here</span></a></p>
+<p>At this point, you’ve seen enough of the details of types in Python to start to see how we can use Python to hold and start to manipulate different pieces of data.  After these exercises, the next section will introduce you to how you deal with <em>lots of data</em> and you will have your first introduction to <a class="reference external" href="https://numpy.org/">numpy</a>, which is “the fundamental package for scientific computing in Python”.  With those pieces in place, you’ll be ready to start shredding real data of all shapes and sizes.</p>
+</section>
+</section>
+<section id="exercise-3-2">
+<h2><span class="section-number">3.6. </span>Exercise 3.2<a class="headerlink" href="#exercise-3-2" title="Permalink to this headline">#</a></h2>
+<ol>
+<li><p>Create a variable for your name and another for your age.  Use string formatting to introduce your name and age to Python.  Create the same for a  friend (real or imaginary).  Then create a <a class="reference external" href="https://www.gutenberg.org/files/42324/42324-h/42324-h.htm">Frankenstein’s monster</a> of you and your friend by concatenating your names and averaging your ages.  Print your creation to the screen using string formatting.</p></li>
+<li><p>Recreate the pattern on the screen below with <strong>one print statement</strong> using string concatenation, string multiplication, and newline characters/tabs.  Use only <code class="docutils literal notranslate"><span class="pre">star</span> <span class="pre">=</span> <span class="pre">&quot;*&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">up</span> <span class="pre">=</span> <span class="pre">&quot;^&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">line</span> <span class="pre">=</span> <span class="pre">'|'</span></code> and <code class="docutils literal notranslate"><span class="pre">space</span> <span class="pre">=</span> <span class="pre">'</span> <span class="pre">'</span></code> as initial variables (you may create intermediates!).</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>   <span class="o">*</span>
+  <span class="o">^^^</span>
+ <span class="o">*^*^*</span>
+<span class="o">^^*^*^^</span>
+  <span class="o">|||</span>
+</pre></div>
+</div>
+</li>
+<li><p>Perform the reverse of the last section: convert <code class="docutils literal notranslate"><span class="pre">True</span></code> and <code class="docutils literal notranslate"><span class="pre">False</span></code> into integer, float, and string types.  Write <em>in words</em> what happens.  Practice <em>predicting</em> what might happen and then connecting that with what actually happened.</p></li>
+<li><p><strong>BONUS</strong> Consider the code below. Write a sentence or two about what you think is happening.   In particular, which direction does assignment “flow” in line 3?  Again, comment out lines that cause errors if you want to ignore them.</p></li>
+</ol>
+<div class="cell tag_remove-output docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="s1">&#39;Eric&#39;</span><span class="p">,</span> <span class="s2">&quot;Johnson&quot;</span>  <span class="c1">## Can we do *double* assignment!?</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
+<span class="n">b</span><span class="p">,</span> <span class="n">a</span> <span class="o">=</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
+<span class="n">my_name</span> <span class="o">=</span> <span class="s2">&quot;, &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">])</span>  <span class="c1">## This is NEW SYNTAX</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">my_name</span><span class="p">)</span>
+<span class="n">output</span> <span class="o">=</span> <span class="n">a</span> <span class="o">=</span> <span class="n">b</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">output</span><span class="p">)</span>
+<span class="n">output</span> <span class="o">=</span> <span class="p">(</span><span class="n">a</span> <span class="o">=</span> <span class="n">b</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">output</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<div class="toctree-wrapper compound">
+</div>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./docs/02_Variables_DataTypes"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="../01_HelloWorld/01_HelloWorld_Notebook.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title"><span class="section-number">2. </span>Hello World!</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="Floats_to_Ints.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">3.7. </span>Converting floating-point numbers to integers</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Eric Johnson, Ph.D.<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>
