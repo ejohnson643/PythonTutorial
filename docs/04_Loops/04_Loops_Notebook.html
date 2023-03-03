@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>Loops &#8212; A Python Tutorial for Data Scientists</title>
+    <title>5. Loops &#8212; A Python Tutorial for Data Scientists</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -52,6 +52,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="6. Conditional Statements" href="../05_ConditionalStatements/05_ConditionalStatements.html" />
+    <link rel="prev" title="4. Lists and Arrays" href="../03_Lists_Arrays/03_Lists_Arrays_Notebook.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -111,7 +113,7 @@ const thebe_selector_output = ".output, .cell_output"
   Sections
  </span>
 </p>
-<ul class="nav bd-sidenav">
+<ul class="current nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../00_Introduction/00_introduction.html">
    1. Introduction
@@ -149,8 +151,8 @@ const thebe_selector_output = ".output, .cell_output"
    4. Lists and Arrays
   </a>
  </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="04_Loops.html">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
    5. Loops
   </a>
  </li>
@@ -402,7 +404,7 @@ title="Print to PDF"
         <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#the-for-loop">
-   The
+   5.1. The
    <code class="docutils literal notranslate">
     <span class="pre">
      for
@@ -413,7 +415,7 @@ title="Print to PDF"
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#what-is-a-for-loop">
-     What is a
+     5.1.1. What is a
      <code class="docutils literal notranslate">
       <span class="pre">
        for
@@ -424,26 +426,26 @@ title="Print to PDF"
     <ul class="nav section-nav flex-column">
      <li class="toc-h4 nav-item toc-entry">
       <a class="reference internal nav-link" href="#using-a-counter">
-       Using a counter
+       5.1.1.1. Using a counter
       </a>
      </li>
      <li class="toc-h4 nav-item toc-entry">
       <a class="reference internal nav-link" href="#using-the-iterable-in-a-loop">
-       Using the iterable in a loop
+       5.1.1.2. Using the iterable in a loop
       </a>
      </li>
     </ul>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#exercise-4-1">
-     Exercise 4.1
+     5.1.2. Exercise 4.1
     </a>
    </li>
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#looping-with-indices">
-   Looping with indices
+   5.2. Looping with indices
   </a>
  </li>
 </ul>
@@ -467,7 +469,7 @@ title="Print to PDF"
                             <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#the-for-loop">
-   The
+   5.1. The
    <code class="docutils literal notranslate">
     <span class="pre">
      for
@@ -478,7 +480,7 @@ title="Print to PDF"
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#what-is-a-for-loop">
-     What is a
+     5.1.1. What is a
      <code class="docutils literal notranslate">
       <span class="pre">
        for
@@ -489,26 +491,26 @@ title="Print to PDF"
     <ul class="nav section-nav flex-column">
      <li class="toc-h4 nav-item toc-entry">
       <a class="reference internal nav-link" href="#using-a-counter">
-       Using a counter
+       5.1.1.1. Using a counter
       </a>
      </li>
      <li class="toc-h4 nav-item toc-entry">
       <a class="reference internal nav-link" href="#using-the-iterable-in-a-loop">
-       Using the iterable in a loop
+       5.1.1.2. Using the iterable in a loop
       </a>
      </li>
     </ul>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#exercise-4-1">
-     Exercise 4.1
+     5.1.2. Exercise 4.1
     </a>
    </li>
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#looping-with-indices">
-   Looping with indices
+   5.2. Looping with indices
   </a>
  </li>
 </ul>
@@ -529,7 +531,7 @@ title="Print to PDF"
 </div>
 </div>
 <section class="tex2jax_ignore mathjax_ignore" id="loops">
-<h1>Loops<a class="headerlink" href="#loops" title="Permalink to this headline">#</a></h1>
+<h1><span class="section-number">5. </span>Loops<a class="headerlink" href="#loops" title="Permalink to this headline">#</a></h1>
 <p>Now that we’ve learned about how data are stored in Python as different types that we can collect into <a class="reference external" href="https://docs.python.org/3/tutorial/datastructures.html">data structures</a> like <a class="reference external" href="https://docs.python.org/3/c-api/list.html">lists</a> or <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.array.html">numpy arrays</a>, we should learn how to actually <em>do</em> things with our data! The next three sections on <strong>loops</strong>, <span class="xref myst">conditional statements</span>, and <span class="xref myst">functions</span> will comprise the basics of everything you need to get yourself up and running with Python. This will also be your first introduction to Python’s <strong>syntax</strong> (its “grammar” for how to structure code), beyond the simple syntax of variable assignment that we’ve seen thus far.</p>
 <p><strong>Loops</strong> are a natural place to start in the context of thinking about Python for data analysis because loops are a coding structure that tell computers how to execute a set of instructions repeatedly, and we often have lists or arrays of data that we want to iterate through (“loop over” in coding lingo) to perform calculations on each datum individually. That is, the term “loop” refers to the way that the computer <em>loops back</em> to do a set of tasks many times. This is one of the true superpowers of coding: computers have infinite patience and can do boring tasks repeatedly <em>ad nauseam</em>, so we can leverage this to make calculations or perform analyses that would be impossible to do by hand. We’ll talk about this more when we learn about <a class="reference internal" href="../10_RandomNumbers/10_RandomNumbers.html"><span class="doc std std-doc">random number generation</span></a>.</p>
 <p>In Python there are three main types of loops: <a class="reference external" href="https://docs.python.org/3/reference/compound_stmts.html#the-for-statement"><code class="docutils literal notranslate"><span class="pre">for</span></code></a>, <a class="reference external" href="https://docs.python.org/3/reference/compound_stmts.html#while"><code class="docutils literal notranslate"><span class="pre">while</span></code></a>, and <a class="reference external" href="https://docs.python.org/3/tutorial/datastructures.html#list-comprehensions"><strong>list comprehensions</strong></a>. <code class="docutils literal notranslate"><span class="pre">for</span></code> loops are probably the most common type and are the easiest to work with. <code class="docutils literal notranslate"><span class="pre">while</span></code> loops have a similar syntax to <code class="docutils literal notranslate"><span class="pre">for</span></code> loops, but are somewhat trickier and are a common source of bugs for novice coders. Finally, list comprehensions have a more complicated syntax, but are extremely “<a class="reference external" href="https://www.computerhope.com/jargon/p/pythonic.htm">Pythonic</a>” and a nice way to compress loops that involve lists. In this tutorial, we’ll mostly focus on <code class="docutils literal notranslate"><span class="pre">for</span></code> and <code class="docutils literal notranslate"><span class="pre">while</span></code> loops, but I’ll introduce the list comprehension syntax so that you aren’t stumped when you see it in the wild.  In this section, we’ll learn about <code class="docutils literal notranslate"><span class="pre">for</span></code> loops, and we’ll leave <code class="docutils literal notranslate"><span class="pre">while</span></code> loops for the next section, after we’ve introduced the notion of <span class="xref myst">conditional statements</span>.</p>
@@ -538,7 +540,7 @@ title="Print to PDF"
 <p>Loops are structure that tell the computer to <em>loop back and repeat</em> instructions several times.</p>
 </div>
 <section id="the-for-loop">
-<h2>The <code class="docutils literal notranslate"><span class="pre">for</span></code> loop<a class="headerlink" href="#the-for-loop" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">5.1. </span>The <code class="docutils literal notranslate"><span class="pre">for</span></code> loop<a class="headerlink" href="#the-for-loop" title="Permalink to this headline">#</a></h2>
 <p>At its most basic, a computer is a <a class="reference external" href="https://en.wikipedia.org/wiki/Bit">bit</a>-moving and -storing machine; it can remember information and it can modify that information, but it at some level operates in a discrete, bit-by-bit manner. I say this because it can seem as though computers are doing many things simultaneously, but under the hood, operations like <code class="docutils literal notranslate"><span class="pre">sum([1,</span> <span class="pre">12,</span> <span class="pre">3,</span> <span class="pre">6,</span> <span class="pre">321])</span></code> are carried out by the computer as a set of <em>very fast</em>, simple, sequential steps:</p>
 <ul class="simple">
 <li><p>Set <code class="docutils literal notranslate"><span class="pre">tmp_sum</span> <span class="pre">=</span> <span class="pre">0</span></code></p></li>
@@ -551,7 +553,7 @@ title="Print to PDF"
 The <code class="docutils literal notranslate"><span class="pre">for</span></code> loop is our structure to control this iterative process.</p></li>
 </ul>
 <section id="what-is-a-for-loop">
-<h3>What is a <code class="docutils literal notranslate"><span class="pre">for</span></code> loop?<a class="headerlink" href="#what-is-a-for-loop" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">5.1.1. </span>What is a <code class="docutils literal notranslate"><span class="pre">for</span></code> loop?<a class="headerlink" href="#what-is-a-for-loop" title="Permalink to this headline">#</a></h3>
 <p>The idea behind a <code class="docutils literal notranslate"><span class="pre">for</span></code> loop is that we are filling in the sentence “Do these steps <em>for</em> this many iterations.” That is, we know how many times we want to do the operations, so the computer should do them for all the indicated repetitions. In Python, this is done by iterating over an <strong>iterable</strong> such as a list or array (tautologically, iterables are things that can be iterated over).</p>
 <aside class="margin sidebar">
 <p class="sidebar-title"></p>
@@ -706,7 +708,7 @@ birds
 <p>This means that we should make sure to use a distinct name for this iteration variable from previous variables.</p>
 <p>Also, you can note from the previous example that this variable persists after the loop and retains the value of the last assignment in the loop.  We’ll see shortly that this is useful if you want to loop until a condition is met, after which you might want to keep the value of the iterator.  For example, if you want to know how many iterations it takes before some sort of calculation converges, you could use the value of the iteration variable.</p>
 <section id="using-a-counter">
-<h4>Using a counter<a class="headerlink" href="#using-a-counter" title="Permalink to this headline">#</a></h4>
+<h4><span class="section-number">5.1.1.1. </span>Using a counter<a class="headerlink" href="#using-a-counter" title="Permalink to this headline">#</a></h4>
 <p>It’s worth noting that just because we have this iteration variable doesn’t mean we have to use it.  It’s relatively common to want to keep an external counter or incrementer to keep track of different things in the loop.  We can easily do this by initializing a variable before the loop and then incrementing (or decrementing) it in each loop iteration (or loop iterations that meet some criteria). As an example:</p>
 <div class="cell tag_hide-output docutils container">
 <div class="cell_input docutils container">
@@ -727,7 +729,7 @@ birds
 </div>
 </section>
 <section id="using-the-iterable-in-a-loop">
-<h4>Using the iterable in a loop<a class="headerlink" href="#using-the-iterable-in-a-loop" title="Permalink to this headline">#</a></h4>
+<h4><span class="section-number">5.1.1.2. </span>Using the iterable in a loop<a class="headerlink" href="#using-the-iterable-in-a-loop" title="Permalink to this headline">#</a></h4>
 <p>Another useful note is that we can still make use of the iterable variable inside the loop. We can even reassign its value, although this can have surprising results if you change the length of the iterable.</p>
 <div class="cell tag_hide-output docutils container">
 <div class="cell_input docutils container">
@@ -766,7 +768,7 @@ birds
 </section>
 </section>
 <section id="exercise-4-1">
-<h3>Exercise 4.1<a class="headerlink" href="#exercise-4-1" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">5.1.2. </span>Exercise 4.1<a class="headerlink" href="#exercise-4-1" title="Permalink to this headline">#</a></h3>
 <ol class="simple">
 <li><p>Make a list of names, and use a loop to print out each name sequentially. Use some basic string formatting to make the output look nice.</p></li>
 <li><p>Use a counter variable (or any other method) in the previous example to determine how many iterations the loop executed. Can you explain what happened to <code class="docutils literal notranslate"><span class="pre">list_of_pets</span></code> in this loop?</p></li>
@@ -774,7 +776,7 @@ birds
 </section>
 </section>
 <section id="looping-with-indices">
-<h2>Looping with indices<a class="headerlink" href="#looping-with-indices" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">5.2. </span>Looping with indices<a class="headerlink" href="#looping-with-indices" title="Permalink to this headline">#</a></h2>
 <p>In the previous examples, we made use of the iteration variable in order to walk through the elements of a list (iterable), but the reason that the <code class="docutils literal notranslate"><span class="pre">range</span></code> function is so useful is because it provides a natural <strong>index</strong> with which we can access elements of a list or array via <strong>slicing</strong> as discussed in the <a class="reference internal" href="../03_Lists_Arrays/03_Lists_Arrays_Notebook.html"><span class="doc std std-doc">previous section</span></a>.  As an example:</p>
 <div class="cell tag_hide-output docutils container">
 <div class="cell_input docutils container">
@@ -851,6 +853,20 @@ This is row 3: [15 16 17 18 19]
                 
     <!-- Previous / next buttons -->
 <div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="../03_Lists_Arrays/03_Lists_Arrays_Notebook.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title"><span class="section-number">4. </span>Lists and Arrays</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="../05_ConditionalStatements/05_ConditionalStatements.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">6. </span>Conditional Statements</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
 </div>
             </footer>
         </div>
