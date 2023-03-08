@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>Plotting &#8212; A Python Tutorial for Data Scientists</title>
+    <title>5.4. List comprehensions &#8212; A Python Tutorial for Data Scientists</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -50,8 +50,12 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="6. Conditional expressions" href="../05_ConditionalStatements/05_ConditionalStatements_Notebook.html" />
+    <link rel="prev" title="5. Loops" href="04_Loops_Notebook.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -111,7 +115,7 @@ const thebe_selector_output = ".output, .cell_output"
   Sections
  </span>
 </p>
-<ul class="nav bd-sidenav">
+<ul class="current nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../00_Introduction/00_introduction.html">
    1. Introduction
@@ -149,18 +153,18 @@ const thebe_selector_output = ".output, .cell_output"
    4. Lists and Arrays
   </a>
  </li>
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../04_Loops/04_Loops_Notebook.html">
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="04_Loops_Notebook.html">
    5. Loops
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
   <label for="toctree-checkbox-2">
    <i class="fas fa-chevron-down">
    </i>
   </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../04_Loops/04_Loops_ListComp.html">
+  <ul class="current">
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
      5.4. List comprehensions
     </a>
    </li>
@@ -177,7 +181,7 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="07_Plotting_Notebook.html">
+  <a class="reference internal" href="../07_Plotting/07_Plotting_Notebook.html">
    8. Plotting
   </a>
  </li>
@@ -252,6 +256,35 @@ title="Toggle navigation"
         
     </div>
     <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/ejohnson643/PythonTutorial/main?urlpath=tree/docs/docs/04_Loops/04_Loops_ListComp.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../../_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
 <button onclick="toggleFullScreen()"
   class="headerbtn"
   data-toggle="tooltip"
@@ -291,7 +324,7 @@ title="Source repository"
       </li>
       
       <li>
-        <a href="https://github.com/ejohnson643/PythonTutorial/issues/new?title=Issue%20on%20page%20%2Fdocs/07_Plotting/07_Plotting.html&body=Your%20issue%20content%20here."
+        <a href="https://github.com/ejohnson643/PythonTutorial/issues/new?title=Issue%20on%20page%20%2Fdocs/04_Loops/04_Loops_ListComp.html&body=Your%20issue%20content%20here."
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -319,7 +352,7 @@ title="Open an issue"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="../../_sources/docs/07_Plotting/07_Plotting.md"
+        <a href="../../_sources/docs/04_Loops/04_Loops_ListComp.ipynb"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -330,7 +363,7 @@ title="Download source file"
 <span class="headerbtn__icon-container">
   <i class="fas fa-file"></i>
   </span>
-<span class="headerbtn__text-container">.md</span>
+<span class="headerbtn__text-container">.ipynb</span>
 </a>
 
       </li>
@@ -368,7 +401,7 @@ title="Print to PDF"
         <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Plotting</h1>
+                <h1>List comprehensions</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
@@ -380,8 +413,71 @@ title="Print to PDF"
                 
               <div>
                 
-  <section class="tex2jax_ignore mathjax_ignore" id="plotting">
-<h1>Plotting<a class="headerlink" href="#plotting" title="Permalink to this headline">#</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="list-comprehensions">
+<h1><span class="section-number">5.4. </span>List comprehensions<a class="headerlink" href="#list-comprehensions" title="Permalink to this headline">#</a></h1>
+<p>The loops presented in the previous part of this chapter are fundamental operations that are common in most programming languages. Their syntax and usage at this point is hopefully somewhat simple to understand, and you can get by perfectly well using them in 99% of situations.  However, in Python, there is a somewhat odd way of wrapping up the <code class="docutils literal notranslate"><span class="pre">for</span></code> loop structure into a list as a method for easily creating a list that contains the results of simple calculations performed in an iteration.</p>
+<p>Consider the following situation: you want to generate a list containing the cube root of each number in a list. We could do this using a <code class="docutils literal notranslate"><span class="pre">for</span></code> loop as below:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mylist</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">]</span>
+<span class="n">cube_roots</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="k">for</span> <span class="n">element</span> <span class="ow">in</span> <span class="n">mylist</span><span class="p">:</span>
+    <span class="n">root</span> <span class="o">=</span> <span class="n">element</span> <span class="o">**</span> <span class="p">(</span><span class="mi">1</span> <span class="o">/</span> <span class="mi">3</span><span class="p">)</span>
+    <span class="n">cube_roots</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">root</span><span class="p">)</span>
+    
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;The cube root of </span><span class="si">{</span><span class="n">element</span><span class="si">}</span><span class="s2"> is </span><span class="si">{</span><span class="n">root</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The cube root of 1 is 1.0000
+The cube root of 2 is 1.2599
+The cube root of 3 is 1.4422
+The cube root of 4 is 1.5874
+The cube root of 5 is 1.7100
+The cube root of 6 is 1.8171
+The cube root of 7 is 1.9129
+</pre></div>
+</div>
+</div>
+</div>
+<p>But this is somewhat of a lot of effort just to create this new list.  We could of course make use of numpy’s abilities to do this more simply with <code class="docutils literal notranslate"><span class="pre">cube_roots</span> <span class="pre">=</span> <span class="pre">np.power(mylist,</span> <span class="pre">1/3)</span></code>, but sometimes using an array is not possible, or we need to use a list.  This is where the list comprehension allows us to compact this loop into one line:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mylist</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">]</span>
+<span class="n">cube_roots</span> <span class="o">=</span> <span class="p">[</span><span class="n">el</span> <span class="o">**</span> <span class="p">(</span><span class="mi">1</span> <span class="o">/</span> <span class="mi">3</span><span class="p">)</span> <span class="k">for</span> <span class="n">el</span> <span class="ow">in</span> <span class="n">mylist</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">cube_roots</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1.0, 1.2599210498948732, 1.4422495703074083, 1.5874010519681994, 1.7099759466766968, 1.8171205928321397, 1.912931182772389]
+</pre></div>
+</div>
+</div>
+</div>
+<p>To unpack this, we can understand the basic syntax as</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="o">*</span><span class="n">instructions</span><span class="o">*</span> <span class="k">for</span> <span class="o">*</span><span class="n">element</span><span class="o">*</span> <span class="ow">in</span> <span class="o">*</span><span class="n">iterable</span><span class="o">*</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>So in the example above, the <em>instructions</em> were <code class="docutils literal notranslate"><span class="pre">el</span> <span class="pre">**</span> <span class="pre">(1</span> <span class="pre">/</span> <span class="pre">3)</span></code>, the <em>element</em> was a variable we called <code class="docutils literal notranslate"><span class="pre">el</span></code> and the <em>iterable</em> was <code class="docutils literal notranslate"><span class="pre">mylist</span></code>.  These instructions can typically be of any complexity as long as they don’t involve Python’s multiline syntax - you can’t insert a regular <code class="docutils literal notranslate"><span class="pre">for</span></code> loop, for example.  The elements and iterables can be just as complicated as in regular loops, but the basic syntax will remain the same.  Consider for example:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mylist</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">10</span><span class="p">]</span>
+<span class="n">newlist</span> <span class="o">=</span> <span class="p">[</span><span class="n">el</span> <span class="o">**</span> <span class="p">(</span><span class="mi">1</span> <span class="o">/</span> <span class="p">(</span><span class="n">idx</span> <span class="o">+</span> <span class="mi">1</span><span class="p">))</span> <span class="k">for</span> <span class="p">(</span><span class="n">idx</span><span class="p">,</span> <span class="n">el</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">mylist</span><span class="p">)]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">newlist</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1.0, 1.4142135623730951, 1.4422495703074083, 1.4142135623730951, 1.379729661461215, 1.3480061545972777, 1.3204692477561237, 1.2968395546510096, 1.2765180070092417, 1.2589254117941673]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Here we have created a list that contains the elements of <code class="docutils literal notranslate"><span class="pre">mylist</span></code> each raised to the power of <span class="math notranslate nohighlight">\(1 / (`idx` + 1)\)</span>, where <code class="docutils literal notranslate"><span class="pre">idx</span></code> is the index location of the element in <code class="docutils literal notranslate"><span class="pre">mylist</span></code>.  That is, this example made use of the <code class="docutils literal notranslate"><span class="pre">enumerate</span></code> function that we’ve previously seen in the <a class="reference internal" href="04_Loops_Notebook.html"><span class="doc std std-doc">section on loops</span></a>, and we were then able to create a variable for both the element and its index within the list comprehension.</p>
+<p>There are more modifications that can be made to list comprehensions, but this should serve as a sufficient introduction.  For more information, I recommend <a class="reference external" href="https://www.w3schools.com/python/python_lists_comprehension.asp">this page</a> for some other simple examples.  Otherwise, feel free to continue on to the section on <a class="reference internal" href="../05_ConditionalStatements/05_ConditionalStatements_Notebook.html"><span class="doc std std-doc">conditional expressions</span></a>.</p>
 </section>
 
     <script type="text/x-thebe-config">
@@ -397,7 +493,7 @@ title="Print to PDF"
         },
         kernelOptions: {
             kernelName: "python3",
-            path: "./docs/07_Plotting"
+            path: "./docs/04_Loops"
         },
         predefinedOutput: true
     }
@@ -411,6 +507,20 @@ title="Print to PDF"
                 
     <!-- Previous / next buttons -->
 <div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="04_Loops_Notebook.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title"><span class="section-number">5. </span>Loops</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="../05_ConditionalStatements/05_ConditionalStatements_Notebook.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">6. </span>Conditional expressions</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
 </div>
             </footer>
         </div>

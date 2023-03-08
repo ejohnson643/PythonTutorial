@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>9. Loading and Writing Data &#8212; A Python Tutorial for Data Scientists</title>
+    <title>Loading and Writing Data &#8212; A Python Tutorial for Data Scientists</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -52,8 +52,6 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="10. Dictionaries" href="../09_Dictionaries/09_Dictionaries.html" />
-    <link rel="prev" title="8. Plotting" href="../07_Plotting/07_Plotting.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -113,7 +111,7 @@ const thebe_selector_output = ".output, .cell_output"
   Sections
  </span>
 </p>
-<ul class="current nav bd-sidenav">
+<ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../00_Introduction/00_introduction.html">
    1. Introduction
@@ -147,53 +145,60 @@ const thebe_selector_output = ".output, .cell_output"
   </ul>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../03_Lists_Arrays/03_Lists_Arrays.html">
+  <a class="reference internal" href="../03_Lists_Arrays/03_Lists_Arrays_Notebook.html">
    4. Lists and Arrays
   </a>
  </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../04_Loops/04_Loops.html">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../04_Loops/04_Loops_Notebook.html">
    5. Loops
   </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../04_Loops/04_Loops_ListComp.html">
+     5.4. List comprehensions
+    </a>
+   </li>
+  </ul>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../05_ConditionalStatements/05_ConditionalStatements.html">
-   6. Conditional Statements
+  <a class="reference internal" href="../05_ConditionalStatements/05_ConditionalStatements_Notebook.html">
+   6. Conditional expressions
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../06_Functions/06_Functions.html">
+  <a class="reference internal" href="../06_Functions/06_Functions_Notebook.html">
    7. Functions
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../07_Plotting/07_Plotting.html">
+  <a class="reference internal" href="../07_Plotting/07_Plotting_Notebook.html">
    8. Plotting
   </a>
  </li>
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
-   9. Loading and Writing Data
+ <li class="toctree-l1">
+  <a class="reference internal" href="08_Loading_Writing_Notebook.html">
+   9. Loading and writing data
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../09_Dictionaries/09_Dictionaries.html">
+  <a class="reference internal" href="../09_Dictionaries/09_Dictionaries_Notebook.html">
    10. Dictionaries
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../10_RandomNumbers/10_RandomNumbers.html">
-   11. Random Numbers
+  <a class="reference internal" href="../10_RandomNumbers/10_RandomNumbers_Notebook.html">
+   11. Generating random numbers in Python
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../11_Classes/11_Classes.html">
-   12. Classes
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../../markdown-notebooks.html">
-   13. Notebooks with MyST Markdown
+  <a class="reference internal" href="../11_Classes/11_Classes_Notebook.html">
+   12. Classes: object-oriented programming in Python
   </a>
  </li>
 </ul>
@@ -376,7 +381,7 @@ title="Print to PDF"
               <div>
                 
   <section class="tex2jax_ignore mathjax_ignore" id="loading-and-writing-data">
-<h1><span class="section-number">9. </span>Loading and Writing Data<a class="headerlink" href="#loading-and-writing-data" title="Permalink to this headline">#</a></h1>
+<h1>Loading and Writing Data<a class="headerlink" href="#loading-and-writing-data" title="Permalink to this headline">#</a></h1>
 </section>
 
     <script type="text/x-thebe-config">
@@ -406,20 +411,6 @@ title="Print to PDF"
                 
     <!-- Previous / next buttons -->
 <div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="../07_Plotting/07_Plotting.html" title="previous page">
-        <i class="fas fa-angle-left"></i>
-        <div class="prev-next-info">
-            <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title"><span class="section-number">8. </span>Plotting</p>
-        </div>
-    </a>
-    <a class='right-next' id="next-link" href="../09_Dictionaries/09_Dictionaries.html" title="next page">
-    <div class="prev-next-info">
-        <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">10. </span>Dictionaries</p>
-    </div>
-    <i class="fas fa-angle-right"></i>
-    </a>
 </div>
             </footer>
         </div>

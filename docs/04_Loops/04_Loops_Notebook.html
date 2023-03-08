@@ -52,7 +52,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="6. Conditional Statements" href="../05_ConditionalStatements/05_ConditionalStatements.html" />
+    <link rel="next" title="5.4. List comprehensions" href="04_Loops_ListComp.html" />
     <link rel="prev" title="4. Lists and Arrays" href="../03_Lists_Arrays/03_Lists_Arrays_Notebook.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
@@ -151,49 +151,56 @@ const thebe_selector_output = ".output, .cell_output"
    4. Lists and Arrays
   </a>
  </li>
- <li class="toctree-l1 current active">
+ <li class="toctree-l1 current active has-children">
   <a class="current reference internal" href="#">
    5. Loops
   </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="04_Loops_ListComp.html">
+     5.4. List comprehensions
+    </a>
+   </li>
+  </ul>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../05_ConditionalStatements/05_ConditionalStatements.html">
-   6. Conditional Statements
+  <a class="reference internal" href="../05_ConditionalStatements/05_ConditionalStatements_Notebook.html">
+   6. Conditional expressions
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../06_Functions/06_Functions.html">
+  <a class="reference internal" href="../06_Functions/06_Functions_Notebook.html">
    7. Functions
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../07_Plotting/07_Plotting.html">
+  <a class="reference internal" href="../07_Plotting/07_Plotting_Notebook.html">
    8. Plotting
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../08_Loading_Writing/08_Loading_Writing.html">
-   9. Loading and Writing Data
+  <a class="reference internal" href="../08_Loading_Writing/08_Loading_Writing_Notebook.html">
+   9. Loading and writing data
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../09_Dictionaries/09_Dictionaries.html">
+  <a class="reference internal" href="../09_Dictionaries/09_Dictionaries_Notebook.html">
    10. Dictionaries
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../10_RandomNumbers/10_RandomNumbers.html">
-   11. Random Numbers
+  <a class="reference internal" href="../10_RandomNumbers/10_RandomNumbers_Notebook.html">
+   11. Generating random numbers in Python
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../11_Classes/11_Classes.html">
-   12. Classes
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../../markdown-notebooks.html">
-   13. Notebooks with MyST Markdown
+  <a class="reference internal" href="../11_Classes/11_Classes_Notebook.html">
+   12. Classes: object-oriented programming in Python
   </a>
  </li>
 </ul>
@@ -447,6 +454,35 @@ title="Print to PDF"
   <a class="reference internal nav-link" href="#looping-with-indices">
    5.2. Looping with indices
   </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#automatically-generating-indices-with-enumerate">
+     5.2.1. Automatically generating indices with
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       enumerate
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#exercise-4-2">
+     5.2.2. Exercise 4.2
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#nesting-loops">
+   5.3. Nesting loops
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#exercise-4-3">
+     5.3.1. Exercise 4.3
+    </a>
+   </li>
+  </ul>
  </li>
 </ul>
 
@@ -512,6 +548,35 @@ title="Print to PDF"
   <a class="reference internal nav-link" href="#looping-with-indices">
    5.2. Looping with indices
   </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#automatically-generating-indices-with-enumerate">
+     5.2.1. Automatically generating indices with
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       enumerate
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#exercise-4-2">
+     5.2.2. Exercise 4.2
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#nesting-loops">
+   5.3. Nesting loops
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#exercise-4-3">
+     5.3.1. Exercise 4.3
+    </a>
+   </li>
+  </ul>
  </li>
 </ul>
 
@@ -532,9 +597,9 @@ title="Print to PDF"
 </div>
 <section class="tex2jax_ignore mathjax_ignore" id="loops">
 <h1><span class="section-number">5. </span>Loops<a class="headerlink" href="#loops" title="Permalink to this headline">#</a></h1>
-<p>Now that we’ve learned about how data are stored in Python as different types that we can collect into <a class="reference external" href="https://docs.python.org/3/tutorial/datastructures.html">data structures</a> like <a class="reference external" href="https://docs.python.org/3/c-api/list.html">lists</a> or <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.array.html">numpy arrays</a>, we should learn how to actually <em>do</em> things with our data! The next three sections on <strong>loops</strong>, <span class="xref myst">conditional statements</span>, and <span class="xref myst">functions</span> will comprise the basics of everything you need to get yourself up and running with Python. This will also be your first introduction to Python’s <strong>syntax</strong> (its “grammar” for how to structure code), beyond the simple syntax of variable assignment that we’ve seen thus far.</p>
+<p>Now that we’ve learned about how data are stored in Python as different types that we can collect into <a class="reference external" href="https://docs.python.org/3/tutorial/datastructures.html">data structures</a> like <a class="reference external" href="https://docs.python.org/3/c-api/list.html">lists</a> or <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.array.html">numpy arrays</a>, we should learn how to actually <em>do</em> things with our data! The next three sections on <strong>loops</strong>, <a class="reference internal" href="../05_ConditionalStatements/05_ConditionalStatements_Notebook.html"><span class="doc std std-doc">conditional statements</span></a>, and <a class="reference internal" href="../06_Functions/06_Functions_Notebook.html"><span class="doc std std-doc">functions</span></a> will comprise the basics of everything you need to get yourself up and running with Python. This will also be your first introduction to Python’s <strong>syntax</strong> (its “grammar” for how to structure code), beyond the simple syntax of variable assignment that we’ve seen thus far.</p>
 <p><strong>Loops</strong> are a natural place to start in the context of thinking about Python for data analysis because loops are a coding structure that tell computers how to execute a set of instructions repeatedly, and we often have lists or arrays of data that we want to iterate through (“loop over” in coding lingo) to perform calculations on each datum individually. That is, the term “loop” refers to the way that the computer <em>loops back</em> to do a set of tasks many times. This is one of the true superpowers of coding: computers have infinite patience and can do boring tasks repeatedly <em>ad nauseam</em>, so we can leverage this to make calculations or perform analyses that would be impossible to do by hand. We’ll talk about this more when we learn about <a class="reference internal" href="../10_RandomNumbers/10_RandomNumbers.html"><span class="doc std std-doc">random number generation</span></a>.</p>
-<p>In Python there are three main types of loops: <a class="reference external" href="https://docs.python.org/3/reference/compound_stmts.html#the-for-statement"><code class="docutils literal notranslate"><span class="pre">for</span></code></a>, <a class="reference external" href="https://docs.python.org/3/reference/compound_stmts.html#while"><code class="docutils literal notranslate"><span class="pre">while</span></code></a>, and <a class="reference external" href="https://docs.python.org/3/tutorial/datastructures.html#list-comprehensions"><strong>list comprehensions</strong></a>. <code class="docutils literal notranslate"><span class="pre">for</span></code> loops are probably the most common type and are the easiest to work with. <code class="docutils literal notranslate"><span class="pre">while</span></code> loops have a similar syntax to <code class="docutils literal notranslate"><span class="pre">for</span></code> loops, but are somewhat trickier and are a common source of bugs for novice coders. Finally, list comprehensions have a more complicated syntax, but are extremely “<a class="reference external" href="https://www.computerhope.com/jargon/p/pythonic.htm">Pythonic</a>” and a nice way to compress loops that involve lists. In this tutorial, we’ll mostly focus on <code class="docutils literal notranslate"><span class="pre">for</span></code> and <code class="docutils literal notranslate"><span class="pre">while</span></code> loops, but I’ll introduce the list comprehension syntax so that you aren’t stumped when you see it in the wild.  In this section, we’ll learn about <code class="docutils literal notranslate"><span class="pre">for</span></code> loops, and we’ll leave <code class="docutils literal notranslate"><span class="pre">while</span></code> loops for the next section, after we’ve introduced the notion of <span class="xref myst">conditional statements</span>.</p>
+<p>In Python there are three main types of loops: <a class="reference external" href="https://docs.python.org/3/reference/compound_stmts.html#the-for-statement"><code class="docutils literal notranslate"><span class="pre">for</span></code></a>, <a class="reference external" href="https://docs.python.org/3/reference/compound_stmts.html#while"><code class="docutils literal notranslate"><span class="pre">while</span></code></a>, and <a class="reference external" href="https://docs.python.org/3/tutorial/datastructures.html#list-comprehensions"><strong>list comprehensions</strong></a>. <code class="docutils literal notranslate"><span class="pre">for</span></code> loops are probably the most common type and are the easiest to work with. <code class="docutils literal notranslate"><span class="pre">while</span></code> loops have a similar syntax to <code class="docutils literal notranslate"><span class="pre">for</span></code> loops, but are somewhat trickier and are a common source of bugs for novice coders. Finally, list comprehensions have a more complicated syntax, but are extremely “<a class="reference external" href="https://www.computerhope.com/jargon/p/pythonic.htm">Pythonic</a>” and a nice way to compress loops that involve lists. In this tutorial, we’ll mostly focus on <code class="docutils literal notranslate"><span class="pre">for</span></code> and <code class="docutils literal notranslate"><span class="pre">while</span></code> loops, but I’ll introduce the list comprehension syntax so that you aren’t stumped when you see it in the wild.  In this section, we’ll learn about <code class="docutils literal notranslate"><span class="pre">for</span></code> loops, and we’ll leave <code class="docutils literal notranslate"><span class="pre">while</span></code> loops for the next section, after we’ve introduced the notion of <a class="reference internal" href="../05_ConditionalStatements/05_ConditionalStatements_Notebook.html"><span class="doc std std-doc">conditional statements</span></a>.</p>
 <div class="admonition-big-idea admonition">
 <p class="admonition-title">Big Idea</p>
 <p>Loops are structure that tell the computer to <em>loop back and repeat</em> instructions several times.</p>
@@ -580,7 +645,7 @@ Doing some instructions!
 </div>
 </div>
 </div>
-<p>Let’s unpack this a bit.  The idea is that we can read this syntax as “for item in iterable: do stuff”, where Python is going to do the <strong>indented instructions</strong> for each item in the list.  In this case, we’re using the <a class="reference external" href="https://docs.python.org/3/library/functions.html#func-range"><code class="docutils literal notranslate"><span class="pre">range</span></code></a> function to create an iterable of length 5, and then Python is executing the indented instructions of <code class="docutils literal notranslate"><span class="pre">print(&quot;Doing</span> <span class="pre">some</span> <span class="pre">instructions!&quot;)</span></code> 5 times, once for each iteration in the iterable. We can do any normal Python commands in this indented area: variable assignment, calculations, even other loops as we’ll see shortly!  For example:</p>
+<p>Let’s unpack this a bit.  The idea is that we can read this syntax as “for each item in the iterable: do some stuff”, where Python is going to do the <strong>indented instructions</strong> for each item in the list.  In this case, we’re using the <a class="reference external" href="https://docs.python.org/3/library/functions.html#func-range"><code class="docutils literal notranslate"><span class="pre">range</span></code></a> function to create an iterable of length 5, and then Python is executing the indented instructions of <code class="docutils literal notranslate"><span class="pre">print(&quot;Doing</span> <span class="pre">some</span> <span class="pre">instructions!&quot;)</span></code> 5 times, once for each iteration in the iterable. We can do any normal Python commands in this indented area: variable assignment, calculations, even other loops as we’ll see shortly!  For example:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">n_iters</span> <span class="o">=</span> <span class="mi">4</span>
@@ -803,10 +868,7 @@ At index 4 the list contains birds.
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">myarray</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span>  <span class="c1">## What does this function do?</span>
 <span class="n">myarray</span> <span class="o">=</span> <span class="n">myarray</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">myarray</span><span class="p">)</span>
-
-<span class="k">for</span> <span class="n">ii</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">):</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;This is row </span><span class="si">{}</span><span class="s2">:&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">ii</span><span class="p">),</span> <span class="n">myarray</span><span class="p">[</span><span class="n">ii</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">myarray</span><span class="p">)</span> <span class="c1">## What does myarray look like?</span>
 </pre></div>
 </div>
 </div>
@@ -815,7 +877,19 @@ At index 4 the list contains birds.
  [ 5  6  7  8  9]
  [10 11 12 13 14]
  [15 16 17 18 19]]
-This is row 0: [0 1 2 3 4]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell tag_hide-output docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">ii</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">myarray</span><span class="p">)):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;This is row </span><span class="si">{}</span><span class="s2">:&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">ii</span><span class="p">),</span> <span class="n">myarray</span><span class="p">[</span><span class="n">ii</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>This is row 0: [0 1 2 3 4]
 This is row 1: [5 6 7 8 9]
 This is row 2: [10 11 12 13 14]
 This is row 3: [15 16 17 18 19]
@@ -823,7 +897,177 @@ This is row 3: [15 16 17 18 19]
 </div>
 </div>
 </div>
+<p>This is especially useful for iterating over different <em>axes</em> of an array, because we can slice in different directions.  For example:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">nCols</span> <span class="o">=</span> <span class="n">myarray</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>  <span class="c1">## What is the [1] doing here?</span>
+                          <span class="c1">## What is nCols?</span>
+<span class="k">for</span> <span class="n">colNo</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">nCols</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;This is column </span><span class="si">{</span><span class="n">colNo</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">myarray</span><span class="p">[:,</span><span class="w"> </span><span class="n">colNo</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>This is column 0: [ 0  5 10 15]
+This is column 1: [ 1  6 11 16]
+This is column 2: [ 2  7 12 17]
+This is column 3: [ 3  8 13 18]
+This is column 4: [ 4  9 14 19]
+</pre></div>
+</div>
+</div>
+</div>
+<section id="automatically-generating-indices-with-enumerate">
+<h3><span class="section-number">5.2.1. </span>Automatically generating indices with <code class="docutils literal notranslate"><span class="pre">enumerate</span></code><a class="headerlink" href="#automatically-generating-indices-with-enumerate" title="Permalink to this headline">#</a></h3>
+<p>Of course, sometimes we want to both make use of the elements of our iterable <em>and</em> use indices for accessing elements.  In this case, it is convenient to use the <a class="reference external" href="https://docs.python.org/3/library/functions.html#enumerate"><code class="docutils literal notranslate"><span class="pre">enumerate</span></code></a> function.</p>
+<div class="cell tag_hide-output docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">index</span><span class="p">,</span> <span class="n">element</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">list_of_pets</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;The index is </span><span class="si">{</span><span class="n">index</span><span class="si">}</span><span class="s2">. The element is </span><span class="si">{</span><span class="n">element</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The index is 0. The element is dogs.
+The index is 1. The element is cats.
+The index is 2. The element is iguanas.
+The index is 3. The element is rabbits.
+The index is 4. The element is birds.
+</pre></div>
+</div>
+</div>
+</div>
 </section>
+<section id="exercise-4-2">
+<h3><span class="section-number">5.2.2. </span>Exercise 4.2<a class="headerlink" href="#exercise-4-2" title="Permalink to this headline">#</a></h3>
+<ol class="simple">
+<li><p>Make a list of adjectives that describe each name in your list of names. Use looping with indices to print out strings involving a name and the corresponding adjective. (“Eric is neat!”)</p></li>
+<li><p>If you used <code class="docutils literal notranslate"><span class="pre">enumerate</span></code> in the previous exercise, repeat the problem without <code class="docutils literal notranslate"><span class="pre">enumerate</span></code>.  If you didn’t use <code class="docutils literal notranslate"><span class="pre">enumerate</span></code>, try it out!</p></li>
+</ol>
+</section>
+</section>
+<section id="nesting-loops">
+<h2><span class="section-number">5.3. </span>Nesting loops<a class="headerlink" href="#nesting-loops" title="Permalink to this headline">#</a></h2>
+<p>Ok, so what if we want to access every element of a multi-dimensional array? What if we want to do an iterative task several times?</p>
+<p>In Python, we can easily nest loops within one another by using the same loop syntax within the indented area of a normal loop.  As an example:</p>
+<div class="cell tag_hide-output docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">nRows</span><span class="p">,</span> <span class="n">nCols</span> <span class="o">=</span> <span class="n">myarray</span><span class="o">.</span><span class="n">shape</span> <span class="c1">## What are the values of nRows and nCols??</span>
+
+<span class="k">for</span> <span class="n">rowIdx</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">nRows</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">colIdx</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">nCols</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;The element at row </span><span class="si">{</span><span class="n">rowIdx</span><span class="si">}</span><span class="s2"> and column </span><span class="si">{</span><span class="n">colIdx</span><span class="si">}</span><span class="s2"> is </span><span class="si">{</span><span class="n">myarray</span><span class="p">[</span><span class="n">rowIdx</span><span class="p">,</span><span class="w"> </span><span class="n">colIdx</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The element at row 0 and column 0 is 0
+The element at row 0 and column 1 is 1
+The element at row 0 and column 2 is 2
+The element at row 0 and column 3 is 3
+The element at row 0 and column 4 is 4
+The element at row 1 and column 0 is 5
+The element at row 1 and column 1 is 6
+The element at row 1 and column 2 is 7
+The element at row 1 and column 3 is 8
+The element at row 1 and column 4 is 9
+The element at row 2 and column 0 is 10
+The element at row 2 and column 1 is 11
+The element at row 2 and column 2 is 12
+The element at row 2 and column 3 is 13
+The element at row 2 and column 4 is 14
+The element at row 3 and column 0 is 15
+The element at row 3 and column 1 is 16
+The element at row 3 and column 2 is 17
+The element at row 3 and column 3 is 18
+The element at row 3 and column 4 is 19
+</pre></div>
+</div>
+</div>
+</div>
+<p>In this example, the iterating over the column indices is contained in a <code class="docutils literal notranslate"><span class="pre">for</span></code> loop that is indented following the <code class="docutils literal notranslate"><span class="pre">for</span></code> loop that iterates over the row indices. The print statement is indented twice following the second <code class="docutils literal notranslate"><span class="pre">for</span></code> loop so that it executes for each iteration of the innermost loop.</p>
+<p>However, we don’t have to do everything within both loops.  In the example below, we only do the singly-indented instructions at each iteration of the first loop. That is, the assignment <code class="docutils literal notranslate"><span class="pre">temp_pet</span> <span class="pre">=</span> <span class="pre">&quot;&quot;</span></code> only happens once for each interation in the <code class="docutils literal notranslate"><span class="pre">list_of_pets</span></code> loop, then the <code class="docutils literal notranslate"><span class="pre">range(3)</span></code> loop is executed, and the <code class="docutils literal notranslate"><span class="pre">temp_pet</span> <span class="pre">=</span> <span class="pre">temp_pet</span> <span class="pre">+</span> <span class="pre">pet</span></code> instruction is executed 3 times. Then, the <code class="docutils literal notranslate"><span class="pre">print(temp_pet)</span></code> instruction is only indented once, so it is also only run once for each iteration of the <code class="docutils literal notranslate"><span class="pre">list_of_pets</span></code> loop.</p>
+<div class="cell tag_hide-output docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">pet</span> <span class="ow">in</span> <span class="n">list_of_pets</span><span class="p">:</span>
+    <span class="n">temp_pet</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+    <span class="k">for</span> <span class="n">itr</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">):</span>
+        <span class="n">temp_pet</span> <span class="o">=</span> <span class="n">temp_pet</span> <span class="o">+</span> <span class="n">pet</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">temp_pet</span><span class="p">)</span> <span class="c1">## Try indenting this a second time, then try unindenting. What happens?</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>dogsdogsdogs
+catscatscats
+iguanasiguanasiguanas
+rabbitsrabbitsrabbits
+birdsbirdsbirds
+</pre></div>
+</div>
+</div>
+</div>
+<div class="admonition-indentation-syntax admonition">
+<p class="admonition-title">Indentation syntax</p>
+<p>It’s important to note here how Python keeps track of different “levels” of execution. The <code class="docutils literal notranslate"><span class="pre">for</span> <span class="pre">itr</span> <span class="pre">in</span> <span class="pre">range(3)</span></code> loop in the previous example only executes the twice-indented instructions that <em>immediately follow</em> the <code class="docutils literal notranslate"><span class="pre">for</span></code> loop instruction. In the example below, we will receive an <code class="docutils literal notranslate"><span class="pre">IndentationError</span></code> because the <code class="docutils literal notranslate"><span class="pre">print(triple_pet)</span></code> instruction is doubly-indented without the required syntax to indicate that it is allowed to be. If we want to print the value of <code class="docutils literal notranslate"><span class="pre">triple_pet</span></code> at each value of the inner loop, it needs to come before we assign <code class="docutils literal notranslate"><span class="pre">pi</span></code> (as an example, there’s nothing special about this variable assignment).</p>
+</div>
+<div class="cell tag_hide-output docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">pet</span> <span class="ow">in</span> <span class="n">list_of_pets</span><span class="p">:</span>
+    <span class="n">triple_pet</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+    <span class="k">for</span> <span class="n">itr</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">):</span>
+        <span class="n">triple_pet</span> <span class="o">=</span> <span class="n">triple_pet</span> <span class="o">+</span> <span class="n">pet</span>
+    <span class="n">pi</span> <span class="o">=</span> <span class="mf">3.1415</span> <span class="c1">## Some instructions that are not meant to be doubly-looped.</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">triple_pet</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span>  <span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">18</span><span class="p">],</span> <span class="n">line</span> <span class="mi">6</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">triple_pet</span><span class="p">)</span>
+    <span class="o">^</span>
+<span class="ne">IndentationError</span>: unexpected indent
+</pre></div>
+</div>
+</div>
+</div>
+<p>Similarly, the indented area of a loop cannot be empty, otherwise you will get a <code class="docutils literal notranslate"><span class="pre">SyntaxError</span></code>.</p>
+<div class="cell tag_hide-output docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">iteration</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]:</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span>  <span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">19</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+    <span class="k">for</span> <span class="n">iteration</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]:</span>
+                               <span class="o">^</span>
+<span class="ne">SyntaxError</span>: incomplete input
+</pre></div>
+</div>
+</div>
+</div>
+<section id="exercise-4-3">
+<h3><span class="section-number">5.3.1. </span>Exercise 4.3<a class="headerlink" href="#exercise-4-3" title="Permalink to this headline">#</a></h3>
+<ol>
+<li><p>Consider the following code:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">ind1</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">6</span><span class="p">):</span>
+    <span class="c1">## Instructions!</span>
+    <span class="k">for</span> <span class="n">ind2</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">8</span><span class="p">):</span>
+        <span class="c1">## Instructions!</span>
+    <span class="c1">## Instructions!</span>
+</pre></div>
+</div>
+<p>Add instructions that will construct a 2-dimensional list or array so that each element of the list/array contains the <em>product</em> of the row number and the column number. You may want to investigate the <code class="docutils literal notranslate"><span class="pre">np.zeros</span></code> or <code class="docutils literal notranslate"><span class="pre">np.ones</span></code> functions if you choose to make an array, or recall how the <code class="docutils literal notranslate"><span class="pre">append</span></code> method works for lists.</p>
+</li>
+<li><p>Construct an iterable that has 4 “dimensions” and use 4 loops to traverse each element of the iterable, printing out all the indices and the value of the element at each location in a nicely formatted string.</p></li>
+</ol>
+<hr class="docutils" />
+<p>At this point, you have been introduced with enough information to move on in the tutorial to learn about using <a class="reference internal" href="../05_ConditionalStatements/05_ConditionalStatements_Notebook.html"><span class="doc std std-doc">conditional statements</span></a> to finally start writing interesting pieces of code! However, for the sake of completeness and to introduce a looping syntax that you might encounter when looking at code online, I’ve introduced a short section on <a class="reference internal" href="04_Loops_ListComp.html"><span class="doc std std-doc"><strong>list comprehensions</strong></span></a>.</p>
+</section>
+</section>
+<div class="toctree-wrapper compound">
+</div>
 </section>
 
     <script type="text/x-thebe-config">
@@ -860,10 +1104,10 @@ This is row 3: [15 16 17 18 19]
             <p class="prev-next-title"><span class="section-number">4. </span>Lists and Arrays</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="../05_ConditionalStatements/05_ConditionalStatements.html" title="next page">
+    <a class='right-next' id="next-link" href="04_Loops_ListComp.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">6. </span>Conditional Statements</p>
+        <p class="prev-next-title"><span class="section-number">5.4. </span>List comprehensions</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>
