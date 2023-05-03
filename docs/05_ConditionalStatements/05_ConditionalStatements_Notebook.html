@@ -50,6 +50,8 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="7. Functions" href="../06_Functions/06_Functions_Notebook.html" />
@@ -387,12 +389,261 @@ title="Print to PDF"
     </ul>
   </div>
 </div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
 
     </div>
 </div>
 
 <!-- Table of contents -->
 <div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#what-is-a-conditional-expression">
+   6.1. What is a conditional expression?
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#logical-comparisons">
+   6.2. Logical Comparisons
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#equalities">
+     6.2.1. Equalities
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#inequalities">
+     6.2.2. Inequalities
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#testing-if-an-element-is-in-a-list-or-array">
+     6.2.3. Testing if an element is in a list or array
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#testing-if-a-variable-is-a-specified-type">
+     6.2.4. Testing if a variable is a specified type
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#negation-of-logical-statements">
+     6.2.5. Negation of logical statements
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#exercises">
+     6.2.6. Exercises
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#if-else-statements">
+   6.3.
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     If
+    </span>
+   </code>
+   -
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     Else
+    </span>
+   </code>
+   statements
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#multiple-conditions-elif">
+     6.3.1. Multiple conditions:
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       elif
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#if-vs-elif">
+     6.3.2.
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       if
+      </span>
+     </code>
+     vs
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       elif
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#what-is-true-in-python">
+     6.3.3. What is “true” in Python?
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id1">
+     6.3.4. Exercises
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#conditional-expressions-in-loops">
+   6.4. Conditional expressions in loops
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#while-loops">
+     6.4.1.
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       while
+      </span>
+     </code>
+     loops
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#the-pass-operation">
+     6.4.2. The
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       pass
+      </span>
+     </code>
+     operation
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#the-continue-operation">
+     6.4.3. The
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       continue
+      </span>
+     </code>
+     operation
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#the-break-operation">
+     6.4.4. The
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       break
+      </span>
+     </code>
+     operation
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id2">
+     6.4.5. Exercises
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#conditional-statements-involving-arrays">
+   6.5. Conditional statements involving arrays
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#broadcasting-logical-comparisons">
+     6.5.1. Broadcasting logical comparisons
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#using-booleans-as-a-mask">
+     6.5.2. Using booleans as a “mask”
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#finding-where-at-what-index-a-condition-is-met">
+     6.5.3. Finding where (at what index) a condition is met
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id3">
+     6.5.4. Exercises
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#multiple-logical-comparisons">
+   6.6. Multiple logical comparisons
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#the-and-and-or-operators">
+     6.6.1. The
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       and
+      </span>
+     </code>
+     and
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       or
+      </span>
+     </code>
+     operators
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#bitwise-logical-operators">
+     6.6.2. Bitwise logical operators
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#any-and-all">
+     6.6.3.
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       any
+      </span>
+     </code>
+     and
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       all
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id4">
+     6.6.4. Exercises
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </nav>
 </div>
     </div>
     <div class="article row">
@@ -404,6 +655,244 @@ title="Print to PDF"
                 <div id="print-main-content">
                     <div id="jb-print-toc">
                         
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#what-is-a-conditional-expression">
+   6.1. What is a conditional expression?
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#logical-comparisons">
+   6.2. Logical Comparisons
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#equalities">
+     6.2.1. Equalities
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#inequalities">
+     6.2.2. Inequalities
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#testing-if-an-element-is-in-a-list-or-array">
+     6.2.3. Testing if an element is in a list or array
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#testing-if-a-variable-is-a-specified-type">
+     6.2.4. Testing if a variable is a specified type
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#negation-of-logical-statements">
+     6.2.5. Negation of logical statements
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#exercises">
+     6.2.6. Exercises
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#if-else-statements">
+   6.3.
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     If
+    </span>
+   </code>
+   -
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     Else
+    </span>
+   </code>
+   statements
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#multiple-conditions-elif">
+     6.3.1. Multiple conditions:
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       elif
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#if-vs-elif">
+     6.3.2.
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       if
+      </span>
+     </code>
+     vs
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       elif
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#what-is-true-in-python">
+     6.3.3. What is “true” in Python?
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id1">
+     6.3.4. Exercises
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#conditional-expressions-in-loops">
+   6.4. Conditional expressions in loops
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#while-loops">
+     6.4.1.
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       while
+      </span>
+     </code>
+     loops
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#the-pass-operation">
+     6.4.2. The
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       pass
+      </span>
+     </code>
+     operation
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#the-continue-operation">
+     6.4.3. The
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       continue
+      </span>
+     </code>
+     operation
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#the-break-operation">
+     6.4.4. The
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       break
+      </span>
+     </code>
+     operation
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id2">
+     6.4.5. Exercises
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#conditional-statements-involving-arrays">
+   6.5. Conditional statements involving arrays
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#broadcasting-logical-comparisons">
+     6.5.1. Broadcasting logical comparisons
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#using-booleans-as-a-mask">
+     6.5.2. Using booleans as a “mask”
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#finding-where-at-what-index-a-condition-is-met">
+     6.5.3. Finding where (at what index) a condition is met
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id3">
+     6.5.4. Exercises
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#multiple-logical-comparisons">
+   6.6. Multiple logical comparisons
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#the-and-and-or-operators">
+     6.6.1. The
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       and
+      </span>
+     </code>
+     and
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       or
+      </span>
+     </code>
+     operators
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#bitwise-logical-operators">
+     6.6.2. Bitwise logical operators
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#any-and-all">
+     6.6.3.
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       any
+      </span>
+     </code>
+     and
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       all
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id4">
+     6.6.4. Exercises
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+                        </nav>
                     </div>
                 </div>
             </div>
@@ -411,8 +900,985 @@ title="Print to PDF"
                 
               <div>
                 
-  <section class="tex2jax_ignore mathjax_ignore" id="conditional-expressions">
+  <div class="cell tag_hide-output docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span> <span class="c1">## It&#39;s good practice to put your imports right at the top!</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section class="tex2jax_ignore mathjax_ignore" id="conditional-expressions">
 <h1><span class="section-number">6. </span>Conditional expressions<a class="headerlink" href="#conditional-expressions" title="Permalink to this headline">#</a></h1>
+<div class="admonition-follow-along admonition">
+<p class="admonition-title">Follow along!</p>
+<p>Remember that to best make use of this tutorial, it is highly recommended that you <a class="reference external" href="https://jupyter-notebook-beginner-guide.readthedocs.io/en/latest/execute.html">make your own notebook</a> and <strong>type every piece of code</strong> yourself!</p>
+</div>
+<p>At this point we’ve covered how to store data of <a class="reference internal" href="../02_Variables_DataTypes/02_Variables_DataTypes_Notebook.html"><span class="doc std std-doc">different types</span></a> in variables, how to perform simple operations on those variables, and with <a class="reference internal" href="../04_Loops/04_Loops_Notebook.html"><span class="doc std std-doc">loops</span></a>, how to repeat sets of operations. However, there is one last major tool that you will need to add to your coding toolbox before you will really be ab|le to attack a generic problem, and that is the ability to set <em>conditions</em> on when your code should do things. The construction of these conditions, called <strong>conditional expressions</strong> are what we will cover in this section of the tutorial.</p>
+<section id="what-is-a-conditional-expression">
+<h2><span class="section-number">6.1. </span>What is a conditional expression?<a class="headerlink" href="#what-is-a-conditional-expression" title="Permalink to this headline">#</a></h2>
+<p>At its most basic, a conditional expression can be thought of as a statement that tests whether something is <em>true</em> or <em>false</em> (in code: <code class="docutils literal notranslate"><span class="pre">True</span></code> or <code class="docutils literal notranslate"><span class="pre">False</span></code>). However, this definition can be a bit hard to understand until we’ve seen a few examples. In words, consider the following situations:</p>
+<ol class="simple">
+<li><p>I have my list of pets, and I want to loop through the list, printing one statement for cats, and another statement for all non-cats. To do this, I can, at each iteration, test if it is TRUE that the current pet is a cat.</p></li>
+<li><p>I have a set of operations and I only want to use these operations on 2D numpy arrays. So I tell the code to check if it is TRUE that the data is an array and then if it is TRUE that the array is 2D. If these are not true, then the code skips the operations.</p></li>
+<li><p>I have an array of data and I want to set all elements that are greater than 10 to instead be 0. I can do this by checking if it is TRUE that a given element is greater than 10. If it is, set the element to 0, otherwise (<code class="docutils literal notranslate"><span class="pre">else</span></code>, as we’ll see shortly) leave the element alone.</p></li>
+</ol>
+<p>By the end of this chapter, you will be able to execute all of these scenarios (they will be exercises along the way!).</p>
+<p>The key to each, and what was emphasized, was the phrasing of the problem as one in which I need to test whether my data/variables meet a certain condition. Once Python has assessed whether the condition has been met, we can ask it to do different things depending on that outcome.</p>
+<p>Finally, let’s consider an introductory example:</p>
+<div class="cell tag_hide-output docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">temperature</span> <span class="o">=</span> <span class="mi">90</span>
+<span class="k">if</span> <span class="n">temperature</span> <span class="o">&gt;</span> <span class="mi">80</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;It&#39;s hot! </span><span class="si">{}</span><span class="s2"> degrees is much too warm!&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">temperature</span><span class="p">))</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;It&#39;s not hot! </span><span class="si">{}</span><span class="s2"> degress is great!&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">temperature</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>It&#39;s hot! 90 degrees is much too warm!
+</pre></div>
+</div>
+</div>
+</div>
+<p>In this example, try changing the value of temperature and note the change in output.</p>
+<p>We’ll explore the syntax of this construction (notice the use of indented blocks again!), but the end result should be somewhat intuitive. We assign temperature a value, then <code class="docutils literal notranslate"><span class="pre">if</span></code> that value is greater than 80, we print one thing, <code class="docutils literal notranslate"><span class="pre">else</span></code>, we print another.</p>
+</section>
+<section id="logical-comparisons">
+<h2><span class="section-number">6.2. </span>Logical Comparisons<a class="headerlink" href="#logical-comparisons" title="Permalink to this headline">#</a></h2>
+<p>Before we can go much further, we need to spend a moment talking about the different “tests” that we can run to test if a condition is true or false. These are called <strong>logical comparisons</strong> or logical tests.</p>
+<p>The most basic logical comparisons are <strong>equalities</strong> and <strong>inequalities</strong> which you should be familiar with from mathematics. These will allow us to compare the values of different variables.  However, there are other statements that we can evaluate as either true or false, for example, whether a specific value is present in a list or array or whether a variable is of a specific type.  We’ll examine these situations here.</p>
+<section id="equalities">
+<h3><span class="section-number">6.2.1. </span>Equalities<a class="headerlink" href="#equalities" title="Permalink to this headline">#</a></h3>
+<p>t is often very useful to tell if something is equal to something else. For example, if we want to determine if a variable is 3 (not greater or less than, but exactly). To do this we use the double-equals <code class="docutils literal notranslate"><span class="pre">==</span></code> operator:</p>
+<div class="cell tag_hide-output docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="n">b</span> <span class="o">=</span> <span class="mi">3</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span> <span class="o">==</span> <span class="n">b</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span> <span class="o">==</span> <span class="mi">5</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">b</span> <span class="o">==</span> <span class="mi">5</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span> <span class="o">==</span> <span class="mi">3</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">b</span> <span class="o">==</span> <span class="mi">3</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>False
+True
+False
+False
+True
+</pre></div>
+</div>
+</div>
+</div>
+<p>Note that the equality operator compares the <em>values</em> stored in a variable, not the variable names. It is very, very difficult to do anything with variable <em>names</em> in Python, so this is not a fast way for you to check if a variable name has already been used.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>The second equals sign here is essential! If you remove one, you will end up assigning the value on the right to the value on the left!</p>
+</div>
+<p>As you would hope, equalities work with other data types:</p>
+<div class="cell tag_hide-output docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;eric&#39;</span> <span class="o">==</span> <span class="s1">&#39;eric&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Eric&#39;</span> <span class="o">==</span> <span class="s1">&#39;eric&#39;</span><span class="p">)</span>  <span class="c1">## Python strings are always case-sensitive</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;5&#39;</span> <span class="o">==</span> <span class="mi">5</span><span class="p">)</span>          <span class="c1">## Remember that quotes make *strings*</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;5&#39;</span> <span class="o">==</span> <span class="nb">str</span><span class="p">(</span><span class="mi">5</span><span class="p">))</span>     <span class="c1">## A string containing the number 5 is different from the number!</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">))</span> <span class="o">==</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">])</span> <span class="c1">## We can compare lists</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="mi">10</span> <span class="o">==</span> <span class="mf">0.1</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="mi">10</span> <span class="o">==</span> <span class="mf">0.1000000000000001</span><span class="p">)</span>  <span class="c1">## The accuracy of floating-point numbers is pretty good!</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">==</span> <span class="mi">22</span><span class="o">/</span><span class="mi">7</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">==</span> <span class="mf">3.1415926</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
+False
+False
+True
+True
+True
+False
+False
+False
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="inequalities">
+<h3><span class="section-number">6.2.2. </span>Inequalities<a class="headerlink" href="#inequalities" title="Permalink to this headline">#</a></h3>
+<p>There are 5 basic inequalities: not equal <code class="docutils literal notranslate"><span class="pre">!=</span></code>, less than <code class="docutils literal notranslate"><span class="pre">&lt;</span></code>, greater than <code class="docutils literal notranslate"><span class="pre">&gt;</span></code>, less than or equal to <code class="docutils literal notranslate"><span class="pre">&lt;=</span></code>, and greater than or equal to <code class="docutils literal notranslate"><span class="pre">&gt;=</span></code>. Hopefully these are somewhat intuitive, but if not they should be easy to remember.</p>
+<p>The not equal test, <code class="docutils literal notranslate"><span class="pre">!=</span></code>, works similarly to the equality operator <code class="docutils literal notranslate"><span class="pre">==</span></code>, but the rest of these operators are really only meant for numerical comparisons. For example, it’s not immediately clear what <code class="docutils literal notranslate"><span class="pre">'Eric'</span> <span class="pre">&gt;=</span> <span class="pre">'Madhav'</span></code> might logically mean - but you should try it and see what Python says!</p>
+<div class="cell tag_hide-output docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="n">b</span> <span class="o">=</span> <span class="mi">3</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span> <span class="o">&lt;</span> <span class="n">b</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span> <span class="o">&lt;=</span> <span class="n">b</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span> <span class="o">&lt;</span> <span class="mi">5</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span> <span class="o">&lt;=</span> <span class="mi">5</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span> <span class="o">&gt;</span> <span class="n">b</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">b</span> <span class="o">&gt;</span> <span class="mi">3</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">b</span> <span class="o">&gt;=</span> <span class="mi">3</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>False
+False
+False
+True
+True
+False
+True
+</pre></div>
+</div>
+</div>
+</div>
+<p>Note in the above example the difference between <code class="docutils literal notranslate"><span class="pre">&lt;</span></code> and <code class="docutils literal notranslate"><span class="pre">&gt;</span></code> and the “or equal to” operators <code class="docutils literal notranslate"><span class="pre">&lt;=</span></code> and <code class="docutils literal notranslate"><span class="pre">&gt;=</span></code>. This can be made more explicit with floats:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="mi">10</span> <span class="o">&lt;</span> <span class="mf">0.1</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="mi">10</span> <span class="o">&lt;=</span> <span class="mf">0.1</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="mi">10</span> <span class="o">&lt;</span> <span class="mf">0.10000000000001</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>False
+True
+True
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="testing-if-an-element-is-in-a-list-or-array">
+<h3><span class="section-number">6.2.3. </span>Testing if an element is in a list or array<a class="headerlink" href="#testing-if-an-element-is-in-a-list-or-array" title="Permalink to this headline">#</a></h3>
+<p>As noted, we can easily ask if something is contained <strong>in</strong> a collection like a list or array using the <code class="docutils literal notranslate"><span class="pre">in</span></code> operator.</p>
+<p>In the following example, we’ll also use variable assignment to keep the outcome of our logical test.  Here we’ll contain the result of <code class="docutils literal notranslate"><span class="pre">'dogs'</span> <span class="pre">in</span> <span class="pre">pets</span></code> in the new variable <code class="docutils literal notranslate"><span class="pre">dog_in_pets</span></code> and we’ll contain the result of <code class="docutils literal notranslate"><span class="pre">'bunnies'</span> <span class="pre">in</span> <span class="pre">pets</span></code> in the new variable <code class="docutils literal notranslate"><span class="pre">bun_in_pets</span></code>.  We can then see that these variables contain either a <code class="docutils literal notranslate"><span class="pre">True</span></code> or <code class="docutils literal notranslate"><span class="pre">False</span></code> depending on whether <code class="docutils literal notranslate"><span class="pre">'dogs'</span></code> or <code class="docutils literal notranslate"><span class="pre">'bunnies'</span></code> are in <code class="docutils literal notranslate"><span class="pre">pets</span></code>, respectively.  This is useful if you need to use the same condition multiple times or if, for example, you want to keep track of how often something is true in a loop.</p>
+<div class="cell tag_hide-output docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pets</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;dogs&#39;</span><span class="p">,</span> <span class="s1">&#39;cats&#39;</span><span class="p">,</span> <span class="s1">&#39;iguanas&#39;</span><span class="p">,</span> <span class="s1">&#39;birds&#39;</span><span class="p">]</span>
+
+<span class="n">dog_in_pets</span> <span class="o">=</span> <span class="s1">&#39;dogs&#39;</span> <span class="ow">in</span> <span class="n">pets</span>      <span class="c1">## We can set the result of a comparison to</span>
+<span class="n">bun_in_pets</span> <span class="o">=</span> <span class="s1">&#39;bunnies&#39;</span> <span class="ow">in</span> <span class="n">pets</span>   <span class="c1">## be stored in another variable.</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;It is </span><span class="si">{</span><span class="n">dog_in_pets</span><span class="si">}</span><span class="s2"> that &#39;dogs&#39; is in &#39;pets&#39;.&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;It is </span><span class="si">{</span><span class="n">bun_in_pets</span><span class="si">}</span><span class="s2"> that &#39;bunnies&#39; is in &#39;pets&#39;.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>It is True that &#39;dogs&#39; is in &#39;pets&#39;.
+It is False that &#39;bunnies&#39; is in &#39;pets&#39;.
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="testing-if-a-variable-is-a-specified-type">
+<h3><span class="section-number">6.2.4. </span>Testing if a variable is a specified type<a class="headerlink" href="#testing-if-a-variable-is-a-specified-type" title="Permalink to this headline">#</a></h3>
+<p>One thing that is often useful in more complex programs is to have checks to make sure that your inputs (and outputs) are the correct sizes and types. Python has a built-in function called <a class="reference external" href="https://docs.python.org/3/library/functions.html#isinstance"><code class="docutils literal notranslate"><span class="pre">isinstance</span></code></a>, which takes a variable and a type as inputs and returns <code class="docutils literal notranslate"><span class="pre">True</span></code> or <code class="docutils literal notranslate"><span class="pre">False</span></code> if the variable is of the specified type.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="n">b</span> <span class="o">=</span> <span class="s1">&#39;cat&#39;</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="nb">isinstance</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="nb">int</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">isinstance</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">))</span> <span class="c1">## Recall this is the &quot;type&quot; of numpy arrays.</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">isinstance</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="nb">list</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">isinstance</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="nb">float</span><span class="p">))</span>      <span class="c1">## Put a period after 5 on the first line...</span>
+<span class="nb">print</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">isinstance</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="nb">int</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">isinstance</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="nb">list</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">isinstance</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="nb">str</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">isinstance</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">))</span>          <span class="c1">## READ THE ERROR MESSAGE</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
+
+False
+False
+False
+
+False
+False
+True
+</pre></div>
+</div>
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">TypeError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">8</span><span class="p">],</span> <span class="n">line</span> <span class="mi">14</span>
+<span class="g g-Whitespace">     </span><span class="mi">12</span> <span class="nb">print</span><span class="p">(</span><span class="nb">isinstance</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="nb">str</span><span class="p">))</span>
+<span class="g g-Whitespace">     </span><span class="mi">13</span> <span class="nb">print</span><span class="p">()</span>
+<span class="ne">---&gt; </span><span class="mi">14</span> <span class="nb">print</span><span class="p">(</span><span class="nb">isinstance</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">))</span>          <span class="c1">## READ THE ERROR MESSAGE</span>
+
+<span class="ne">TypeError</span>: isinstance() arg 2 must be a type, a tuple of types, or a union
+</pre></div>
+</div>
+</div>
+</div>
+<p>Alternately, we can directly compare the output of the <a class="reference external" href="https://docs.python.org/3/library/functions.html#type"><code class="docutils literal notranslate"><span class="pre">type</span></code></a> function with the type that we expect it to return. This allows us to also look at the <code class="docutils literal notranslate"><span class="pre">dtype</span></code> (data type) of arrays, as well. (Recall that in return for the structure of the numpy array, we lose the ability to have more than one type of data in each location of the array.)</p>
+<div class="cell tag_hide-output docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="n">b</span> <span class="o">=</span> <span class="s1">&#39;cat&#39;</span>
+<span class="n">c</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="kc">True</span><span class="p">,</span> <span class="kc">False</span><span class="p">,</span> <span class="kc">False</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="kc">False</span><span class="p">])</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">a</span><span class="p">)</span> <span class="o">==</span> <span class="nb">int</span><span class="p">)</span>          <span class="c1">## a should be an integer</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">b</span><span class="p">)</span> <span class="o">==</span> <span class="nb">str</span><span class="p">)</span>          <span class="c1">## b should be a string</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">c</span><span class="p">)</span> <span class="o">==</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">)</span>   <span class="c1">## c should be an array</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">c</span><span class="o">.</span><span class="n">dtype</span> <span class="o">==</span> <span class="nb">bool</span><span class="p">)</span>         <span class="c1">## and the data contained in c should be boolean!</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
+True
+True
+True
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="negation-of-logical-statements">
+<h3><span class="section-number">6.2.5. </span>Negation of logical statements<a class="headerlink" href="#negation-of-logical-statements" title="Permalink to this headline">#</a></h3>
+<p>Any logical statement can be negated by using the <code class="docutils literal notranslate"><span class="pre">not</span></code> operator before the condition. This is often useful when a condition is more easily constructed to test when something is false (like when using isinstance). As an example:</p>
+<div class="cell tag_hide-output docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="n">b</span> <span class="o">=</span> <span class="s1">&#39;cat&#39;</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="ow">not</span> <span class="n">a</span> <span class="o">==</span> <span class="n">b</span><span class="p">)</span>               <span class="c1">## a and b are not the same!</span>
+<span class="nb">print</span><span class="p">(</span><span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="nb">str</span><span class="p">))</span>   <span class="c1">## a is not a string</span>
+<span class="nb">print</span><span class="p">(</span><span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="nb">int</span><span class="p">))</span>   <span class="c1">## is a an integer?</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
+True
+False
+</pre></div>
+</div>
+</div>
+</div>
+<p>We can also apply this directly to boolean variables, which is useful when you’ve already made a comparison and you want to use the opposite.</p>
+<div class="cell tag_hide-output docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="n">b</span> <span class="o">=</span> <span class="s1">&#39;cat&#39;</span>
+
+<span class="n">a_is_b</span> <span class="o">=</span> <span class="n">a</span> <span class="o">==</span> <span class="n">b</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a_is_b</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="ow">not</span> <span class="n">a_is_b</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>False
+True
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="exercises">
+<h3><span class="section-number">6.2.6. </span>Exercises<a class="headerlink" href="#exercises" title="Permalink to this headline">#</a></h3>
+<ol>
+<li><p>Write a loop that iterates through the numbers 0 to 10 and prints if they are less than 5 and/or greater than 7. (i.e. “It is True that 4 is less than 5, and it is False that it is greater than 7.”) Recall that you can save the result of a comparison to a variable, which can more easily be formatted into a nice string.</p></li>
+<li><p>Using the remainder operator <code class="docutils literal notranslate"><span class="pre">%</span></code> (gets the remainder of division 10%4 = 2 and 10.1%10 = 0.1) print whether a given integer is even or odd.</p></li>
+<li><p><strong>BONUS</strong>: Using the list <code class="docutils literal notranslate"><span class="pre">types</span></code> and the 5x5 array of random numbers <code class="docutils literal notranslate"><span class="pre">randarr</span></code> below, use <a class="reference external" href="https://numpy.org/doc/stable/reference/random/generated/numpy.random.randint.html"><code class="docutils literal notranslate"><span class="pre">randint</span></code></a> or <a class="reference external" href="https://numpy.org/doc/stable/reference/random/generated/numpy.random.choice.html"><code class="docutils literal notranslate"><span class="pre">choice</span></code></a> to randomly select an element from <code class="docutils literal notranslate"><span class="pre">types</span></code>. Convert the data in <code class="docutils literal notranslate"><span class="pre">randarr</span></code> to that type, then loop through <code class="docutils literal notranslate"><span class="pre">types</span></code>, printing whether <code class="docutils literal notranslate"><span class="pre">randarr</span></code> is a given type at each iteration.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy.random</span> <span class="k">as</span> <span class="nn">r</span> <span class="c1"># Remember to import your modules!</span>
+<span class="n">types</span> <span class="o">=</span> <span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">float</span><span class="p">,</span> <span class="nb">str</span><span class="p">,</span> <span class="nb">bool</span><span class="p">]</span>
+<span class="n">randarr</span> <span class="o">=</span> <span class="n">r</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+</pre></div>
+</div>
+</li>
+</ol>
+</section>
+</section>
+<section id="if-else-statements">
+<h2><span class="section-number">6.3. </span><code class="docutils literal notranslate"><span class="pre">If</span></code>-<code class="docutils literal notranslate"><span class="pre">Else</span></code> statements<a class="headerlink" href="#if-else-statements" title="Permalink to this headline">#</a></h2>
+<p>We now know <em>how</em> two compare two things (in several ways), but as mentioned at the beginning, what if we want to use a logical statement to determine whether to execute other code or not? In Python, this is achieved with <code class="docutils literal notranslate"><span class="pre">if</span></code>-<code class="docutils literal notranslate"><span class="pre">else</span></code> statements. The syntax, as you will see shortly is, “if condition is True, then do [indented code], else, do [other indented code]”.</p>
+<p>As an example, we return to evaluating the temperature:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">temperature</span> <span class="o">=</span> <span class="mi">90</span>
+<span class="k">if</span> <span class="n">temperature</span> <span class="o">&gt;</span> <span class="mi">80</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;It&#39;s hot! </span><span class="si">{}</span><span class="s2"> degrees is much too warm!&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">temperature</span><span class="p">))</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;It&#39;s not hot! </span><span class="si">{}</span><span class="s2"> degress is great!&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">temperature</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>It&#39;s hot! 90 degrees is much too warm!
+</pre></div>
+</div>
+</div>
+</div>
+<p>Here, the logical statement <code class="docutils literal notranslate"><span class="pre">temperature</span> <span class="pre">&gt;</span> <span class="pre">80</span></code> is evaluated after <code class="docutils literal notranslate"><span class="pre">if</span></code> (and <strong>followed by a colon!</strong>). If the statement proves <code class="docutils literal notranslate"><span class="pre">True</span></code>, then the following indented code is executed, if it is <code class="docutils literal notranslate"><span class="pre">False</span></code>, then do the indented code after the <code class="docutils literal notranslate"><span class="pre">else</span></code> (which also has a <strong>colon</strong>).</p>
+<p>It’s worth noting, that if we don’t want to do something if our statement is <code class="docutils literal notranslate"><span class="pre">False</span></code>, then we can omit the <code class="docutils literal notranslate"><span class="pre">else</span></code> statement altogether. For example, I only complain if it’s too hot, so maybe I only need to write:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">temperature</span> <span class="o">=</span> <span class="mi">90</span>
+<span class="k">if</span> <span class="n">temperature</span> <span class="o">&gt;</span> <span class="mi">80</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;It&#39;s hot! </span><span class="si">{}</span><span class="s2"> degrees is much too warm!&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">temperature</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>It&#39;s hot! 90 degrees is much too warm!
+</pre></div>
+</div>
+</div>
+</div>
+<p>Try changing the temperature below 80 and you’ll see that I have no complaints!</p>
+<section id="multiple-conditions-elif">
+<h3><span class="section-number">6.3.1. </span>Multiple conditions: <code class="docutils literal notranslate"><span class="pre">elif</span></code><a class="headerlink" href="#multiple-conditions-elif" title="Permalink to this headline">#</a></h3>
+<p>Ok, so actually, I’m pretty particular about what a comfortable temperature is: there is too hot and too cold, so I want to check the temperature against two conditions before I decide to complain or not. There are several different ways that I can do this in Python.</p>
+<p>The first is that I can <strong>nest</strong> <code class="docutils literal notranslate"><span class="pre">if</span></code>-<code class="docutils literal notranslate"><span class="pre">else</span></code> statements, just like we saw with <a class="reference internal" href="../04_Loops/04_Loops_Notebook.html"><span class="doc std std-doc">loops</span></a>:</p>
+<div class="cell tag_hide-output docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">temperature</span> <span class="o">=</span> <span class="mi">79</span>
+<span class="k">if</span> <span class="n">temperature</span> <span class="o">&gt;</span> <span class="mi">80</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;It&#39;s hot! </span><span class="si">{}</span><span class="s2"> degrees is much too warm!&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">temperature</span><span class="p">))</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">temperature</span> <span class="o">&lt;</span> <span class="mi">78</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;It&#39;s cold! </span><span class="si">{}</span><span class="s2"> degrees is too cool!&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">temperature</span><span class="p">))</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;It&#39;s great! </span><span class="si">{}</span><span class="s2"> degrees is perfect!&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">temperature</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>It&#39;s great! 79 degrees is perfect!
+</pre></div>
+</div>
+</div>
+</div>
+<p>But from this example, you may see that if I have many conditions, this could get a bit clunky (too many indents!). Instead we use the <code class="docutils literal notranslate"><span class="pre">elif</span></code> statement, which is literally a portmanteau of <code class="docutils literal notranslate"><span class="pre">else</span></code> and <code class="docutils literal notranslate"><span class="pre">if</span></code>. This statement allows us to check another condition and to further diversify our code. We can now restructure the previous code as:</p>
+<div class="cell tag_hide-output docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">temperature</span> <span class="o">=</span> <span class="mi">79</span>
+<span class="k">if</span> <span class="n">temperature</span> <span class="o">&lt;</span> <span class="mi">78</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;It&#39;s cold! </span><span class="si">{}</span><span class="s2"> degrees is too cool!&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">temperature</span><span class="p">))</span>
+<span class="k">elif</span> <span class="n">temperature</span> <span class="o">&lt;</span> <span class="mi">80</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;It&#39;s great! </span><span class="si">{}</span><span class="s2"> degrees is perfect!&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">temperature</span><span class="p">))</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;It&#39;s hot! </span><span class="si">{}</span><span class="s2"> degrees is much too warm!&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">temperature</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>It&#39;s great! 79 degrees is perfect!
+</pre></div>
+</div>
+</div>
+</div>
+<p>The way that Python executes this code is that it goes through each <code class="docutils literal notranslate"><span class="pre">if</span></code> and <code class="docutils literal notranslate"><span class="pre">elif</span></code> statement in order and executes any following code if that condition is met. If it doesn’t, then it goes to the next and tries again. So in the previous example, if <code class="docutils literal notranslate"><span class="pre">temperature</span> <span class="pre">=</span> <span class="pre">79</span></code>, then the first condition is <code class="docutils literal notranslate"><span class="pre">False</span></code>, and that section of code is skipped, then the next condition is <code class="docutils literal notranslate"><span class="pre">True</span></code>, and the code there is executed. The rest of the structure is then ignored.</p>
+</section>
+<section id="if-vs-elif">
+<h3><span class="section-number">6.3.2. </span><code class="docutils literal notranslate"><span class="pre">if</span></code> vs <code class="docutils literal notranslate"><span class="pre">elif</span></code><a class="headerlink" href="#if-vs-elif" title="Permalink to this headline">#</a></h3>
+<p>It is worth noting again that because an <code class="docutils literal notranslate"><span class="pre">if</span></code> statement can be executed on its own, you have to pay attention to whether you need <code class="docutils literal notranslate"><span class="pre">if</span></code> statements or <code class="docutils literal notranslate"><span class="pre">elif</span></code> statements. Consider the following example, but with the <code class="docutils literal notranslate"><span class="pre">elif</span></code> replaced by <code class="docutils literal notranslate"><span class="pre">if</span></code>, and we lower the temperature a bit.</p>
+<div class="cell tag_hide-output docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">temperature</span> <span class="o">=</span> <span class="mi">60</span>
+<span class="k">if</span> <span class="n">temperature</span> <span class="o">&lt;</span> <span class="mi">78</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;It&#39;s cold! </span><span class="si">{}</span><span class="s2"> degrees is too cool!&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">temperature</span><span class="p">))</span>
+<span class="k">if</span> <span class="n">temperature</span> <span class="o">&lt;</span> <span class="mi">80</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;It&#39;s great! </span><span class="si">{}</span><span class="s2"> degrees is perfect!&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">temperature</span><span class="p">))</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;It&#39;s hot! </span><span class="si">{}</span><span class="s2"> degrees is much too warm!&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">temperature</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>It&#39;s cold! 60 degrees is too cool!
+It&#39;s great! 60 degrees is perfect!
+</pre></div>
+</div>
+</div>
+</div>
+<p>What happened? Well, the first <code class="docutils literal notranslate"><span class="pre">if</span></code> was checked, and proved <code class="docutils literal notranslate"><span class="pre">True</span></code>, so that statement printed, but then the next line of code was another <code class="docutils literal notranslate"><span class="pre">if</span></code> statement! This statement didn’t care that temperature was already checked. It did its own thing and printed that the weather is perfect!</p>
+<p>If you want <strong>mutually exclusive cases</strong> you must use <code class="docutils literal notranslate"><span class="pre">elif</span></code> statements, but if you are ok with multiple conditions being true, then you can use solely <code class="docutils literal notranslate"><span class="pre">if</span></code> statements.</p>
+</section>
+<section id="what-is-true-in-python">
+<h3><span class="section-number">6.3.3. </span>What is “true” in Python?<a class="headerlink" href="#what-is-true-in-python" title="Permalink to this headline">#</a></h3>
+<p>If you think it might seem like an odd moment to raise a philosophical question, you’re right! This is not a philosophical question, but a very practical one. Back when we introduced different data types, <a class="reference internal" href="../02_Variables_DataTypes/Everything_to_Boolean.html"><span class="doc std std-doc">at one point</span></a> we used the <code class="docutils literal notranslate"><span class="pre">bool</span></code> function to convert different variables into booleans. If you were paying attention, you may have noticed some interesting results. For example:</p>
+<div class="cell tag_hide-output docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="nb">bool</span><span class="p">(</span><span class="mi">1</span><span class="p">))</span>         <span class="c1">## Is the integer 1 true or false?</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">bool</span><span class="p">(</span><span class="mi">0</span><span class="p">))</span>         <span class="c1">## Is 0 true or false?</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">bool</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">))</span>        <span class="c1">## What about negative numbers?</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">bool</span><span class="p">(</span><span class="mf">0.1</span><span class="p">))</span>       <span class="c1">## Are floats true or false?</span>
+<span class="nb">print</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">bool</span><span class="p">(</span><span class="s1">&#39;No&#39;</span><span class="p">))</span>      <span class="c1">## What about strings?</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">bool</span><span class="p">(</span><span class="s2">&quot;True&quot;</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">bool</span><span class="p">(</span><span class="s2">&quot;False&quot;</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">bool</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">))</span>        <span class="c1">## What about *empty* strings?</span>
+<span class="nb">print</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">bool</span><span class="p">([]))</span>        <span class="c1">## Empty lists?</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">bool</span><span class="p">([</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">]))</span> <span class="c1">## Non-empty lists?</span>
+<span class="nb">print</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">bool</span><span class="p">([</span><span class="kc">False</span><span class="p">,</span> <span class="kc">False</span><span class="p">,</span> <span class="kc">False</span><span class="p">]))</span> <span class="c1">## What is the boolean version of a list of Falses?</span>
+<span class="nb">print</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">bool</span><span class="p">(</span><span class="kc">None</span><span class="p">))</span>      <span class="c1">## &#39;None&#39; is a special type in Python indicating a </span>
+                       <span class="c1">## variable with... *Nothing* inside it.</span>
+<span class="nb">print</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">bool</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([])))</span>  <span class="c1">## What is the WARNING here?</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">bool</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">10</span><span class="p">)))</span> <span class="c1">## READ THIS ERROR MESSAGE</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
+False
+True
+True
+
+True
+True
+True
+
+False
+
+False
+True
+
+True
+
+False
+
+False
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/var/folders/0z/q4zqhhxd4kv0r6fzjkg8lzfr0000gn/T/ipykernel_72441/816016128.py:20: DeprecationWarning: The truth value of an empty array is ambiguous. Returning False, but in future this will result in an error. Use `array.size &gt; 0` to check that an array is not empty.
+  print(bool(np.array([])))  ## What is the WARNING here?
+</pre></div>
+</div>
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ValueError</span><span class="g g-Whitespace">                                </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">17</span><span class="p">],</span> <span class="n">line</span> <span class="mi">21</span>
+<span class="g g-Whitespace">     </span><span class="mi">19</span> <span class="nb">print</span><span class="p">()</span>
+<span class="g g-Whitespace">     </span><span class="mi">20</span> <span class="nb">print</span><span class="p">(</span><span class="nb">bool</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([])))</span>  <span class="c1">## What is the WARNING here?</span>
+<span class="ne">---&gt; </span><span class="mi">21</span> <span class="nb">print</span><span class="p">(</span><span class="nb">bool</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">10</span><span class="p">)))</span> <span class="c1">## READ THIS ERROR MESSAGE</span>
+
+<span class="ne">ValueError</span>: The truth value of an array with more than one element is ambiguous. Use a.any() or a.all()
+</pre></div>
+</div>
+</div>
+</div>
+<p>Because of the way that Python turns other data into a <code class="docutils literal notranslate"><span class="pre">True</span></code> or <code class="docutils literal notranslate"><span class="pre">False</span></code>, we get a lot of flexibility with regards to how we can set conditions. In particular, we can use a numerical data type, like a float or an integer as a condition, where the condition will only be false if the data point is 0. Alternately, we can use lists as conditions, where the condition will only be false if the list is empty, this makes it easy to recognize when a list is empty (although we can always use <code class="docutils literal notranslate"><span class="pre">len(list)</span> <span class="pre">==</span> <span class="pre">0</span></code> to check) and to perhaps fill it with data, or something else.</p>
+<p>It’s also worth noting that while other variables convert to true and false in somewhat varied ways, <code class="docutils literal notranslate"><span class="pre">True</span></code> and <code class="docutils literal notranslate"><span class="pre">False</span></code> are always converted to numbers as <code class="docutils literal notranslate"><span class="pre">1</span></code> and <code class="docutils literal notranslate"><span class="pre">0</span></code>, respectively.</p>
+<div class="cell tag_hide-output docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="kc">True</span><span class="p">),</span><span class="nb">int</span><span class="p">(</span><span class="kc">False</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="kc">True</span><span class="p">),</span> <span class="nb">float</span><span class="p">(</span><span class="kc">False</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1 0
+1.0 0.0
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="id1">
+<h3><span class="section-number">6.3.4. </span>Exercises<a class="headerlink" href="#id1" title="Permalink to this headline">#</a></h3>
+<ol>
+<li><p>Create a list of at least 7 names. Iterate through the list and print the name if it contains an “i” or an “e”, otherwise, add an “ie” to the end of the name and print the new name.</p></li>
+<li><p>Rewrite the above temperature example with your own temperatures and conditions. Add two more conditions and describe how you feel in those temperature ranges. These conditions can be exclusive or not, depending on how you feel about the weather!</p></li>
+<li><p><strong>Bonus</strong>: Examine the following code and write down what you believe will be output (in order). Uncomment the code and see if it matches what you expect. Does the loop run as many times as you would expect? What happens to names as the loop is iterated? Use your own print statements and modifications to try and understand this. (If you’re puzzled, please ask!)</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">names</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Alfred&quot;</span><span class="p">,</span> <span class="s2">&quot;Betty&quot;</span><span class="p">,</span> <span class="s2">&quot;Charlie&quot;</span><span class="p">,</span> <span class="s2">&quot;Danielle&quot;</span><span class="p">,</span> <span class="s2">&quot;Eric&quot;</span><span class="p">,</span> <span class="s2">&quot;Fred&quot;</span><span class="p">,</span> <span class="s2">&quot;Georgia&quot;</span><span class="p">]</span>
+<span class="c1"># for name in names:</span>
+<span class="c1">#     if len(names) &gt; 5:</span>
+<span class="c1">#         print(&quot;This is a great party!&quot;)</span>
+<span class="c1">#     else:</span>
+<span class="c1">#         print(&quot;There are too few people at this party!&quot;)</span>
+<span class="c1">#     print(&quot;\nOh, no! {} has left!&quot;.format(names.pop()))</span>
+</pre></div>
+</div>
+</li>
+</ol>
+</section>
+</section>
+<section id="conditional-expressions-in-loops">
+<h2><span class="section-number">6.4. </span>Conditional expressions in loops<a class="headerlink" href="#conditional-expressions-in-loops" title="Permalink to this headline">#</a></h2>
+<p>Now that we’ve learned some basic conditional statements, we can start to combine them with loops to do more sophisticated tasks with iterations and iterables. First, we’ll learn about the <code class="docutils literal notranslate"><span class="pre">while</span></code> loop, which will loop back over a set of instructions as long as (<em>while</em>) a logical condition is <code class="docutils literal notranslate"><span class="pre">True</span></code>. We’ll also see how we can use conditional expressions to exit loops early using the <code class="docutils literal notranslate"><span class="pre">break</span></code> instruction or to skip iterations using the <code class="docutils literal notranslate"><span class="pre">continue</span></code> instruction.</p>
+<section id="while-loops">
+<h3><span class="section-number">6.4.1. </span><code class="docutils literal notranslate"><span class="pre">while</span></code> loops<a class="headerlink" href="#while-loops" title="Permalink to this headline">#</a></h3>
+<p>As mentioned, a <a class="reference external" href="https://docs.python.org/3/reference/compound_stmts.html#while"><code class="docutils literal notranslate"><span class="pre">while</span></code></a> loop is a loop that will execute its code indefinitely while a given condition is <code class="docutils literal notranslate"><span class="pre">True</span></code>. As an example:</p>
+<div class="cell tag_hide-output docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">counter</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">while</span> <span class="n">counter</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The counter is &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">counter</span><span class="p">))</span>
+    <span class="n">counter</span> <span class="o">=</span> <span class="n">counter</span> <span class="o">+</span> <span class="mi">1</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">The loop has finished and the counter is &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">counter</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;!&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The counter is 0
+The counter is 1
+The counter is 2
+The counter is 3
+The counter is 4
+The counter is 5
+The counter is 6
+The counter is 7
+The counter is 8
+The counter is 9
+
+The loop has finished and the counter is 10!
+</pre></div>
+</div>
+</div>
+</div>
+<p>In the above code, we have a variable <code class="docutils literal notranslate"><span class="pre">counter</span></code>, which is initially set to 0. Then the <code class="docutils literal notranslate"><span class="pre">while</span></code> loop is given the condition <code class="docutils literal notranslate"><span class="pre">counter</span> <span class="pre">&lt;</span> <span class="pre">10</span></code>, which checks if <code class="docutils literal notranslate"><span class="pre">counter</span></code> is less than 10. As long as <code class="docutils literal notranslate"><span class="pre">counter</span></code> is, in fact, less than 10, Python will execute the code inside the loop (where “code inside the loop” again means the indented code). In this example, this code consists of a print function and a line where we increment the value of <code class="docutils literal notranslate"><span class="pre">counter</span></code> by 1. After the loop has run 10 times, <code class="docutils literal notranslate"><span class="pre">counter</span></code> has the value 10 (as you can see at the very end) and so the <code class="docutils literal notranslate"><span class="pre">while</span></code> loop ends.</p>
+<p>It’s worth noting that the condition given to the <code class="docutils literal notranslate"><span class="pre">while</span></code> loop does not need to be as simple as “number greater/less than number”, so <code class="docutils literal notranslate"><span class="pre">while</span></code> loops can be complicated. This can make <code class="docutils literal notranslate"><span class="pre">while</span></code> loops tricky, as if a programmer is not careful, they might specify a condition which is always met, meaning that the loop will run indefinitely. If you have been using <code class="docutils literal notranslate"><span class="pre">while</span></code> loops and your code seems to be running without end, this is the first place I would look to make sure your code is running correctly. One easy way to check this is to restart the kernel (“Kernel -&gt; Restart”) and insert a <code class="docutils literal notranslate"><span class="pre">print</span></code> statement somewhere in your loop. If you start printing hundreds of lines then it means the loop is repeating without end!</p>
+<p>For some examples of other conditions that can be used in a <code class="docutils literal notranslate"><span class="pre">while</span></code> loop consider the following:</p>
+<div class="cell tag_hide-output docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mylist</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">while</span> <span class="ow">not</span> <span class="n">mylist</span><span class="p">:</span>          <span class="c1">## What is the logical statement here?</span>
+    <span class="n">mylist</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot;element!&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">mylist</span><span class="p">,</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="n">counter</span> <span class="o">=</span> <span class="o">-</span><span class="mi">3</span>
+<span class="k">while</span> <span class="n">counter</span><span class="p">:</span>
+    <span class="n">counter</span> <span class="o">+=</span> <span class="mi">1</span>           <span class="c1">## Increment counter by 1</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The counter is </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">counter</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;element!&#39;] 
+
+The counter is -2
+The counter is -1
+The counter is 0
+</pre></div>
+</div>
+</div>
+</div>
+<p>This is the main difference between <code class="docutils literal notranslate"><span class="pre">while</span></code> loops and <code class="docutils literal notranslate"><span class="pre">for</span></code> loops: <code class="docutils literal notranslate"><span class="pre">for</span></code> loops will always run a specified number of times, whether it’s to the end of a <code class="docutils literal notranslate"><span class="pre">range</span></code> or through all the elements of a list. <code class="docutils literal notranslate"><span class="pre">while</span></code> loops, on the other hand, can run indefinitely. This flexibility is sometimes necessary, but also requires extra care.</p>
+</section>
+<section id="the-pass-operation">
+<h3><span class="section-number">6.4.2. </span>The <code class="docutils literal notranslate"><span class="pre">pass</span></code> operation<a class="headerlink" href="#the-pass-operation" title="Permalink to this headline">#</a></h3>
+<p>It is often the case that we want to use conditions in loops to activate or deactivate pieces of code, or to exit a loop altogether. To do this, we can use the operators <code class="docutils literal notranslate"><span class="pre">pass</span></code>, <code class="docutils literal notranslate"><span class="pre">continue</span></code>, and <code class="docutils literal notranslate"><span class="pre">break</span></code>.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">pass</span></code> operation can technically be placed anywhere in Python code, and can be thought of as a placeholder for code that does nothing.  That is, when the Python interpreter encounters <code class="docutils literal notranslate"><span class="pre">pass</span></code> it says to itself “pass along, nothing to do here.” This is useful when you are building code and need to use indentation syntaxes like loops or <code class="docutils literal notranslate"><span class="pre">if</span></code>-<code class="docutils literal notranslate"><span class="pre">else</span></code> blocks but haven’t finished the parts that go in those areas.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">itr</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span>
+    <span class="k">pass</span> <span class="c1">## Note to self: insert computation script here when it&#39;s ready!</span>
+
+<span class="k">if</span> <span class="kc">True</span><span class="p">:</span>
+    <span class="k">pass</span> <span class="c1">## Note to self: insert other clever code here!</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>In the examples above, the <code class="docutils literal notranslate"><span class="pre">pass</span></code> allows for the code to run even though nothing is happening in the indented space. Try removing the <code class="docutils literal notranslate"><span class="pre">pass</span></code> lines to see the error message.</p>
+</section>
+<section id="the-continue-operation">
+<h3><span class="section-number">6.4.3. </span>The <code class="docutils literal notranslate"><span class="pre">continue</span></code> operation<a class="headerlink" href="#the-continue-operation" title="Permalink to this headline">#</a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">continue</span></code> operation is similar to <code class="docutils literal notranslate"><span class="pre">pass</span></code>, but is more specifically designed for loops in that it tells the loop to skip to the next iteration of the loop, ignoring any instructions after the <code class="docutils literal notranslate"><span class="pre">continue</span></code>.  This is a sometimes useful way to allow for conditions to skip over irrelevant pieces of code quickly.  For example, in the following code we can skip over the print statement for even-valued indices.</p>
+<div class="cell tag_hide-output docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">ii</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">ii</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span> <span class="c1"># What condition is this?</span>
+        <span class="k">continue</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;I got here and ii = </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">ii</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>I got here and ii = 1
+I got here and ii = 3
+I got here and ii = 5
+I got here and ii = 7
+I got here and ii = 9
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="the-break-operation">
+<h3><span class="section-number">6.4.4. </span>The <code class="docutils literal notranslate"><span class="pre">break</span></code> operation<a class="headerlink" href="#the-break-operation" title="Permalink to this headline">#</a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">break</span></code> operator is very useful for when you are building your code and need to catch obvious errors. The <code class="docutils literal notranslate"><span class="pre">break</span></code> operator tells the current loop to stop immediately. For example:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">counter</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">while</span> <span class="kc">True</span><span class="p">:</span> <span class="c1"># This is a legal thing to do!</span>
+    
+    <span class="k">if</span> <span class="n">counter</span> <span class="o">&gt;</span> <span class="mi">15</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Breaking loop: this is an illegally large value for counter!&quot;</span><span class="p">)</span>
+        <span class="k">break</span>
+    
+    <span class="n">counter</span> <span class="o">+=</span> <span class="mi">1</span> <span class="c1"># This increments counter by 1</span>
+        
+    <span class="k">if</span> <span class="n">counter</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">continue</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;I got here and counter = </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">counter</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>I got here and counter = 1
+I got here and counter = 3
+I got here and counter = 5
+I got here and counter = 7
+I got here and counter = 9
+I got here and counter = 11
+I got here and counter = 13
+I got here and counter = 15
+Breaking loop: this is an illegally large value for counter!
+</pre></div>
+</div>
+</div>
+</div>
+<p>In this example, we used the <code class="docutils literal notranslate"><span class="pre">break</span></code> operator to stop the loop when the <code class="docutils literal notranslate"><span class="pre">counter</span></code> got too large.  This is often useful when you’re testing code, where it is good practice to make sure your loop can run one time (then just a few times) before running it many times.</p>
+</section>
+<section id="id2">
+<h3><span class="section-number">6.4.5. </span>Exercises<a class="headerlink" href="#id2" title="Permalink to this headline">#</a></h3>
+<ol>
+<li><p>In the previous example move the line <code class="docutils literal notranslate"><span class="pre">counter</span> <span class="pre">+=</span> <span class="pre">1</span></code> after the <code class="docutils literal notranslate"><span class="pre">if</span></code> statement. Run the cell and examine what happens. Hint: recall that you can interrupt the kernel from the “Kernel” menu and use print statements liberally to examine how counter is (or isn’t) changing.</p></li>
+<li><p>Finish the following code to use only <code class="docutils literal notranslate"><span class="pre">idx</span></code> and <code class="docutils literal notranslate"><span class="pre">counter</span></code> to transform <code class="docutils literal notranslate"><span class="pre">myarr</span></code> from all zeros to resemble <code class="docutils literal notranslate"><span class="pre">np.arange(10)</span> <span class="pre">=</span> <span class="pre">[0,</span> <span class="pre">1,</span> <span class="pre">2,</span> <span class="pre">3,</span> <span class="pre">4,</span> <span class="pre">5,</span> <span class="pre">6,</span> <span class="pre">7,</span> <span class="pre">8,</span> <span class="pre">9]</span></code>. Use descriptive <code class="docutils literal notranslate"><span class="pre">print</span></code> statements to narrate the process. You may modify the conditions under which each <code class="docutils literal notranslate"><span class="pre">while</span></code> loop is broken, but you may not change the way that <code class="docutils literal notranslate"><span class="pre">idx</span></code> and <code class="docutils literal notranslate"><span class="pre">counter</span></code> are incremented.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">myarr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">idx</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+    <span class="n">counter</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+        <span class="n">counter</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="k">break</span>
+    <span class="n">idx</span> <span class="o">+=</span> <span class="mi">1</span>
+    <span class="k">break</span>
+</pre></div>
+</div>
+</li>
+</ol>
+</section>
+</section>
+<section id="conditional-statements-involving-arrays">
+<h2><span class="section-number">6.5. </span>Conditional statements involving arrays<a class="headerlink" href="#conditional-statements-involving-arrays" title="Permalink to this headline">#</a></h2>
+<section id="broadcasting-logical-comparisons">
+<h3><span class="section-number">6.5.1. </span>Broadcasting logical comparisons<a class="headerlink" href="#broadcasting-logical-comparisons" title="Permalink to this headline">#</a></h3>
+<p>As we noted in the previous section on loops, and when we introduced arrays, it is often desirable to work with arrays because we can apply operations directly to the entire array via broadcasting. Thankfully, logical statements work similarly to other operations on arrays, with a few important distinctions. First let’s look at what happens when we compare an array to a number:</p>
+<div class="cell tag_hide-output docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy.random</span> <span class="k">as</span> <span class="nn">r</span>
+
+<span class="n">myarr</span> <span class="o">=</span> <span class="n">r</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">6</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">myarr</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">myarr</span> <span class="o">&gt;</span> <span class="mf">0.5</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[0.08099159 0.27064954 0.49054002 0.18253671 0.1402055  0.40644463]
+ [0.51184581 0.73683917 0.27855969 0.61262233 0.6782449  0.83985689]
+ [0.35846118 0.94836025 0.27106495 0.54431791 0.01011715 0.62664959]]
+[[False False False False False False]
+ [ True  True False  True  True  True]
+ [False  True False  True False  True]]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Here, we can see that the result of the comparison is an array of <em>booleans</em> corresponding to whether the element of <code class="docutils literal notranslate"><span class="pre">myarr</span></code> at that location satisfies the logical statement. In this case, all the elements that are greater than 0.5 return an element of <code class="docutils literal notranslate"><span class="pre">True</span></code>, while the others return <code class="docutils literal notranslate"><span class="pre">False</span></code>. Since <code class="docutils literal notranslate"><span class="pre">True</span></code> gets converted to 1 when considered numerically by Python (see 5.3.3 above), we can easily recover the number of elements greater than 0.5 using <code class="docutils literal notranslate"><span class="pre">np.sum</span></code>.</p>
+<div class="cell tag_hide-output docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">bigger_than_half</span> <span class="o">=</span> <span class="n">myarr</span> <span class="o">&gt;</span> <span class="mf">0.5</span>  <span class="c1">## Remember that we can save the output of conditional expressions</span>
+
+<span class="c1"># print(bigger_than_half.astype(int)) ## Uncomment to see what np.sum is adding up!</span>
+<span class="n">num_bigger</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">bigger_than_half</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;There are </span><span class="si">{}</span><span class="s2"> elements larger than 0.5 in `myarr`&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">num_bigger</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>There are 8 elements larger than 0.5 in `myarr`
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="using-booleans-as-a-mask">
+<h3><span class="section-number">6.5.2. </span>Using booleans as a “mask”<a class="headerlink" href="#using-booleans-as-a-mask" title="Permalink to this headline">#</a></h3>
+<p>Perhaps one of the most useful applications of conditional expressions is to generate boolean arrays called <strong>masks</strong> that allow for the fast selection of elements from an array that meet a given criteria. For example, in the previous subsection, we showed how we could identify which elements of a random array are larger than 0.5, but what if I wanted to do something to all those elements, like set them to zero. Instead of having to loop through the array and test each element, I can use the boolean array resulting from the logical statement as a mask to operate only on the elements corresponding to <code class="docutils literal notranslate"><span class="pre">True</span></code>. What this looks like is this:</p>
+<div class="cell tag_hide-output docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">myarr</span> <span class="o">=</span> <span class="n">r</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">6</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">myarr</span><span class="p">,</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="n">mask_half</span> <span class="o">=</span> <span class="n">myarr</span> <span class="o">&gt;=</span> <span class="mf">0.5</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">myarr</span><span class="p">[</span><span class="n">mask_half</span><span class="p">],</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span> <span class="c1"># What is printed out here?  What shape is it?</span>
+
+<span class="n">myarr</span><span class="p">[</span><span class="n">mask_half</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.</span> <span class="c1"># Note the syntax here, I use the [] because I am</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">myarr</span><span class="p">)</span>          <span class="c1"># *selecting* the elements that are True, then I am</span>
+                      <span class="c1"># assigning those elements of the array to be 0.</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[0.17608591 0.96230883 0.44593884 0.66338464 0.04196926 0.07725917]
+ [0.61468097 0.07478669 0.61603476 0.10657135 0.12402941 0.10685813]
+ [0.36994977 0.15166714 0.80126445 0.90932842 0.17669661 0.53733836]] 
+
+[0.96230883 0.66338464 0.61468097 0.61603476 0.80126445 0.90932842
+ 0.53733836] 
+
+[[0.17608591 0.         0.44593884 0.         0.04196926 0.07725917]
+ [0.         0.07478669 0.         0.10657135 0.12402941 0.10685813]
+ [0.36994977 0.15166714 0.         0.         0.17669661 0.        ]]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Note the syntax of the above construction. We first create the mask, which I advise you to look at, and then we use it as a <em>selector</em> using the <code class="docutils literal notranslate"><span class="pre">[]</span></code> syntax to indicate that we would like to select the elements where the mask is <code class="docutils literal notranslate"><span class="pre">True</span></code>. We can then use this construction to perform operations (above we showed assignment) on just the masked elements. Here we told Python to set all the values bigger than 0.5 to 0.</p>
+<div class="cell tag_hide-output docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">myarr</span> <span class="o">=</span> <span class="n">r</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">myarr</span><span class="p">)</span>
+
+<span class="c1">## Find values of myarr bigger than 0.5</span>
+<span class="n">mask_half</span> <span class="o">=</span> <span class="n">myarr</span> <span class="o">&gt;=</span> <span class="mf">0.5</span>
+<span class="nb">print</span><span class="p">()</span>
+
+<span class="c1">## Set all values bigger than 0.5 to 12 + sin(values)</span>
+<span class="n">myarr</span><span class="p">[</span><span class="n">mask_half</span><span class="p">]</span> <span class="o">=</span> <span class="mi">12</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">myarr</span><span class="p">[</span><span class="n">mask_half</span><span class="p">])</span>
+
+<span class="c1">## Find values of myarr &lt; 1</span>
+<span class="n">mask_small</span> <span class="o">=</span> <span class="n">myarr</span> <span class="o">&lt;</span> <span class="mi">1</span>
+
+<span class="c1">## Set these values equal to their logarithm</span>
+<span class="n">myarr</span><span class="p">[</span><span class="n">mask_small</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">myarr</span><span class="p">[</span><span class="n">mask_small</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">myarr</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[0.72041664 0.85819222 0.98797626 0.49271964 0.34650592]
+ [0.13921482 0.81879753 0.96842667 0.75081606 0.05846969]
+ [0.32887086 0.44439145 0.24766344 0.77395776 0.6341893 ]]
+
+[[12.65969785 12.75666186 12.83491386 -0.70781494 -1.05985537]
+ [-1.97173706 12.73032495 12.82399529 12.68223563 -2.83924674]
+ [-1.11209013 -0.81104945 -1.39568455 12.6989711  12.59252465]]
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="finding-where-at-what-index-a-condition-is-met">
+<h3><span class="section-number">6.5.3. </span>Finding where (at what index) a condition is met<a class="headerlink" href="#finding-where-at-what-index-a-condition-is-met" title="Permalink to this headline">#</a></h3>
+<p>It is also often useful to identify where, in an indexing sense, a certain condition is met within an array. For example, if we have a time-series measurement of some quantity, maybe we aren’t interested in knowing whether a given instant had a measurement above some threshold, but we want to know <em>when</em> the measurement is above the threshold. In this case, we would want to identify where the measurement meets our criteria, and then look at the corresponding location in our time-array.</p>
+<p>We can do this in several ways. First, following the example of the timeseries, we can generate a mask as in the previous subsection, and then apply that mask to the time-array.</p>
+<div class="cell tag_hide-output docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="n">times</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mf">0.01</span><span class="p">)</span>  <span class="c1">## 0 to 6 seconds in 0.01 second steps?</span>
+
+<span class="n">signal</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">times</span><span class="p">)</span>
+<span class="n">noise</span> <span class="o">=</span>  <span class="mf">0.2</span> <span class="o">*</span> <span class="n">r</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">times</span><span class="p">))</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">signal</span> <span class="o">+</span> <span class="n">noise</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">times</span><span class="p">,</span> <span class="n">data</span><span class="p">)</span> <span class="c1">## We&#39;ll learn about plotting soon!</span>
+
+<span class="n">times_when_sin_large</span> <span class="o">=</span> <span class="n">times</span><span class="p">[</span><span class="n">data</span> <span class="o">&gt;</span> <span class="mf">1.1</span><span class="p">]</span> <span class="c1"># Apply mask directly to times</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">times_when_sin_large</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1.16 1.18 1.33 1.34 1.36 1.37 1.38 1.4  1.45 1.47 1.5  1.54 1.57 1.58
+ 1.61 1.62 1.63 1.64 1.65 1.69 1.76 1.78 1.8  1.81 1.85 1.89 1.91]
+</pre></div>
+</div>
+<img alt="../../_images/05_ConditionalStatements_Notebook_66_1.png" src="../../_images/05_ConditionalStatements_Notebook_66_1.png" />
+</div>
+</div>
+<p>Alternately, we can use the functions <code class="docutils literal notranslate"><span class="pre">np.nonzero</span></code> or <code class="docutils literal notranslate"><span class="pre">np.where</span></code> to directly obtain the indices at which a condition is true.</p>
+<div class="cell tag_hide-output docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">inds1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">data</span><span class="o">&gt;</span><span class="mf">1.1</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">inds1</span><span class="p">,</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="n">inds2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">nonzero</span><span class="p">(</span><span class="n">data</span><span class="o">&gt;</span><span class="mf">1.1</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">inds2</span><span class="p">)</span>
+
+<span class="n">_</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">times</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">_</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">times</span><span class="p">[</span><span class="n">inds1</span><span class="p">],</span> <span class="n">data</span><span class="p">[</span><span class="n">inds2</span><span class="p">],</span> <span class="n">c</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">zorder</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(array([116, 118, 133, 134, 136, 137, 138, 140, 145, 147, 150, 154, 157,
+       158, 161, 162, 163, 164, 165, 169, 176, 178, 180, 181, 185, 189,
+       191]),) 
+
+(array([116, 118, 133, 134, 136, 137, 138, 140, 145, 147, 150, 154, 157,
+       158, 161, 162, 163, 164, 165, 169, 176, 178, 180, 181, 185, 189,
+       191]),)
+</pre></div>
+</div>
+<img alt="../../_images/05_ConditionalStatements_Notebook_68_1.png" src="../../_images/05_ConditionalStatements_Notebook_68_1.png" />
+</div>
+</div>
+<p>Note the structure of the output of <code class="docutils literal notranslate"><span class="pre">nonzero</span></code> and <code class="docutils literal notranslate"><span class="pre">where</span></code>; they put an array of indices inside a <strong>tuple</strong> (which is another data structure like lists).</p>
+<p>Once we have these indices, we can then use them, as shown in the figure, to select only the data that correspond to our condition. In this case, we used the indices in <code class="docutils literal notranslate"><span class="pre">inds1</span></code> to place red dots on the measurements with <code class="docutils literal notranslate"><span class="pre">data</span></code> &gt; 1.1.</p>
+</section>
+<section id="id3">
+<h3><span class="section-number">6.5.4. </span>Exercises<a class="headerlink" href="#id3" title="Permalink to this headline">#</a></h3>
+<ol>
+<li><p>Create a “timeseries” similar to that in the example except using <code class="docutils literal notranslate"><span class="pre">np.cos</span></code> instead of sine. Use <code class="docutils literal notranslate"><span class="pre">where</span></code> or <code class="docutils literal notranslate"><span class="pre">nonzero</span></code> to find when (at what time) the maximum and minimum of the timeseries is achieved. Then look up the functions <code class="docutils literal notranslate"><span class="pre">np.argmax</span></code> and <code class="docutils literal notranslate"><span class="pre">np.argmin</span></code> and try those.</p></li>
+<li><p>Create a timeseries using the formula <span class="math notranslate nohighlight">\(y = \cos(t)\times \sin(t)\)</span>, where <span class="math notranslate nohighlight">\(t\in[0, 2\pi]\)</span>. Choose a timestep sufficient to get reasonable resolution of the function. Approximate the slope of the function using a simple forward difference (calculate the slope between each pair of neighboring points). Find the location(s) of the largest positive and negative slopes. (<strong>BONUS</strong>): try using a central difference or other higher order methods (coefficients <a class="reference external" href="https://en.wikipedia.org/wiki/Finite_difference_coefficient">here</a>) and see if the locations of the slopes change. What happens if you add noise as in the examples above?</p></li>
+<li><p>Consider the following dataset. Find the mean, median, and mode of the data that have a value greater than 0.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy.random</span> <span class="k">as</span> <span class="nn">r</span>
+<span class="n">mu</span> <span class="o">=</span> <span class="mf">0.5</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">r</span><span class="o">.</span><span class="n">poisson</span><span class="p">(</span><span class="n">mu</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">20000</span><span class="p">)</span>
+</pre></div>
+</div>
+</li>
+</ol>
+</section>
+</section>
+<section id="multiple-logical-comparisons">
+<h2><span class="section-number">6.6. </span>Multiple logical comparisons<a class="headerlink" href="#multiple-logical-comparisons" title="Permalink to this headline">#</a></h2>
+<section id="the-and-and-or-operators">
+<h3><span class="section-number">6.6.1. </span>The <code class="docutils literal notranslate"><span class="pre">and</span></code> and <code class="docutils literal notranslate"><span class="pre">or</span></code> operators<a class="headerlink" href="#the-and-and-or-operators" title="Permalink to this headline">#</a></h3>
+<p>Often, we need data to meet multiple conditions; maybe we need to look at data that is within a certain range (e.g. larger than <code class="docutils literal notranslate"><span class="pre">a</span></code>, but smaller than <code class="docutils literal notranslate"><span class="pre">b</span></code>). Rather than using multiple <code class="docutils literal notranslate"><span class="pre">if</span></code>-<code class="docutils literal notranslate"><span class="pre">else</span></code> structures, we can use the logical operators <code class="docutils literal notranslate"><span class="pre">and</span></code> and <code class="docutils literal notranslate"><span class="pre">or</span></code> to accomplish this.</p>
+<p>If you are not familiar with logical <code class="docutils literal notranslate"><span class="pre">and</span></code> and <code class="docutils literal notranslate"><span class="pre">or</span></code>, they work as follows: <code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">and</span> <span class="pre">b</span></code> returns <code class="docutils literal notranslate"><span class="pre">True</span></code> only if <em>both</em> <code class="docutils literal notranslate"><span class="pre">a</span></code> and <code class="docutils literal notranslate"><span class="pre">b</span></code> are true, otherwise it returns <code class="docutils literal notranslate"><span class="pre">False</span></code>. On the other hand, <code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">or</span> <span class="pre">b</span></code> returns <code class="docutils literal notranslate"><span class="pre">True</span></code> if <em>either</em> <code class="docutils literal notranslate"><span class="pre">a</span></code> or <code class="docutils literal notranslate"><span class="pre">b</span></code> is true (or if both of them are true), and returns <code class="docutils literal notranslate"><span class="pre">False</span></code> only if both are false. As an example:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="kc">True</span>
+<span class="n">b</span> <span class="o">=</span> <span class="kc">False</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span> <span class="ow">and</span> <span class="n">b</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span> <span class="ow">or</span> <span class="n">b</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">()</span>   <span class="c1">## This just makes an empty line.</span>
+
+<span class="n">cat</span> <span class="o">=</span> <span class="s1">&#39;cat&#39;</span>
+<span class="n">dog</span> <span class="o">=</span> <span class="s1">&#39;dog&#39;</span>
+<span class="n">catdog</span> <span class="o">=</span> <span class="n">cat</span> <span class="o">+</span> <span class="n">dog</span>
+<span class="nb">print</span><span class="p">((</span><span class="s1">&#39;cat&#39;</span> <span class="ow">in</span> <span class="n">cat</span><span class="p">)</span> <span class="ow">and</span> <span class="p">(</span><span class="s1">&#39;cat&#39;</span> <span class="ow">in</span> <span class="n">dog</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">((</span><span class="s1">&#39;cat&#39;</span> <span class="ow">in</span> <span class="n">cat</span><span class="p">)</span> <span class="ow">or</span> <span class="p">(</span><span class="s1">&#39;cat&#39;</span> <span class="ow">in</span> <span class="n">dog</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">((</span><span class="s1">&#39;cat&#39;</span> <span class="ow">in</span> <span class="n">cat</span><span class="p">)</span> <span class="ow">and</span> <span class="p">(</span><span class="s1">&#39;cat&#39;</span> <span class="ow">in</span> <span class="n">catdog</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">((</span><span class="s1">&#39;cat&#39;</span> <span class="ow">in</span> <span class="n">cat</span><span class="p">)</span> <span class="ow">or</span> <span class="p">(</span><span class="s1">&#39;cat&#39;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">dog</span><span class="p">))</span> <span class="c1"># Remember how to NEGATE things</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>False
+True
+
+False
+True
+True
+True
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="bitwise-logical-operators">
+<h3><span class="section-number">6.6.2. </span>Bitwise logical operators<a class="headerlink" href="#bitwise-logical-operators" title="Permalink to this headline">#</a></h3>
+<p>If we want to use boolean arrays to create a more complex mask for an array, we can use <strong>bitwise operators</strong>, which will operate element-wise on our arrays. The bitwise operator for logical and is denoted <code class="docutils literal notranslate"><span class="pre">&amp;</span></code>, and logical or is <code class="docutils literal notranslate"><span class="pre">|</span></code>. The logical negation operator is <code class="docutils literal notranslate"><span class="pre">~</span></code>. As an example:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">nums</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">30</span><span class="p">)</span>
+
+<span class="c1">## Get the numbers larger than 10</span>
+<span class="n">bigger_than_10</span> <span class="o">=</span> <span class="n">nums</span> <span class="o">&gt;</span> <span class="mi">10</span>
+<span class="c1">## and less than 20</span>
+<span class="n">less_than_20</span> <span class="o">=</span> <span class="n">nums</span> <span class="o">&lt;</span> <span class="mi">20</span>
+
+<span class="c1">## Using the &quot;and&quot; to get the indices that are in the range (10, 20)</span>
+<span class="n">in_range</span> <span class="o">=</span> <span class="n">bigger_than_10</span> <span class="o">&amp;</span> <span class="n">less_than_20</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">nums</span><span class="p">[</span><span class="n">in_range</span><span class="p">])</span>
+
+<span class="c1">## We can use the negation and or operators to get the rest!</span>
+<span class="n">not_in_range</span> <span class="o">=</span> <span class="p">(</span><span class="o">~</span><span class="n">bigger_than_10</span><span class="p">)</span> <span class="o">|</span> <span class="p">(</span><span class="o">~</span><span class="n">less_than_20</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">nums</span><span class="p">[</span><span class="n">not_in_range</span><span class="p">])</span>
+
+<span class="n">also_in_range</span> <span class="o">=</span> <span class="n">bigger_than_10</span> <span class="ow">and</span> <span class="n">less_than_20</span> <span class="c1">## What is the error message?</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[11 12 13 14 15 16 17 18 19]
+[ 0  1  2  3  4  5  6  7  8  9 10 20 21 22 23 24 25 26 27 28 29]
+</pre></div>
+</div>
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ValueError</span><span class="g g-Whitespace">                                </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">31</span><span class="p">],</span> <span class="n">line</span> <span class="mi">16</span>
+<span class="g g-Whitespace">     </span><span class="mi">13</span> <span class="n">not_in_range</span> <span class="o">=</span> <span class="p">(</span><span class="o">~</span><span class="n">bigger_than_10</span><span class="p">)</span> <span class="o">|</span> <span class="p">(</span><span class="o">~</span><span class="n">less_than_20</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">14</span> <span class="nb">print</span><span class="p">(</span><span class="n">nums</span><span class="p">[</span><span class="n">not_in_range</span><span class="p">])</span>
+<span class="ne">---&gt; </span><span class="mi">16</span> <span class="n">also_in_range</span> <span class="o">=</span> <span class="n">bigger_than_10</span> <span class="ow">and</span> <span class="n">less_than_20</span> <span class="c1">## What is the error message?</span>
+
+<span class="ne">ValueError</span>: The truth value of an array with more than one element is ambiguous. Use a.any() or a.all()
+</pre></div>
+</div>
+</div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Note that we use parentheses to contain different logical statements. The use of parentheses to denote the order of operations persists with logical comparisons. That is, it is much easier to understand <code class="docutils literal notranslate"><span class="pre">(a</span> <span class="pre">&lt;</span> <span class="pre">10)</span> <span class="pre">and</span> <span class="pre">(b</span> <span class="pre">&gt;</span> <span class="pre">20)</span></code> than it is <code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">&lt;</span> <span class="pre">10</span> <span class="pre">and</span> <span class="pre">b</span> <span class="pre">&gt;</span> <span class="pre">20</span></code>. In the first statement, it is clear that you are first comparing <code class="docutils literal notranslate"><span class="pre">a</span></code> to 10 and <code class="docutils literal notranslate"><span class="pre">b</span></code> to 20, <em>then</em> comparing those results. In the second statement, it is not clear what is being compared first. Parentheses are useful for making code readable and reducing mistakes.</p>
+</div>
+</section>
+<section id="any-and-all">
+<h3><span class="section-number">6.6.3. </span><code class="docutils literal notranslate"><span class="pre">any</span></code> and <code class="docutils literal notranslate"><span class="pre">all</span></code><a class="headerlink" href="#any-and-all" title="Permalink to this headline">#</a></h3>
+<p>Following the suggestion of the error message at the end of the previous example, let us examine the functions <code class="docutils literal notranslate"><span class="pre">any</span></code> and <code class="docutils literal notranslate"><span class="pre">all</span></code>. These functions look at a mask (boolean array) and return <code class="docutils literal notranslate"><span class="pre">True</span></code> or <code class="docutils literal notranslate"><span class="pre">False</span></code> if any/all of the elements of the array are True, depending on which function you are using.</p>
+<p>These are often very useful for quality checking your data. For example, let’s say that you have performed a calculation and you think that the resulting array should contain only positive numbers. You could then use <code class="docutils literal notranslate"><span class="pre">all(data</span> <span class="pre">&gt;</span> <span class="pre">0)</span></code> to decide whether to continue or to print a warning. On the other hand, let’s say you’re running a random simulation where a certain outcome is not guaranteed, you might only continue your program if some of your data meet that condition, i.e. <code class="docutils literal notranslate"><span class="pre">any(data</span> <span class="pre">==</span> <span class="pre">outcome)</span></code> returns <code class="docutils literal notranslate"><span class="pre">True</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">nums</span> <span class="o">=</span> <span class="n">r</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+
+<span class="n">are_any_larger</span> <span class="o">=</span> <span class="nb">any</span><span class="p">(</span><span class="n">nums</span> <span class="o">&gt;</span> <span class="mf">0.5</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;It is </span><span class="si">{</span><span class="n">are_any_larger</span><span class="si">}</span><span class="s2"> that some of &#39;nums&#39; are bigger than 0.5.&quot;</span><span class="p">)</span>
+
+<span class="n">are_all_larger</span> <span class="o">=</span> <span class="nb">all</span><span class="p">(</span><span class="n">nums</span> <span class="o">&gt;</span> <span class="mf">0.5</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;It is </span><span class="si">{</span><span class="n">are_all_larger</span><span class="si">}</span><span class="s2"> that all of &#39;nums&#39; are bigger than 0.5.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>It is True that some of &#39;nums&#39; are bigger than 0.5.
+It is False that all of &#39;nums&#39; are bigger than 0.5.
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="id4">
+<h3><span class="section-number">6.6.4. </span>Exercises<a class="headerlink" href="#id4" title="Permalink to this headline">#</a></h3>
+<ol class="simple">
+<li><p>Use the noisy sine wave data from from the earlier example and determine whether any or all of the signal is less than 0 for times greater than 3.</p></li>
+<li><p>Consider <code class="docutils literal notranslate"><span class="pre">myarr</span> <span class="pre">=</span> <span class="pre">r.rand(3,</span> <span class="pre">6)</span></code>. Using a loop and an <code class="docutils literal notranslate"><span class="pre">if</span></code>-<code class="docutils literal notranslate"><span class="pre">else</span></code> block, print out the elements smaller than 0.65 and set them equal to 12.</p></li>
+</ol>
+</section>
+</section>
 </section>
 
     <script type="text/x-thebe-config">

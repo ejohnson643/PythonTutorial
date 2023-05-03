@@ -422,8 +422,8 @@ title="Print to PDF"
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#exercise-4-1">
-     4.1.2. Exercise 4.1
+    <a class="reference internal nav-link" href="#exercises">
+     4.1.2. Exercises
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
@@ -487,8 +487,8 @@ title="Print to PDF"
     </ul>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#exercise-4-2">
-     4.1.5. Exercise 4.2
+    <a class="reference internal nav-link" href="#id1">
+     4.1.5. Exercises
     </a>
    </li>
   </ul>
@@ -504,7 +504,7 @@ title="Print to PDF"
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id1">
+    <a class="reference internal nav-link" href="#id2">
      4.2.2. Numpy Arrays
     </a>
    </li>
@@ -524,8 +524,8 @@ title="Print to PDF"
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#exercise-4-3">
-     4.2.6. Exercise 4.3
+    <a class="reference internal nav-link" href="#id3">
+     4.2.6. Exercises
     </a>
    </li>
   </ul>
@@ -560,8 +560,8 @@ title="Print to PDF"
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#exercise-4-1">
-     4.1.2. Exercise 4.1
+    <a class="reference internal nav-link" href="#exercises">
+     4.1.2. Exercises
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
@@ -625,8 +625,8 @@ title="Print to PDF"
     </ul>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#exercise-4-2">
-     4.1.5. Exercise 4.2
+    <a class="reference internal nav-link" href="#id1">
+     4.1.5. Exercises
     </a>
    </li>
   </ul>
@@ -642,7 +642,7 @@ title="Print to PDF"
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id1">
+    <a class="reference internal nav-link" href="#id2">
      4.2.2. Numpy Arrays
     </a>
    </li>
@@ -662,8 +662,8 @@ title="Print to PDF"
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#exercise-4-3">
-     4.2.6. Exercise 4.3
+    <a class="reference internal nav-link" href="#id3">
+     4.2.6. Exercises
     </a>
    </li>
   </ul>
@@ -680,6 +680,10 @@ title="Print to PDF"
                 
   <section class="tex2jax_ignore mathjax_ignore" id="lists-and-arrays">
 <h1><span class="section-number">4. </span>Lists and Arrays<a class="headerlink" href="#lists-and-arrays" title="Permalink to this headline">#</a></h1>
+<div class="admonition-follow-along admonition">
+<p class="admonition-title">Follow along!</p>
+<p>Remember that to best make use of this tutorial, it is highly recommended that you <a class="reference external" href="https://jupyter-notebook-beginner-guide.readthedocs.io/en/latest/execute.html">make your own notebook</a> and <strong>type every piece of code</strong> yourself!</p>
+</div>
 <p>In the previous section, we discussed working with variables that contained a single string/integer/number and how to check their type and convert them from one type to another.  While this was maybe interesting, real modern data is “big”, so we need to be able to deal with <em>collections</em> of data and not just one number at a time.  Thankfully, this is where Python has a native <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#typesseq-list"><code class="docutils literal notranslate"><span class="pre">list</span></code></a> type and where we’ll introduce the extremely useful <a class="reference external" href="https://www.numpy.org">numpy</a> array, (<code class="docutils literal notranslate"><span class="pre">numpy.ndarray</span></code>) to handle many data points.</p>
 <p>These data types are similar to those you just learned about except that now we have to worry about <em>where</em> our data is and not just <em>what</em> it is.  For example, if you have loaded into a variable the air temperature of Evanston, Illinois for the last 100 years, you might want to do an analysis of just the summer highs over time, so how do you access just those data points?  Alternately, you might be attempting to train a weather model, so you want to predict each time point based on the previous one in time, so how do you access elements in sequence?  These are the general techniques we’ll explore in this section.  The upcoming section on <a class="reference internal" href="../04_Loops/04_Loops.html"><span class="doc std std-doc">loops</span></a> will teach you how to apply operations and functions iteratively and in sequences (as in our time-series hypothetical), and the section on <a class="reference internal" href="../05_ConditionalStatements/05_ConditionalStatements.html"><span class="doc std std-doc">conditional statements</span></a> will give you the tools to select elements conditionally, so that you can only look at summer months, for example.  However, before we can use those techniques, we need to familiarize ourselves with the basics of lists and arrays in Python.</p>
 <p>Please open a new Jupyter notebook and follow along by <strong>copying</strong> all Python commands!</p>
@@ -901,8 +905,8 @@ The length of the second-third element is 2
 </div>
 <p>This might seem confusing, or really simple, but having a strong grasp of indexing is <em>essential</em> to coding in Python, so please take the time to complete the following exercises:</p>
 </section>
-<section id="exercise-4-1">
-<h3><span class="section-number">4.1.2. </span>Exercise 4.1<a class="headerlink" href="#exercise-4-1" title="Permalink to this headline">#</a></h3>
+<section id="exercises">
+<h3><span class="section-number">4.1.2. </span>Exercises<a class="headerlink" href="#exercises" title="Permalink to this headline">#</a></h3>
 <ol class="simple">
 <li><p>Make a list containing the integers 1 through 13 and the first 8 letters of the English alphabet.  Save into new variables the:</p>
 <ol class="simple">
@@ -1313,8 +1317,8 @@ False
 <p>If this is your first time working with lists, don’t worry about trying to memorize everything you’ve seen here.  Coding is a <em>skill</em> and you will remember things that you use more frequently and look up things that you don’t.  I have been coding in Python for years and I constantly look up functions or syntaxes.  These notes on lists have thus been given to you as a reference and to show you the things that you <em>could do</em> with a Python list, which you <em>should</em> try and remember.  That is, you should know that there’s a function for sorting lists, but it’s ok if you don’t remember the exact syntax off the top of your head.  For a good reference on list methods, see <a class="reference external" href="https://docs.python.org/3/tutorial/datastructures.html">python.org</a>.</p>
 </section>
 </section>
-<section id="exercise-4-2">
-<h3><span class="section-number">4.1.5. </span>Exercise 4.2<a class="headerlink" href="#exercise-4-2" title="Permalink to this headline">#</a></h3>
+<section id="id1">
+<h3><span class="section-number">4.1.5. </span>Exercises<a class="headerlink" href="#id1" title="Permalink to this headline">#</a></h3>
 <ol>
 <li><p>Create a nested list using your <code class="docutils literal notranslate"><span class="pre">names</span></code> list from exericise 4.1.2 by placing <code class="docutils literal notranslate"><span class="pre">names</span></code> in between two square brackets.  Save this list to a variable <code class="docutils literal notranslate"><span class="pre">names_colors</span></code>.</p>
 <ol class="simple">
@@ -1356,8 +1360,8 @@ False
 <p>Going forward, we’ll often use <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">numpy</span> <span class="pre">as</span> <span class="pre">np</span></code> to tell Python we want to access numpy functions.  Throughout the rest of the tutorial, if you see <code class="docutils literal notranslate"><span class="pre">np.function</span></code>, it is <em>assuming</em> that you have imported numpy at the beginning of your code.</p>
 </div>
 </section>
-<section id="id1">
-<h3><span class="section-number">4.2.2. </span>Numpy Arrays<a class="headerlink" href="#id1" title="Permalink to this headline">#</a></h3>
+<section id="id2">
+<h3><span class="section-number">4.2.2. </span>Numpy Arrays<a class="headerlink" href="#id2" title="Permalink to this headline">#</a></h3>
 <p>As promised, we will now introduce the <code class="docutils literal notranslate"><span class="pre">numpy.ndarray</span></code>, or the numpy (N-dimensional) array.  Most simply, an array operates like a matrix that you may know from math class, or like an Excel spreadsheet.  Elements are laid in a grid so that each element can be identified by its row and column.  The caveat is that arrays can <em>only contain one data type</em>, unlike lists.</p>
 <p>To make an array, we can apply the <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.array.html"><code class="docutils literal notranslate"><span class="pre">np.array</span></code></a> function to a list.  We can also use the <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.empty.html"><code class="docutils literal notranslate"><span class="pre">np.empty</span></code></a> function to make an “empty” array of a given size or the <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.zeros.html"><code class="docutils literal notranslate"><span class="pre">np.zeros</span></code></a> and <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ones.html"><code class="docutils literal notranslate"><span class="pre">np.ones</span></code></a> functions to make arrays of zeros or ones, respectively.</p>
 <div class="cell tag_hide-output docutils container">
@@ -1621,8 +1625,8 @@ False
 </div>
 <p>The numpy package also has a <a class="reference external" href="https://numpy.org/doc/stable/reference/routines.html">host of functions</a> for scientific and numeric purposes.  The <a class="reference external" href="https://numpy.org/doc/stable/reference/routines.math.html">mathematical functions</a> in particular are especially useful, including <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.mean.html#numpy.mean"><code class="docutils literal notranslate"><span class="pre">numpy.mean</span></code></a>, <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.mean.html#numpy.exp"><code class="docutils literal notranslate"><span class="pre">numpy.exp</span></code></a>, <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.mean.html#numpy.log"><code class="docutils literal notranslate"><span class="pre">numpy.log</span></code></a>, and <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.mean.html#numpy.round"><code class="docutils literal notranslate"><span class="pre">numpy.round</span></code></a>.  You can use <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.info.html#numpy.info"><code class="docutils literal notranslate"><span class="pre">numpy.info</span></code></a> to access detailed numpy documentation.  If you ever want a basic math operation in Python, Google “python numpy my_operation” first!</p>
 </section>
-<section id="exercise-4-3">
-<h3><span class="section-number">4.2.6. </span>Exercise 4.3<a class="headerlink" href="#exercise-4-3" title="Permalink to this headline">#</a></h3>
+<section id="id3">
+<h3><span class="section-number">4.2.6. </span>Exercises<a class="headerlink" href="#id3" title="Permalink to this headline">#</a></h3>
 <ol class="simple">
 <li><p>The numpy analog to <code class="docutils literal notranslate"><span class="pre">range</span></code> is <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.arange.html"><code class="docutils literal notranslate"><span class="pre">numpy.arange</span></code></a>.  Use it to make an array of integers from -50 to 50.  Divide by 25 to make an array of 101 equally spaced numbers from -2 to 2.</p></li>
 <li><p>Use <code class="docutils literal notranslate"><span class="pre">numpy.info</span></code> to look up how the <code class="docutils literal notranslate"><span class="pre">numpy.linspace</span></code> function works.  Use it to make an array of 101 numbers between -2 and 2 named <code class="docutils literal notranslate"><span class="pre">my_grid</span></code>.</p></li>

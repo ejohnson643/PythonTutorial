@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>8. Plotting &#8212; A Python Tutorial for Data Scientists</title>
+    <title>8. Visualizing data with Python &#8212; A Python Tutorial for Data Scientists</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -180,7 +180,7 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
-   8. Plotting
+   8. Visualizing data with Python
   </a>
  </li>
  <li class="toctree-l1">
@@ -387,23 +387,60 @@ title="Print to PDF"
     </ul>
   </div>
 </div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
 
     </div>
 </div>
 
 <!-- Table of contents -->
 <div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#matplotlib">
+   8.1. Matplotlib
+  </a>
+ </li>
+</ul>
+
+    </nav>
 </div>
     </div>
     <div class="article row">
         <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Plotting</h1>
+                <h1>Visualizing data with Python</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
                         
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#matplotlib">
+   8.1. Matplotlib
+  </a>
+ </li>
+</ul>
+
+                        </nav>
                     </div>
                 </div>
             </div>
@@ -411,8 +448,36 @@ title="Print to PDF"
                 
               <div>
                 
-  <section class="tex2jax_ignore mathjax_ignore" id="plotting">
-<h1><span class="section-number">8. </span>Plotting<a class="headerlink" href="#plotting" title="Permalink to this headline">#</a></h1>
+  <div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span> <span class="c1">## It&#39;s good practice to put your imports right at the top!</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section class="tex2jax_ignore mathjax_ignore" id="visualizing-data-with-python">
+<h1><span class="section-number">8. </span>Visualizing data with Python<a class="headerlink" href="#visualizing-data-with-python" title="Permalink to this headline">#</a></h1>
+<div class="admonition-follow-along admonition">
+<p class="admonition-title">Follow along!</p>
+<p>Remember that to best make use of this tutorial, it is highly recommended that you <a class="reference external" href="https://jupyter-notebook-beginner-guide.readthedocs.io/en/latest/execute.html">make your own notebook</a> and <strong>type every piece of code</strong> yourself!</p>
+</div>
+<p>At this point in the tutorial, you should now be familiar with Python <a class="reference internal" href="../02_Variables_DataTypes/02_Variables_DataTypes_Notebook.html"><span class="doc std std-doc">variables and data types</span></a>, <a class="reference internal" href="../03_Lists_Arrays/03_Lists_Arrays_Notebook.html"><span class="doc std std-doc">lists and Numpy arrays</span></a>, basic Python structures like <a class="reference internal" href="../04_Loops/04_Loops_Notebook.html"><span class="doc std std-doc">loops</span></a> and <a class="reference internal" href="../05_ConditionalStatements/05_ConditionalStatements_Notebook.html"><span class="doc std std-doc">conditional expressions</span></a>, and how to combine all these pieces into <span class="xref myst">functions</span> that you can use yourself! In this section, we’re going to learn how to make use of these functionalities and some new packages in order to generate <strong>visualizations</strong> of data.</p>
+<p>Specifically, I want to introduce you to the <a class="reference external" href="https://matplotlib.org/">Matplotlib</a> and <a class="reference external" href="https://seaborn.pydata.org/">Seaborn</a> packages for generating pleasant visualizations in Python.  It’s worth noting that there are other plotting packages, notably <a class="reference external" href="https://plotly.com/graphing-libraries/">Plotly</a> and <a class="reference external" href="https://bokeh.org/">Bokeh</a>, but after 10+ years of Python coding, I have found that the combination of Matplotlib’s low-level control and Seaborn’s high-level styling makes perfectly decent visualizations. I use these methods to generate figures both for my own quick analyses and for <a class="reference external" href="https://github.com/ejohnson643/EMBEDR">publication</a>.</p>
+<p>Situating this section in the larger tutorial, we can see this as an extension of our practice of constantly using <code class="docutils literal notranslate"><span class="pre">print</span></code> to <em>look</em> at our variables. As we start working with data, which usually consist of more than a few pieces of information, it is going to be increasingly important to use plotting in order to <em>see</em> the information at hand.  Furthermore, if you continue working with data, you will need to practice communicating your results and convincing people of their validity, which can most effectively be done by creating clear and precise visualizations.</p>
+<section id="matplotlib">
+<h2><span class="section-number">8.1. </span>Matplotlib<a class="headerlink" href="#matplotlib" title="Permalink to this headline">#</a></h2>
+<p>The first package that we’ll learn about for visualizing data is the <a class="reference external" href="https://matplotlib.org/">Matplotlib</a> package.  This is a <em>low-level</em> plotting package and is probably the most widely-used data visualization package in Python. In this tutorial, we’ll demonstrate the basic usage of this package and some common tips and tricks, but the entire package is vast, so we’ll leave <a class="reference external" href="https://matplotlib.org/stable/tutorials/index.html">more comprehensive instructions</a> to others.  Thankfully, because of its wide-usage, there are often examples on <a class="reference external" href="https://stackoverflow.com/">stackoverflow.com</a> or you can peruse Matplotlib’s <a class="reference external" href="https://matplotlib.org/stable/gallery/index.html">own examples</a>.</p>
+<p>To get started, we’ll import the main plotting module, <code class="docutils literal notranslate"><span class="pre">pyplot</span></code>, and we can add the following to our module loading cell at the top of the notebook going forward:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>  <span class="c1">## It&#39;s become customary to use the plt abbreviation for Matplotlib</span>
+<span class="o">%</span><span class="k">matplotlib</span> inline
+</pre></div>
+</div>
+</div>
+</div>
+<p>As a reminder, the <code class="docutils literal notranslate"><span class="pre">import</span></code> statement is where we tell Python that it should add these functions to the current working environment, but the <code class="docutils literal notranslate"><span class="pre">%</span></code> syntax might be new to you.  The <code class="docutils literal notranslate"><span class="pre">%matplotlib</span> <span class="pre">inline</span></code> is an example of a <a class="reference external" href="https://ipython.readthedocs.io/en/stable/interactive/magics.html">Jupyter “magic” command</a>, which is a</p>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
